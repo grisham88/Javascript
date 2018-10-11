@@ -32,40 +32,43 @@
 * wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
 
 #### Types
-var a = null; -> object
-var a = undefined; -> undefined
+    var a = null; -> object
+    var a = undefined; -> undefined
 
 #### Primitive Typen
-var a = 1.5; -> Number
-var a = true; -> bool
-var a = 'Test'; -> string
+    var a = 1.5; -> Number
+    var a = true; -> bool
+    var a = 'Test'; -> string
 
 #### Komplexe Typen
-var a = ['Rosen','Tulpen','Nelken'];
-var a = { x: "X", y: "Y", z: 'Z' };
-var a = function () {
+    var a = ['Rosen','Tulpen','Nelken'];
+    var a = { x: "X", y: "Y", z: 'Z' };
+    var a = function () {
             //tut nix
         };
-
+        
 #### Definition von Zuständen ob eine Variable als gefüllt gilt
-var a;
-a = undefined;  // FALSE
-a = null;       // FALSE
+    var a;
+    a = undefined;  // FALSE
+    a = null;       // FALSE
 
-a = true;       // TRUE
-a = false;      // FALSE
+    a = true;       // TRUE
+    a = false;      // FALSE
 
-a = -42;        // TRUE
-a = 0;          // FALSE
-a = NaN;        // TRUE
+    a = -42;        // TRUE
+    a = 0;          // FALSE
+    a = NaN;        // TRUE
 
-a = 'String'    // TRUE
-a = '';         // FALSE
+    a = 'String'    // TRUE
+    a = '';         // FALSE
 
-a = [1, 2, 3];  // TRUE
-a = []          // TRUE !!!
-a = { x: "X" }; // TRUE
-a = {};         // TRUE !!
+    a = [1, 2, 3];  // TRUE    
+    a = []          // TRUE !!!
 
-HINWEIS
-Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
+    a = { x: "X" }; // TRUE
+    a = {};         // TRUE !!
+    
+    a = function () { } //TRUE
+
+    HINWEIS
+    Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
