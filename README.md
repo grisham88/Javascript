@@ -98,17 +98,17 @@ a = '';         // oops...
     
 //Typsicherer und Wert-Vergleich (===) > Wertgleich wird mit == verglichen
 if (a === false) {
-        console.log('a:', a, 'ist FALSE mit Typ', typeof a)
+     console.log('a:', a, 'ist FALSE mit Typ', typeof a)
 }
 else {
      console.log('a:', a, 'ist nicht FALSE mit Typ', typeof a)
 }
 
- if (42 === '42') {
+if (42 === '42') {
      console.log("42 ist gleich '42'")
 }
  else {
-    console.log("42 ist NICHT gleich '42'")
+     console.log("42 ist NICHT gleich '42'")
 }
 ```
 
@@ -135,5 +135,5 @@ function beispiel() {
 //Erneuter Aufruf der Funktion
 beispiel();
 
--> Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aufF
+> Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration auf
 ```
