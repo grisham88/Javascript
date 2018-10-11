@@ -3,7 +3,7 @@
 ## Visual Studio code
 * Live Server als Extension installieren
 
-## Git Hub
+## Git Hub [source]https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/
 * auf git hub ein neues Repository anlegen
 * https Link kopieren
 * Laufwerk/Order im Explorer öffnen in der das Repository lokal abgelegt werden soll
@@ -18,8 +18,8 @@
 * mit Rechtsklick "Open with Code"
 * Nun ist das Repository mit git verknüpft und alle Änderungen sind direkt commit und pushbar 
     * Über die Source control (Link in Visual Studio Code) sieht man alle offenen Dateien die geändert wurden
-    * Mit V können diese direkt commited werden oder einzeln zum Commit freigegeben werden
-    * Beim ... kann dann push ausgeführt werden -> Git wird in Git Hub aktualisiert
+    * Mit Button "V" können diese direkt commited werden oder einzeln zum Commit freigegeben werden
+    * Beim ... kann dann push ausgeführt werden -> Git wird nach Git Hub aktualisiert
 
 ## Kursinhalt
 ### Javascript Variablen
