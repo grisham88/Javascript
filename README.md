@@ -543,8 +543,8 @@ console.log('Nach der Funktion ist d:', d);
             console.log('Hepp', val)
         });
         ```
-        > "Geranien", 0, Array(6)
-        "Veilchen", 1, Array(6)
-        "Nelken", 3, Array(6)
-        "Tulpen", 4, Array(6)
-        "Rosen", 5, Array(6)
+        1. "Geranien", 0, Array(6)
+        2. "Veilchen", 1, Array(6)
+        3. "Nelken", 3, Array(6)
+        4. "Tulpen", 4, Array(6)
+        5. "Rosen", 5, Array(6)
