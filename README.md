@@ -1,22 +1,29 @@
 # Javascript Seminar
 
-## Markdown ().md) Formatierungsregeln
-[Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
-[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+## Markdown (.md) Formatierungsregeln
+* [Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
+* [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
 
 ## Visual Studio code
 * Live Server als Extension installieren
+** mit ALT + L + O wird der Server gestartet und die aktuelle Webseite geöffnet und bei jedem Speichern aktualisiert im Browser
+* Formatierung des Texts mit ALT + Shift + F
+* Zeilenumbruch aktivieren mit ALT + Z
 
 ## Git Hub
 * auf git hub ein neues Repository anlegen
 * https Link kopieren
 * Laufwerk/Order im Explorer öffnen in der das Repository lokal abgelegt werden soll
+
 ### Git Bash
 * mit Rechtsklick git bash öffnen
 * git config --global user.name "username"
 * git config --global user.email "eMail@host"
 * Repository nach lokal kopieren:
     * git clone  https://github.com/grisham88/Javascript.git
+
 ### Visual Studio Code
 * [Visual Studio Code: How to integrate Git](https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/)
 * Den neuen Ordner öffnen
@@ -25,6 +32,7 @@
     * Über die Source control (Link in Visual Studio Code) sieht man alle offenen Dateien die geändert wurden
     * Mit Button "V" können diese direkt commited werden oder einzeln zum Commit freigegeben werden
     * Beim ... kann dann push ausgeführt werden -> Git wird nach Git Hub aktualisiert
+
 
 ## Kursinhalt Javascript
 
@@ -56,6 +64,7 @@ var a = function () {
         
 #### Definition von Zuständen ob eine Variable als gefüllt gilt
 ```javascript
+//Variablen auf TRUE prüfen
 var a;
 a = undefined;  // FALSE
 a = null;       // FALSE
@@ -77,6 +86,30 @@ a = { x: "X" }; // TRUE
 a = {};         // TRUE !!
     
 a = function () { } //TRUE
+
+//Variablen auf FALSE prüfen
+a = false;      //false... ok
+//FALSY Übersicht
+a = undefined;  // nope
+a = null;       // nope
+a = NaN;        // nope
+a = 0;          // oops...
+a = '';         // oops...
+    
+//Typsicherer und Wert-Vergleich (===) > Wertgleich wird mit == verglichen
+if (a === false) {
+        console.log('a:', a, 'ist FALSE mit Typ', typeof a)
+}
+else {
+     console.log('a:', a, 'ist nicht FALSE mit Typ', typeof a)
+}
+
+ if (42 === '42') {
+     console.log("42 ist gleich '42'")
+}
+ else {
+    console.log("42 ist NICHT gleich '42'")
+}
 ```
 
     HINWEIS
