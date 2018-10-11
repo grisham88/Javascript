@@ -520,7 +520,8 @@ console.log('Nach der Funktion ist d:', d);
     * Durch Setzung eines Werts in einen Index der vorher nicht definiert war, wird das Array bis zu diesem Index erweitert. Sind Indizes nicht gesetzt, sind diese nun undefined und erreichbar.
     * Modifizierende Methoden
         * Mittels der Methoden push/pop/shift/unshift ist das Array um einen Wert erweiterbar oder reduzierbar.
-    * Es ist auch möglich nur durch die enthaltenen Elemente zu laufen (mittels Key). Der Index der undefined ist, wird nicht durchlaufen 
+    * Es ist auch möglich nur durch die enthaltenen Elemente zu laufen (mittels Key). Der Index der undefined ist, wird nicht durchlaufen
+    * Auswertende Methoden (Arbeiten auf dem Array möglich)
         * for-in-Schleife
         ```javascript
         for (var item in arr) {
@@ -529,7 +530,7 @@ console.log('Nach der Funktion ist d:', d);
         //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
         ```
                 
-        * forEach(fn)-Methode (Higher Order Methode)
+        * forEach(fn) (Higher Order Methode)
         ```javascript
          // ECMA6 : arr.forEach(el => console.log(el))
         arr.forEach(function () {
