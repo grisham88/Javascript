@@ -362,7 +362,7 @@ console.log('Nach der Funktion ist d:', d);
         }
         ```
         > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding).
-        Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich
+        Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich.
 
     * Nutzung von 'this' in einem Objekt
         ```javascript
@@ -376,7 +376,7 @@ console.log('Nach der Funktion ist d:', d);
         };
         ```
         > Wenn es in einer Objekt genutzt wird, bezieht sich das 'this' auf das Ojekt in dem es direkt aufgerufen wurde.
-        > Das Ojekt ist der Besitzer der Funktion
+        Das Ojekt ist der Besitzer der Funktion.
 
     * Nutzung von 'this' im Kontext 'Explicit Function Binding'
          ```javascript
