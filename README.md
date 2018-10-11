@@ -398,6 +398,7 @@ console.log('Nach der Funktion ist d:', d);
 #### Closures: Lexikalischer Kontext
 
 * Funktionen haben dort ihren Gültigkeitsraum in dem sie deklariert wurden
+* Das Ergebnis der Funktionsaufrufe wird immer als neue Instanz erzeugt und zeigt auf einen eigenen Speicherplatz
 
 * Aufruf einer Funktion durch eine andere
     ```javascript
@@ -418,4 +419,61 @@ console.log('Nach der Funktion ist d:', d);
 
     aLesenVerwenden()   //Verwende aLesen()! -> Lese A: ein A
     ``` 
-    > Funktion merkt sich sozusagen als Objekt was es kennt und interessiert sich nicht für das a das in seinem neuen Kontext existiert.
+    > Funktion merkt sich sozusagen als Objekt was es bei der Deklaration kennt und interessiert sich nicht für das neue 'a' das in Aufruf-Kontext existiert.
+
+* Funktionen als Objekt speichern
+    ```javascript
+    function geheimnis(meinGeheimnis) {
+    var geheim = meinGeheimnis;
+    // console.log('Lese geheim:', geheim)
+
+    // lokale Funktion:
+    function geheimLesen() {
+    console.log('Lese geheim:', geheim);
+        }
+        // geheimLesen(); 
+        return geheimLesen;
+    }
+
+    var dasGeheimnis = geheimnis('Ganz furchtbar geheim...');
+    console.log('dasGeheimnis:', dasGeheimnis)
+    dasGeheimnis(); //Lese geheim: Ganz furchtbar geheim...
+
+    var zweitesGeheimnis = geheimnis('Mein anderes Geheimnis!');
+    console.log('dasGeheimnis:', dasGeheimnis)
+    dasGeheimnis(); //Lese geheim: Ganz furchtbar geheim...
+
+    zweitesGeheimnis(); //Lese geheim: Mein anderes Geheimnis!
+    ```
+
+    > BESCHREIBUNG FEHLT
+
+* Funktionen als Objekt speichern und Property per Setter ersetzen
+    ```javascript
+     function geheimnis(meinGeheimnis) {
+    var geheim = meinGeheimnis;
+
+    // lokale Funktion:
+    function geheimLesen() {
+    console.log('Lese geheim:', geheim);
+        }
+        function geheimSchreiben(meinNeuesGeheimnis) {
+    geheim = meinNeuesGeheimnis;
+        }
+        return {
+    getGeheim: geheimLesen,
+    setGeheim: geheimSchreiben
+        };
+    }
+
+    var dasGeheimnis = geheimnis('Ganz furchtbar geheim...');
+    dasGeheimnis.getGeheim();   //Lese geheim: Ganz furchtbar geheim...
+    dasGeheimnis.setGeheim('Geht das auch? Mal sehen...');
+    dasGeheimnis.getGeheim();   //Lese geheim: Geht das auch? Mal sehen...    
+    ```
+
+    > BESCHREIBUNG FEHLT
+    
+### Arrays
+* Sammlung (Collection) von Daten die per Index aufgerufen/verändert werden können
+* Handelt sich um ein Object
