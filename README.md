@@ -464,7 +464,10 @@ console.log('Nach der Funktion ist d:', d);
         geheim = meinNeuesGeheimnis;
     }
     
-    //Zugriff auf interen Methoden wird durch neue Methodennamen freigegeben (Parameter werden implizit erzeugt für das Property der Methode)
+    /*Zugriff auf interen Methoden wird durch neue Methodennamen freigegeben 
+    (Parameter werden implizit erzeugt für das Property der Methode)
+    */
+    
     return {
         getGeheim: geheimLesen,
         setGeheim: geheimSchreiben
