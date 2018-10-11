@@ -544,7 +544,7 @@ console.log('Nach der Funktion ist d:', d);
         });
         ```
         1. "Geranien", 0, Array(6)
-        2. "Veilchen", 1, Array(6)
-        3. "Nelken", 3, Array(6)
-        4. "Tulpen", 4, Array(6)
-        5. "Rosen", 5, Array(6)
+        1. "Veilchen", 1, Array(6)
+        1. "Nelken", 3, Array(6)
+        1. "Tulpen", 4, Array(6)
+        1. "Rosen", 5, Array(6)
