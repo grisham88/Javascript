@@ -1,4 +1,4 @@
-# Javascript
+# Javascript Seminar
 
 ## MD Formatierungsregeln
 [Link](http://agea.github.io/tutorial.md/)
@@ -6,7 +6,7 @@
 ## Visual Studio code
 * Live Server als Extension installieren
 
-## Git Hub <https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/>
+## Git Hub
 * auf git hub ein neues Repository anlegen
 * https Link kopieren
 * Laufwerk/Order im Explorer öffnen in der das Repository lokal abgelegt werden soll
@@ -17,6 +17,7 @@
 * Repository nach lokal kopieren:
     * git clone  https://github.com/grisham88/Javascript.git
 ### Visual Studio Code
+* <https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/>
 * Den neuen Ordner öffnen
 * mit Rechtsklick "Open with Code"
 * Nun ist das Repository mit git verknüpft und alle Änderungen sind direkt commit und pushbar 
@@ -24,8 +25,8 @@
     * Mit Button "V" können diese direkt commited werden oder einzeln zum Commit freigegeben werden
     * Beim ... kann dann push ausgeführt werden -> Git wird nach Git Hub aktualisiert
 
-## Kursinhalt
-### Javascript Variablen
+## Kursinhalt Javascript
+### Variablen & Typen
 * wird kein Wert zugewiesen ist der Typ des Objects undefined
 * wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
 #### Types
@@ -38,3 +39,19 @@
 #### komplexe Typen
     var a = ['Rosen','Tulpen','Nelken'];
     var a = { x: "X", y: "Y", z: 'Z' };
+    var a = function () {
+            //tut nix
+        };
+### Defition von Zuständen ob eine Variable als gefüllt gilt
+    a = undefined;  // FALSE
+    a = null;       // FALSE
+    a = true;       // TRUE
+    a = false;      // FALSE
+    a = -42;        // TRUE
+    a = 0;          // FALSE
+    a = NaN;        // TRUE
+    a = 'String'    // TRUE
+    a = '';         // FALSE
+
+    _**`HINWEIS`**_
+    Vermutlich sind alle Defaultzustände wenn man weiß welcher Typ die Variable hat, wird als FALSE empfunden
