@@ -464,7 +464,8 @@ console.log('Nach der Funktion ist d:', d);
         geheim = meinNeuesGeheimnis;
     }
     
-    /*Zugriff auf interen Methoden wird durch neue Methodennamen freigegeben 
+    /*
+    Zugriff auf interne Methoden, wird durch neue Methodennamen freigegeben 
     (Parameter werden implizit erzeugt für das Property der Methode)
     */
     
@@ -567,7 +568,7 @@ console.log('Nach der Funktion ist d:', d);
         if (daten.some(function (val) {
             return val > 7;
         })) {
-        console.log('Werte sind brauchbar...');
+            console.log('Werte sind brauchbar...');
         }
         //Werte sind brauchbar
         ```
@@ -609,3 +610,5 @@ console.log('Nach der Funktion ist d:', d);
 * Wird der DOM-Baum durchlaufen muss das Script berücksichtigen, dass der Baum auch bereits erzeugt wurde.
 * Script-Block im Head, kennt ggf. den body noch nicht.
     * Scriptblock am Ende des Bodys setzen, sofern der DOM verarbeitet werden soll
+* Alternativ mittels window.onload können die Änderungen/Abfragen auf dem DOM auch im Header mittels Script gesetzt werden. Sie werden dann erst         gesetzt, wenn das Element existiert
+    * Javascript onload feuert, wenn der Browser das HTML-Dokument mit CSS-Dateien, Bildern und iframes geladen hat. Bilder werden allerdings asynchron geladen, so dass sie beim load-Event u.U. noch nicht verfügbar sind, weil der Ladevorgang noch andauert.
