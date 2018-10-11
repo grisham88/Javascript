@@ -612,3 +612,42 @@ console.log('Nach der Funktion ist d:', d);
     * Scriptblock am Ende des Bodys setzen, sofern der DOM verarbeitet werden soll
 * Alternativ mittels window.onload können die Änderungen/Abfragen auf dem DOM auch im Header mittels Script gesetzt werden. Sie werden dann erst         gesetzt, wenn das Element existiert
     * Javascript onload feuert, wenn der Browser das HTML-Dokument mit CSS-Dateien, Bildern und iframes geladen hat. Bilder werden allerdings asynchron geladen, so dass sie beim load-Event u.U. noch nicht verfügbar sind, weil der Ladevorgang noch andauert.
+    * [weitere Infos](https://www.mediaevent.de/javascript/onload.html)
+    * Änderung von DOM-Elementen mittels Skript
+    ```javascript
+    <script>
+        window.onload = function () {
+            var p11 = document.getElementById("p11");
+            console.log(p1);
+            // Attribut setzen
+            p11.title = 'Ich bin der Titel!';
+            // CSS-Style setzen
+            p11.style.backgroundColor = 'yellow';
+            // CSS-Class setzen
+            p11.className = 'rahmen';
+            // Inhalte ändern:
+            p11.innerHTML = 'Das ist <b>ganz</b> neuer Inhalt!';
+
+            // der Node hat auch Methoden:
+            var p20 = document.getElementById("p20");
+            p20.addEventListener('click', function (e) {
+                console.log('Observer:', this);
+                console.log('EventObjekt:', e);
+            })
+        };
+    </script>
+    ```
+    
+    ```html
+    <body>
+    <h1>DOM</h1>
+    <p id="p1">Textabsatz, der selektiert wird</p>
+    <p id="p10">Textabsatz, der selektiert wird</p>
+    <p id="p11">Textabsatz, der selektiert wird</p>
+    <p id="p19">Textabsatz, der selektiert wird</p>
+    <p id="p20">Textabsatz, der selektiert wird</p>
+    </body>
+    ```
+    > Durch das Skript wird das komplette p11-element verändert
+
+    > Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben

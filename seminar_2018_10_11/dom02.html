@@ -19,6 +19,13 @@
             p11.className = 'rahmen';
             // Inhalte ändern:
             p11.innerHTML = 'Das ist <b>ganz</b> neuer Inhalt!';
+
+            // der Node hat auch Methoden:
+            var p20 = document.getElementById("p20");
+            p20.addEventListener('click', function (e) {
+                console.log('Observer:', this);
+                console.log('EventObjekt:', e);
+            })
         };
 
     </script>
@@ -32,24 +39,10 @@
 
 <body>
     <h1>DOM</h1>
+    <!-- p*20#p$>{Textabsatz, der selektiert wird} -->
     <p id="p1">Textabsatz, der selektiert wird</p>
-    <p id="p2">Textabsatz, der selektiert wird</p>
-    <p id="p3">Textabsatz, der selektiert wird</p>
-    <p id="p4">Textabsatz, der selektiert wird</p>
-    <p id="p5">Textabsatz, der selektiert wird</p>
-    <p id="p6">Textabsatz, der selektiert wird</p>
-    <p id="p7">Textabsatz, der selektiert wird</p>
-    <p id="p8">Textabsatz, der selektiert wird</p>
-    <p id="p9">Textabsatz, der selektiert wird</p>
     <p id="p10">Textabsatz, der selektiert wird</p>
     <p id="p11">Textabsatz, der selektiert wird</p>
-    <p id="p12">Textabsatz, der selektiert wird</p>
-    <p id="p13">Textabsatz, der selektiert wird</p>
-    <p id="p14">Textabsatz, der selektiert wird</p>
-    <p id="p15">Textabsatz, der selektiert wird</p>
-    <p id="p16">Textabsatz, der selektiert wird</p>
-    <p id="p17">Textabsatz, der selektiert wird</p>
-    <p id="p18">Textabsatz, der selektiert wird</p>
     <p id="p19">Textabsatz, der selektiert wird</p>
     <p id="p20">Textabsatz, der selektiert wird</p>
 </body>
