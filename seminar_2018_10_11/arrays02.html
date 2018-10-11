@@ -43,12 +43,26 @@
         for (var item in arr) {
             console.log(item, arr[item]);
         }
+        //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
 
         // c) forEach-Methode (Higher Order Methode)
         // ECMA6 : arr.forEach(el => console.log(el))
         arr.forEach(function () {
             // this können wir hier NICHT brauchen
             console.log('Hepp', arguments)
+        });
+        //Es werden immer 3 Argumente beim ArrayElement mitgegeben
+        //"Geranien", 0, Array(6)
+        //"Veilchen", 1, Array(6)
+        //"Nelken", 3, Array(6)
+        //"Tulpen", 4, Array(6)
+        //"Rosen", 5, Array(6)
+
+        // c2) forEach-Methode (Higher Order Methode)
+        // ECMA6 : arr.forEach(el => console.log(el))
+        arr.forEach(function (val, index, ar) {
+            // this können wir hier NICHT brauchen
+            console.log('Hepp', val)
         });
 
     </script>

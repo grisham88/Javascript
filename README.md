@@ -521,10 +521,30 @@ console.log('Nach der Funktion ist d:', d);
     * Modifizierende Methoden
         * Mittels der Methoden push/pop/shift/unshift ist das Array um einen Wert erweiterbar oder reduzierbar.
     * Es ist auch möglich nur durch die enthaltenen Elemente zu laufen (mittels Key). Der Index der undefined ist, wird nicht durchlaufen 
+        * for-in-Schleife
         ```javascript
-        // mit for-in-Schleife
         for (var item in arr) {
             console.log(item, arr[item]);
         }
-        //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
         ```
+        > 0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
+        
+        * forEach-Methode (Higher Order Methode)
+        ```javascript
+         // ECMA6 : arr.forEach(el => console.log(el))
+        arr.forEach(function () {
+            // this können wir hier NICHT brauchen
+            console.log('Hepp', arguments)
+        });
+        //Es werden immer 3 Argumente beim ArrayElement mitgegeben
+
+        //Zugriff auf die einzelnen Argumente möglich
+        arr.forEach(function (value, index, arrayInstance) {
+            console.log('Hepp', val)
+        });
+        ```
+        > "Geranien", 0, Array(6)
+        "Veilchen", 1, Array(6)
+        "Nelken", 3, Array(6)
+        "Tulpen", 4, Array(6)
+        "Rosen", 5, Array(6)
