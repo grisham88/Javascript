@@ -277,7 +277,7 @@ console.log('Nach der Funktion ist d:', d);
             console.log('ergebnis:', ergebnis); //NaN
             ```
 
-        > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
+        > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich.
 
 * Defaults
      ```javascript
@@ -301,7 +301,7 @@ console.log('Nach der Funktion ist d:', d);
 	console.log('ergebnis:', ergebnis); //0
      ```
 
-     > Wenn die Variable nicht gefüllt werden, dann werden Sie mit einem Defaultwert überschreiben
+     > Wenn die Variablen nicht gefüllt werden, dann werden Sie mit einem Defaultwert 0 (a = a || 0) überschrieben.
 
 * Arguments
     ```javascript
@@ -333,4 +333,20 @@ console.log('Nach der Funktion ist d:', d);
 	console.log('ergebnis:', ergebnis); //Wert 0 | Arguments-Anzahl:0
      ```
      
-     > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per index durchlaufen und darauf zugreifen
+     > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per index durchlaufen und darauf zugreifen.
+     
+* Das geheimnisvolle 'this'
+    [Unterscheidung von Nutzung des this](https://www.w3schools.com/js/js_this.asp)
+    * Nutzung von this alleinestehend
+        ```javascript
+        var x = this;
+        ```
+        > Wenn es alleinestehend genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window
+
+    * Nutzung von this in einer Function
+        ```javascript
+        function myFunction() {
+            return this;
+        }
+        ```
+        > Wenn es in einer funktion genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Das geheimnisvolle 'this'</title>
+    <script>
+        console.log('this:', this);
+
+        // 2. impliziter Parameter: thisObj
+        function test() {
+            console.log('TEST: this in der Funktion:', this);
+        }
+
+        test();         //Referenz auf das globale Objekt (Window)
+        window.test();  //Referenz auf das globale Objekt (Window)
+
+        var obj = {
+            x: "X",
+            meth: function () {
+                console.log('this in der Methode:', this); 
+
+                // Crockford: Designfehler!
+                var that = this; // Kontext aufbewahren
+
+                var innen = function () {
+                    console.log('this in der INNEREN Methode:', this);
+                    // this.x = 'Geändertes X';
+                    that.x = 'Geändertes X';
+                }
+                innen();
+            }
+        };
+
+        obj.meth();             //Referenz auf das Objekt in der die Funktion aufgerufen wird (obj)
+        console.log(obj.x);
+
+        obj.test = window.test;
+        obj.test();             //Referenz auf das Objekt in der die Funktion aufgerufen wird (obj)
+    </script>
+</head>
+
+<body>
+    <h1>Das geheimnisvolle 'this'</h1>
+</body>
+
+</html>
