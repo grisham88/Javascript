@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions und Scope</title>
+    <script>
+
+        // globale Variable
+        var a = "A";
+        console.log('Vor der Funktion ist a:', a);
+        var b = "B";
+        console.log('Vor der Funktion ist b:', b);
+
+        function test() {
+            "use strict"; // Lokaler Strict Mode
+            a = 'Neues A';
+            console.log('In der Funktion ist a:', a);
+            // lokale Variable
+            var b = 'Neues B';
+            console.log('In der Funktion ist b:', b);  
+            var c = 'Ein C';
+            console.log('In der Funktion ist c:', c);  
+            d = 'Ein D';
+            console.log('In der Funktion ist d:', d);          
+        }
+
+        // console.log('Vor der Funktion ist d:', d);  // REFERROR
+        test();
+
+        console.log('Nach der Funktion ist a:', a);       
+        console.log('Nach der Funktion ist b:', b);  
+        // console.log('Nach der Funktion ist c:', c);  // REFERROR 
+        console.log('Nach der Funktion ist d:', d);   // Ooops...      
+    </script>
+</head>
+<body>
+    <h1>Functions und Scope (4)</h1>
+</body>
+</html>

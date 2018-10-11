@@ -112,8 +112,8 @@ if (42 === '42') {
 }
 ```
 
-    HINWEIS
-    Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
+> HINWEIS
+> Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
 
 ### Functions
 #### Function
@@ -174,6 +174,7 @@ Funktion wird gekapselt und das Ergebnis ausgegeben
 beispiel = function () {
     console.log("Das ist ein ANDERES Beispiel.");
 }
+
 // 2. Aufruf
  beispiel();    
 
@@ -214,3 +215,5 @@ console.log('Nach der Funktion ist b:', b);     //B, da die Variable b nochmals 
 console.log('Nach der Funktion ist d:', d);     
 //Ooops-> Ein D wird nun global als Variable zur Verfügung gestellt, nach der Durchführung der Funktion test  
 ```
+* Strict Mode
+    * Gibt an ob eine Kompilierugn eigentlicht nicht mögilch ist Variable ohne Deklaration werden so aufgedeckt
