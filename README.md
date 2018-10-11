@@ -36,9 +36,9 @@
     var a = undefined; -> undefined
 
 #### Primitive Typen
-    var a = 1.5; -> Number
-    var a = true; -> bool
-    var a = 'Test'; -> string
+    var a = 1.5;    //Number
+    var a = true;   //bool
+    var a = 'Test'; //string
 
 #### Komplexe Typen
     var a = ['Rosen','Tulpen','Nelken'];
@@ -48,6 +48,7 @@
         };
         
 #### Definition von Zuständen ob eine Variable als gefüllt gilt
+```javascript
     var a;
     a = undefined;  // FALSE
     a = null;       // FALSE
@@ -68,7 +69,7 @@
     a = { x: "X" }; // TRUE
     a = {};         // TRUE !!
     
-    a = function () { } //TRUE
-
+a = function () { } //TRUE
+```
     HINWEIS
     Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
