@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Das geheimnisvolle 'this'</title>
+    <title>Das geheimnisvolle 'this' im Strict Mode</title>
     <script>
+        "use strict"
         console.log('this:', this); //Referenz auf das globale Objekt (Window)
 
         // 2. impliziter Parameter: thisObj
@@ -14,36 +15,36 @@
             console.log('TEST: this in der Funktion:', this);
         }
 
-        test();         //Referenz auf das globale Objekt (Window)
+        test();         //Referenz nicht bekannt, this ist undefined
         window.test();  //Referenz auf das globale Objekt (Window)
 
         var obj = {
             x: "X",
             meth: function () {
-                console.log('this in der Methode:', this); 
+                console.log('this in der Methode:', this);
 
                 // Crockford: Designfehler!
                 var that = this; // Kontext aufbewahren
 
                 var innen = function () {
                     console.log('this in der INNEREN Methode:', this);
-                    // this.x = 'Geändertes X';
+                    // this.x = 'Geändertes X'; // TypeError  in Strict!!!!
                     that.x = 'Geändertes X';
                 }
                 innen();
             }
         };
 
-        obj.meth();             //Referenz auf das Objekt in der die Funktion aufgerufen wird (obj)
+        obj.meth();         //Referenz auf das Objekt in der die Funktion aufgerufen wird (obj)
         console.log(obj.x);
 
         obj.test = window.test;
-        obj.test();             //Referenz auf das Objekt in der die Funktion aufgerufen wird (obj)
+        obj.test();         //Referenz auf das Objekt in der die Funktion aufgerufen wird (obj)
     </script>
 </head>
 
 <body>
-    <h1>Das geheimnisvolle 'this'</h1>
+    <h1>Das geheimnisvolle 'this' (strict)</h1>
 </body>
 
 </html>

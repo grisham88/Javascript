@@ -334,19 +334,32 @@ console.log('Nach der Funktion ist d:', d);
      ```
      
      > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per index durchlaufen und darauf zugreifen.
-     
+
 * Das geheimnisvolle 'this'
-    [Unterscheidung von Nutzung des this](https://www.w3schools.com/js/js_this.asp)
-    * Nutzung von this alleinestehend
+    > [Unterscheidung von Nutzung des this](https://www.w3schools.com/js/js_this.asp)
+    * Nutzung von 'this' alleinestehend
         ```javascript
         var x = this;
         ```
         > Wenn es alleinestehend genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window
 
-    * Nutzung von this in einer Function
+    * Nutzung von 'this' in einer Function
         ```javascript
         function myFunction() {
             return this;
         }
         ```
-        > Wenn es in einer funktion genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window
+        > Wenn es in einer Funktion genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window
+
+    * Nutzung von 'this' in einer Function (scrict mode)
+        ```javascript
+        "use strict";
+        var that = this; // Kontext aufbewahren
+
+        function myFunction() {
+            //return this;    // ERROR
+            return that;      // erlaubt
+        }
+        ```
+        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist es undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding)
+        > Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich
