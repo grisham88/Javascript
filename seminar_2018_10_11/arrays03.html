@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrays</title>
+    <script>
+        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+        console.log(daten);
+        if (daten.some(function (val) {
+            return val > 10;
+        })) {
+            console.log('Werte sind brauchbar...');
+            var gefiltert = daten.filter(function (val) {
+                return val > 7;
+            })
+            console.log(gefiltert);
+            var quadriert = gefiltert.map(function (item) {
+                return item * item;
+            });
+            console.log(quadriert);
+            var summe = quadriert.reduce(function (a, b) {
+                return a + b;
+            });
+            console.log(summe);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Arrays</h1>
+</body>
+
+</html>

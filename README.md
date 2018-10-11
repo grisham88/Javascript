@@ -529,7 +529,7 @@ console.log('Nach der Funktion ist d:', d);
         //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
         ```
                 
-        * forEach-Methode (Higher Order Methode)
+        * forEach(fn)-Methode (Higher Order Methode)
         ```javascript
          // ECMA6 : arr.forEach(el => console.log(el))
         arr.forEach(function () {
@@ -550,10 +550,48 @@ console.log('Nach der Funktion ist d:', d);
         "Rosen", 5, Array(6)
         */
         ```
-        * Weitere Methoden
-            * arr.forEach(fn)
-            * arr.some(fn) => bln
-            * arr.every(fn) => bln
-            * arr.filter(fn) => new Array
-            * arr.map(fn) => new Array
-            * arr.reduce(fn) => value
+
+        * some(fn) => boolean
+        ```javascript
+        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+
+        if (daten.some(function (val) {
+            return val > 7;
+        })) {
+        console.log('Werte sind brauchbar...');
+        }
+        //Werte sind brauchbar
+        ```
+
+        * every(fn) => boolean
+        * filter(fn) => new Array
+        ```javascript
+        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+
+        var gefiltert = daten.filter(function (val) {
+            return val > 7;
+        })
+        console.log(gefiltert.length); 
+        // Neues Array mit 5 Elementen
+        ```
+
+        * map(fn) => new Array
+        ```javascript
+        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+
+        var quadriert = daten.map(function (item) {
+            return item * item;
+        });
+        //Gibt ein neues Array zurück (gleiche Größe/Neue Inhalte)
+        ```
+
+        * reduce(fn) => value
+         ```javascript
+        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+
+        var summe = daten.reduce(function (a, b) {
+            return a + b;
+        });
+        console.log(summe);
+        //Kombiniert alle Werte miteinander
+        ```
