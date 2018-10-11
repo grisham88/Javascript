@@ -120,7 +120,8 @@ if (42 === '42') {
 ### Functions
 #### Function
 > HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
-Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
+
+> Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
 
 > Der Code selbst wird dann linear abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
@@ -363,7 +364,7 @@ console.log('Nach der Funktion ist d:', d);
         }
         ```
         > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding).
-        Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich.
+        > Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich.
 
     * Nutzung von 'this' in einem Objekt
         ```javascript
@@ -377,7 +378,8 @@ console.log('Nach der Funktion ist d:', d);
         };
         ```
         > Wenn es in einer Objekt genutzt wird, bezieht sich das 'this' auf das Ojekt in dem es direkt aufgerufen wurde.
-        Das Ojekt ist der Besitzer der Funktion.
+
+        > Das Ojekt ist der Besitzer der Funktion.
 
     * Nutzung von 'this' im Kontext 'Explicit Function Binding'
          ```javascript
@@ -393,8 +395,10 @@ console.log('Nach der Funktion ist d:', d);
         person1.fullName.call(person2);  // Gibt "John Doe" zurück
         ```
         > Die Methoden call () und apply () sind vordefinierte JavaScript-Methoden.
-        Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.
-        In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
+        
+        > Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.
+        
+        > In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
         
 #### Closures: Lexikalischer Kontext
 
@@ -626,7 +630,7 @@ console.log('Nach der Funktion ist d:', d);
             // CSS-Class setzen
             p11.className = 'rahmen';
             // Inhalte ändern:
-            p11.innerHTML = 'Das ist <b>ganz</b> neuer Inhalt!';
+            p11.innerHTML = 'Das ist ein <b>ganz</b> neuer Inhalt!';
 
             // der Node hat auch Methoden:
             var p20 = document.getElementById("p20");
@@ -637,7 +641,7 @@ console.log('Nach der Funktion ist d:', d);
         };
     </script>
     ```
-    
+
     ```html
     <body>
     <h1>DOM</h1>
