@@ -221,6 +221,7 @@ console.log('Nach der Funktion ist d:', d);
     * Variablen ohne Deklaration werden so aufgedeckt.
 
 ##### Funktionen und Parameter
+###### Returns
 * Mit erneuter lokaler Deklaration
     ```javascript
     function addiere(a, b) {
@@ -277,3 +278,5 @@ console.log('Nach der Funktion ist d:', d);
         ```
 
     > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
+
+###### Defaults
