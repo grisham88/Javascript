@@ -23,7 +23,12 @@
 ### Javascript Variablen
 * wird kein Wert zugewiesen ist der Typ des Objects undefined
 * wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
+#### Types
+    * var a = null; -> object
+    * var a = undefined; -> undefined
+#### primitive Typen
     * var a = 1.5; -> Number
     * var a = true; -> bool
-    * var a = "Test"; -> string
-    * var a = null; -> object
+    * var a = 'Test'; -> string
+#### komplexe Typen
+    * a = ['Rosen','Tulpen','Nelken'];
