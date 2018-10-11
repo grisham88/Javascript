@@ -526,9 +526,9 @@ console.log('Nach der Funktion ist d:', d);
         for (var item in arr) {
             console.log(item, arr[item]);
         }
+        //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
         ```
-        > 0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
-        
+                
         * forEach-Methode (Higher Order Methode)
         ```javascript
          // ECMA6 : arr.forEach(el => console.log(el))
@@ -542,9 +542,18 @@ console.log('Nach der Funktion ist d:', d);
         arr.forEach(function (value, index, arrayInstance) {
             console.log('Hepp', val)
         });
-        ```
+        /*
         "Geranien", 0, Array(6)
         "Veilchen", 1, Array(6)
         "Nelken", 3, Array(6)
         "Tulpen", 4, Array(6)
         "Rosen", 5, Array(6)
+        */
+        ```
+        * Weitere Methoden
+            * arr.forEach(fn)
+            * arr.some(fn) => bln
+            * arr.every(fn) => bln
+            * arr.filter(fn) => new Array
+            * arr.map(fn) => new Array
+            * arr.reduce(fn) => value
