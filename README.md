@@ -1,7 +1,8 @@
 # Javascript Seminar
 
-## MD Formatierungsregeln
-[Link](http://agea.github.io/tutorial.md/)
+## Markdown ().md) Formatierungsregeln
+[Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
+[Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 ## Visual Studio code
 * Live Server als Extension installieren
@@ -17,7 +18,7 @@
 * Repository nach lokal kopieren:
     * git clone  https://github.com/grisham88/Javascript.git
 ### Visual Studio Code
-* <https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/>
+* [Visual Studio Code: How to integrate Git](https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/)
 * Den neuen Ordner öffnen
 * mit Rechtsklick "Open with Code"
 * Nun ist das Repository mit git verknüpft und alle Änderungen sind direkt commit und pushbar 
@@ -32,44 +33,51 @@
 * wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
 
 #### Types
-    var a = null; -> object
-    var a = undefined; -> undefined
+```javascript
+var a = null; -> object
+var a = undefined; -> undefined
+```
 
 #### Primitive Typen
-    var a = 1.5;    //Number
-    var a = true;   //bool
-    var a = 'Test'; //string
+```javascript
+var a = 1.5;    //Number
+var a = true;   //bool
+var a = 'Test'; //string
+```
 
 #### Komplexe Typen
-    var a = ['Rosen','Tulpen','Nelken'];
-    var a = { x: "X", y: "Y", z: 'Z' };
-    var a = function () {
+```javascript
+var a = ['Rosen','Tulpen','Nelken'];
+var a = { x: "X", y: "Y", z: 'Z' };
+var a = function () {
             //tut nix
         };
+```
         
 #### Definition von Zuständen ob eine Variable als gefüllt gilt
 ```javascript
-    var a;
-    a = undefined;  // FALSE
-    a = null;       // FALSE
+var a;
+a = undefined;  // FALSE
+a = null;       // FALSE
 
-    a = true;       // TRUE
-    a = false;      // FALSE
+a = true;       // TRUE
+a = false;      // FALSE
 
-    a = -42;        // TRUE
-    a = 0;          // FALSE
-    a = NaN;        // TRUE
+a = -42;        // TRUE
+a = 0;          // FALSE
+a = NaN;        // TRUE
 
-    a = 'String'    // TRUE
-    a = '';         // FALSE
+a = 'String'    // TRUE
+a = '';         // FALSE
 
-    a = [1, 2, 3];  // TRUE    
-    a = []          // TRUE !!!
+a = [1, 2, 3];  // TRUE    
+a = []          // TRUE !!!
 
-    a = { x: "X" }; // TRUE
-    a = {};         // TRUE !!
+a = { x: "X" }; // TRUE
+a = {};         // TRUE !!
     
 a = function () { } //TRUE
 ```
+
     HINWEIS
     Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
