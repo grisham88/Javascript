@@ -1,5 +1,5 @@
 # JavaScript Seminar
-
+[Einführungswerke](https://github.com/getify/You-Dont-Know-JS)
 
 ## Markdown (.md) Formatierungsregeln
 * [Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
@@ -37,24 +37,24 @@
 
 ## Kursinhalt JavaScript
 
-### Variablen & Typen
+1. Variablen & Typen
 * wird kein Wert zugewiesen ist der Typ des Objects undefined
 * wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
 
-#### Types
+1. Types
 ```javascript
 var a = null; -> object
 var a = undefined; -> undefined
 ```
 
-#### Primitive Typen
+2. Primitive Typen
 ```javascript
 var a = 1.5;    //Number
 var a = true;   //bool
 var a = 'Test'; //string
 ```
 
-#### Komplexe Typen
+3. Komplexe Typen
 ```javascript
 var a = ['Rosen','Tulpen','Nelken'];
 var a = { x: "X", y: "Y", z: 'Z' };
@@ -63,7 +63,7 @@ var a = function () {
         };
 ```
         
-#### Definition von Zuständen ob eine Variable als gefüllt gilt
+4. Definition von Zuständen ob eine Variable als gefüllt gilt
 ```javascript
 //Variablen auf TRUE prüfen
 var a;
