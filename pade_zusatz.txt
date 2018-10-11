@@ -1,0 +1,22 @@
+/**
+ *
+ * Neue Pfadvariable! 
+ * 
+ * npm list -g
+ *
+ */
+
+NODE_PATH:
+
+C:\Users\schulung\AppData\Roaming\npm\node_modules
+
+
+
+
+C:\Users\schulung\AppData\Roaming\npm\node_modules\typescript\bin;
+
+C:\Users\schulung\AppData\Roaming\npm\node_modules\less\bin;
+
+Path:
+
+C:\ProgramData\Oracle\Java\javapath;C:\Program Files\HPE_Security\Fortify_SCA_and_Apps_16.20\bin;%GIT%/bin;C:\Program Files (x86)\DATEV\Ianus;C:\Oracle\32Bit\12cClient\product\12.1.0\client_1\bin;C:\PROGRAM FILES (X86)\DATEV\IANUS;C:\WINDOWS\SYSTEM32;C:\WINDOWS;C:\WINDOWS\SYSTEM32\WBEM;C:\WINDOWS\SYSTEM32\WINDOWSPOWERSHELL\V1.0\;C:\PROGRAM FILES (X86)\WINDOWS KITS\8.1\WINDOWS PERFORMANCE TOOLKIT\;C:\PROGRAM FILES\MICROSOFT SQL SERVER\110\TOOLS\BINN\;C:\PROGRAM FILES (X86)\MICROSOFT TEAM FOUNDATION SERVER 2013 POWER TOOLS\;C:\WINDOWS\SYSTEM32\WINDOWSPOWERSHELL\V1.0\;C:\PROGRAM FILES\MICROSOFT SQL SERVER\120\TOOLS\BINN\;C:\DATEV\SYSTEM;%M2_HOME%\bin;C:\PROGRA~1\IBM\IBMDAT~1\BIN;C:\Program Files (x86)\IBM\WebSphere MQ\bin64;C:\Program Files (x86)\IBM\WebSphere MQ\bin;C:\Program Files (x86)\IBM\WebSphere MQ\tools\c\samples\bin;C:\Program Files (x86)\Microsoft Team Foundation Server 2015 Power Tools\;%JAVA_HOME%\jre\bin;C:\Program Files\Subversion\svn-win32-1.8.16\bin;C:\Program Files (x86)\IBM\PC3270\;C:\Program Files (x86)\IBM\Trace Facility\;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\DATEV\PROGRAMM\SiPaCompact\;C:\cf\;C:\Program Files\nodejs\;C:\Users\schulung\AppData\Roaming\npm\;C:\Users\schulung\AppData\Roaming\npm\node_modules\typescript\bin;C:\Users\schulung\AppData\Roaming\npm\node_modules\less\bin;
