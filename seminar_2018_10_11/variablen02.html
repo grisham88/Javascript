@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variablen und Typen</title>
+    <script>
+        /* Deklaration (ECMA5) */
+        var a;
+        var b = 17;
+        var c, d = 5, e;
+
+        // weiter mit a...
+        a = undefined;  // FALSE
+        a = null;       // FALSE
+
+        a = true;       // TRUE
+        a = false;      // FALSE
+
+        a = -42;        // TRUE
+        a = 0;          // FALSE
+        a = NaN;        // TRUE
+
+        a = 'String'    // TRUE
+        a = '';         // FALSE
+
+        a = [1, 2, 3];  // TRUE
+        a = []          // TRUE !!!
+        a = { x: "X" }; // TRUE
+        a = {};         // TRUE !!
+
+        a = function () { } //TRUE
+
+        //Value und Typ ausgeben:
+        var a;
+        if (a) {
+            console.log('a:', a, 'TRUE mit Typ', typeof a)
+        }
+        else {
+            console.log('a:', a, 'nicht TRUE mit Typ', typeof a)
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Variablen und Typen 2</h1>
+</body>
+
+</html>

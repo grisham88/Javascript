@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variablen und Typen</title>
+    <script>
+        /* Deklaration (ECMA5) */
+        var a;
+
+        a = false;      //false... ok
+        //FALSY Übersicht
+        a = undefined;  // nope
+        a = null;       // nope
+        a = NaN;        // nope
+        a = 0;          // oops...
+        a = '';         // oops...
+
+        //Wertgleich wird mit == verglichen
+        if (a == false) {
+            console.log('a:', a, 'ist FALSE mit Typ', typeof a)
+        }
+        else {
+            console.log('a:', a, 'ist nicht FALSE mit Typ', typeof a)
+        }
+
+        if (42 == '42') {
+            console.log("42 ist gleich '42'")
+        }
+        else {
+            console.log("42 ist NICHT gleich '42'")
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Variablen und Typen 3</h1>
+    <p>Vergleich mit Operator ==</p>
+</body>
+
+</html>
