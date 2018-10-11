@@ -18,3 +18,12 @@
     * Über die Source control (Link in Visual Studio Code) sieht man alle offenen Dateien die geändert wurden
     * Mit V können diese direkt commited werden oder einzeln zum Commit freigegeben werden
     * Beim ... kann dann push ausgeführt werden -> Git wird in Git Hub aktualisiert
+
+## Kursinhalt
+### Javascript Variablen
+* wird kein Wert zugewiesen ist der Typ des Objects undefined
+* wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
+    * var a = 1.5; -> Number
+    * var a = true; -> bool
+    * var a = "Test"; -> string
+    * var a = null; -> object
