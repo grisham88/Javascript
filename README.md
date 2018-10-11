@@ -221,62 +221,62 @@ console.log('Nach der Funktion ist d:', d);
     * Variablen ohne Deklaration werden so aufgedeckt.
 
 4. Funktionen und Parameter
-##### Returns
-* Mit erneuter lokaler Deklaration
-    ```javascript
-    function addiere(a, b) {
-        var a;
-        var b = 5;
-        return a + b;
-    }
+* Returns
+    * Mit erneuter lokaler Deklaration
+        ```javascript
+        function addiere(a, b) {
+            var a;
+            var b = 5;
+            return a + b;
+        }
 
-    var ergebnis = addiere(17, 6);
-    console.log('ergebnis:', ergebnis); //22
-    ```
+        var ergebnis = addiere(17, 6);
+        console.log('ergebnis:', ergebnis); //22
+        ```
 
-* Ohne erneute lokale Deklaration
-    ```javascript
-    function addiere(a, b) {
-        return a + b;
-    }
-
-    var ergebnis = addiere(17, 6);
-    console.log('ergebnis:', ergebnis); //23
-    ```
-
-* Parameteranzahl variieren
-    * Zusätzlicher Parameter mitgegeben
+    * Ohne erneute lokale Deklaration
         ```javascript
         function addiere(a, b) {
             return a + b;
         }
 
-        /*  KEIN Overload
-        function addiere(a, b, c) {
-            return a + b + c;
-        } 
-        */ 
-
-        ergebnis = addiere(13, 14, 15); // Überschuss
-        console.log('ergebnis:', ergebnis); //27
+        var ergebnis = addiere(17, 6);
+        console.log('ergebnis:', ergebnis); //23
         ```
 
-    * Zu wenig Parameter mitgegeben
-        ```javascript
-        function addiere(a, b) {
-            return a + b;
-        }
+    * Parameteranzahl variieren
+        * Zusätzlicher Parameter mitgegeben
+            ```javascript
+            function addiere(a, b) {
+                return a + b;
+            }
 
-        /*  KEIN Overload
-        function addiere(a) {
-            return a;
-        }
-        */
-        
-        ergebnis = addiere(18); // fehlender Wert
-        console.log('ergebnis:', ergebnis); //NaN
-        ```
+            /*  KEIN Overload
+            function addiere(a, b, c) {
+                return a + b + c;
+            } 
+            */ 
 
-    > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
+            ergebnis = addiere(13, 14, 15); // Überschuss
+            console.log('ergebnis:', ergebnis); //27
+            ```
 
-##### Defaults
+        * Zu wenig Parameter mitgegeben
+            ```javascript
+            function addiere(a, b) {
+                return a + b;
+            }
+
+            /*  KEIN Overload
+            function addiere(a) {
+                return a;
+            }
+            */
+            
+            ergebnis = addiere(18); // fehlender Wert
+            console.log('ergebnis:', ergebnis); //NaN
+            ```
+
+        > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
+
+* Defaults
