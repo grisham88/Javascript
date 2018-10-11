@@ -243,25 +243,37 @@ console.log('Nach der Funktion ist d:', d);
     console.log('ergebnis:', ergebnis); //23
     ```
 
-    
-* Zusätzlicher Parameter mitgegeben
-    ```javascript
-    function addiere(a, b) {
-        return a + b;
-    }
+* Parameteranzahl variieren
+    * Zusätzlicher Parameter mitgegeben
+        ```javascript
+        function addiere(a, b) {
+            return a + b;
+        }
 
-    ergebnis = addiere(13, 14, 15); // Überschuss
-    console.log('ergebnis:', ergebnis); //27
-    ```
+        /*  KEIN Overload
+        function addiere(a, b, c) {
+            return a + b + c;
+        } 
+        */ 
 
-* Zu wenig Parameter mitgegeben
-    ```javascript
-    function addiere(a, b) {
-        return a + b;
-    }
-    
-    ergebnis = addiere(18); // fehlender Wert
-    console.log('ergebnis:', ergebnis); //NaN
-    ```
+        ergebnis = addiere(13, 14, 15); // Überschuss
+        console.log('ergebnis:', ergebnis); //27
+        ```
 
-> Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
+    * Zu wenig Parameter mitgegeben
+        ```javascript
+        function addiere(a, b) {
+            return a + b;
+        }
+
+        /*  KEIN Overload
+        function addiere(a) {
+            return a;
+        }
+        */
+        
+        ergebnis = addiere(18); // fehlender Wert
+        console.log('ergebnis:', ergebnis); //NaN
+        ```
+
+    > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
