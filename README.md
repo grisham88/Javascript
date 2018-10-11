@@ -116,15 +116,15 @@ if (42 === '42') {
 > HINWEIS
 > Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
 
-### Functions
-#### Function
+2. Functions
+1. Function
 > Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus.
 > HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
 > Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
 
 > Der Code selbst wird dann liner abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
-##### Globale Funktionen
+1. Globale Funktionen
 ```javascript
 var x;
 //1. Deklaration der Funktion
@@ -144,7 +144,7 @@ function beispiel() {
 beispiel();
 ```
 
-##### Funktionen in Variable speichern
+2. Funktionen in Variable speichern
 ```javascript
 var x, beispiel;
 
@@ -182,7 +182,7 @@ beispiel = function () {
  //Funktion wird gekapselt und das Ergebnis ausgegeben
 ```
 
-##### Funktionen und Scope
+3. Funktionen und Scope
 ```javascript
 // globale Variable
 var a = "A";
@@ -220,8 +220,8 @@ console.log('Nach der Funktion ist d:', d);
     * Gibt an ob eine Kompilierung eigentlicht nicht möglich ist.
     * Variablen ohne Deklaration werden so aufgedeckt.
 
-##### Funktionen und Parameter
-###### Returns
+4. Funktionen und Parameter
+1. Returns
 * Mit erneuter lokaler Deklaration
     ```javascript
     function addiere(a, b) {
@@ -279,4 +279,4 @@ console.log('Nach der Funktion ist d:', d);
 
     > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
 
-###### Defaults
+2. Defaults
