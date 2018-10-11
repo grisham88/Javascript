@@ -32,12 +32,25 @@
         arr.reverse();
 
         // Array auslesen:
+        // a) mit for-Schleife
         for (var i = 0; i < arr.length; i++) {
             console.log('i:', arr[i]);
         }
-
         // console.log('What" "? i:', i); 
         // Mit Ecma6 wird i nicht global definiert
+
+        // b) mit for-in-Schleife
+        for (var item in arr) {
+            console.log(item, arr[item]);
+        }
+
+        // c) forEach-Methode (Higher Order Methode)
+        // ECMA6 : arr.forEach(el => console.log(el))
+        arr.forEach(function () {
+            // this können wir hier NICHT brauchen
+            console.log('Hepp', arguments)
+        });
+
     </script>
 </head>
 

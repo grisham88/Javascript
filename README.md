@@ -479,19 +479,52 @@ console.log('Nach der Funktion ist d:', d);
 * Sammlung (Collection) von Daten die per Index aufgerufen/verändert werden können
 * Handelt sich um ein Object
 * Anzahl der Elemente im Array definiert die Länge des Arrays
-* Arrays verhält sich in JavaScript wie eine Mischung aus Array und Liste
+* Arrays verhält sich in JavaScript wie eine Mischung aus Array/ Liste und Map
     ```javascript
     var arr = ['Rosen', 'Tulpen', 'Nelken'];
 
-    console.log('arr.length:', arr.length);
+    console.log('arr.length:', arr.length); //3
     console.log('arr[1]:', arr[1]); //Tulpen
 
     arr[4] = "Veilchen";
         
-    console.log('arr.length:', arr.length);
+    console.log('arr.length:', arr.length); //5
     console.log('arr[4]:', arr[4]); //Veilchen
+    
+    //modifizierende Methoden: push(), pop(), shift(), unshift()
+    arr.push('Geranien');
+
+    console.log('arr.length:', arr.length); //6
+    console.log('arr[5]:', arr[5]); //Geranien
+
+    // Array auslesen:
+    for (i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+    //Rosen, Tulpen, Nelken, undefined, Veilchen, Geranien
+
+    //Inhalt des Arrays vertauschen 0-> n, n->0 etc.
+    arr.reverse();
+
+    // Array auslesen:
+    for (var i = 0; i < arr.length; i++) {
+        console.log('i:', arr[i]);
+    }
+    //Geranien, Veilchen, undefined, Nelken, Tulpen, Rosen
+
+    console.log('What" "? i:', i); // 6 
+    // Mit Ecma6 wird i nicht global definiert
+
     ```
 
-    * Durch Setzung eines Werts in einen Index der vorher nicht definiert war, wird das Array bis zu diesem Index erweitert. Sind Indizes nicht gesetzt, sind diese nun leer und erreichbar.
+    * Durch Setzung eines Werts in einen Index der vorher nicht definiert war, wird das Array bis zu diesem Index erweitert. Sind Indizes nicht gesetzt, sind diese nun undefined und erreichbar.
     * Modifizierende Methoden
         * Mittels der Methoden push/pop/shift/unshift ist das Array um einen Wert erweiterbar oder reduzierbar.
+    * Es ist auch möglich nur durch die enthaltenen Elemente zu laufen (mittels Key). Der Index der undefined ist, wird nicht durchlaufen 
+        ```javascript
+        // mit for-in-Schleife
+        for (var item in arr) {
+            console.log(item, arr[item]);
+        }
+        //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
+        ```
