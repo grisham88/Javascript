@@ -27,11 +27,11 @@
                 var that = this; // Kontext aufbewahren
 
                 var innen = function () {
-                    console.log('this in der INNEREN Methode:', this);
+                    console.log('this in der INNEREN Methode:', this);  
                     // this.x = 'Geändertes X'; // TypeError  in Strict!!!!
                     that.x = 'Geändertes X';
                 }
-                innen();
+                innen();    //Referenz auf das globale Objekt (Window)
             }
         };
 

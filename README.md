@@ -361,5 +361,41 @@ console.log('Nach der Funktion ist d:', d);
             return that;      // erlaubt
         }
         ```
-        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist es undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding)
+        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding)
         > Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich
+
+    * Nutzung von 'this' in einem Objekt
+        ```javascript
+        var person = {
+            firstName  : "John",
+            lastName   : "Doe",
+            id         : 5566,
+            myFunction : function() {
+                return this;
+            }
+        };
+        ```
+        > Wenn es in einer Objekt genutzt wird, bezieht sich das 'this' auf das Ojekt in dem es direkt aufgerufen wurde.
+        > Das Ojekt ist der Besitzer der Funktion
+
+    * Nutzung von 'this' im Kontext 'Explicit Function Binding'
+         ```javascript
+        var person1 = {
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        var person2 = {
+            firstName:"John",
+            lastName: "Doe",
+        }
+        person1.fullName.call(person2);  // Gibt "John Doe" zurück
+        ```
+        > Die Methoden call () und apply () sind vordefinierte JavaScript-Methoden.
+        > Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.
+        > In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
+
+
+
+        
+        
