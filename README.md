@@ -396,6 +396,9 @@ console.log('Nach der Funktion ist d:', d);
         In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
         
 #### Closures: Lexikalischer Kontext
+
+* Funktionen haben dort ihren Gültigkeitsraum in dem sie deklariert wurden
+
 * Aufruf einer Funktion durch eine andere
     ```javascript
     var a = "Ein A";
@@ -414,7 +417,5 @@ console.log('Nach der Funktion ist d:', d);
     }
 
     aLesenVerwenden()   //Verwende aLesen()! -> Lese A: ein A
+    ``` 
     > Funktion merkt sich sozusagen als Objekt was es kennt und interessiert sich nicht für das a das in seinem neuen Kontext existiert.
-    ```
-    
-* Funktionen haben dort ihren Gültigkeitsraum in dem sie deklariert wurden  
