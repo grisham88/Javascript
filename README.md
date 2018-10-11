@@ -242,3 +242,26 @@ console.log('Nach der Funktion ist d:', d);
     var ergebnis = addiere(17, 6);
     console.log('ergebnis:', ergebnis); //23
     ```
+
+    
+* Zusätzlicher Parameter mitgegeben
+    ```javascript
+    function addiere(a, b) {
+        return a + b;
+    }
+
+    ergebnis = addiere(13, 14, 15); // Überschuss
+    console.log('ergebnis:', ergebnis); //27
+    ```
+
+* Zu wenig Parameter mitgegeben
+    ```javascript
+    function addiere(a, b) {
+        return a + b;
+    }
+    
+    ergebnis = addiere(18); // fehlender Wert
+    console.log('ergebnis:', ergebnis); //NaN
+    ```
+
+> Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
