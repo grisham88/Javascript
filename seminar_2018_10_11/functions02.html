@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions (2) - Function</title>
+    <script>
+        //HOISTING! -> Variablen und Funktionen werden immer an den Anfang der Ausführung geschoben
+        var x, beispiel;
+
+        // linearer Ablauf:
+
+        if (x) { // klappt wegen HOISTING
+            console.log('Bin ich ein Error?')
+        } else {
+            console.log('...oder nicht?')
+        }
+
+        // Variable wird initialisiert
+        x = "X";
+
+        // 1. Function-Statement
+        beispiel = function () {
+            console.log("Das ist ein Beispiel.");
+        };
+        // 1. Aufruf
+        beispiel();
+
+        // 2. Function-Statement
+        beispiel = function () {
+            console.log("Das ist ein ANDERES Beispiel.");
+        }
+        // 2. Aufruf
+        beispiel();    
+    </script>
+</head>
+
+<body>
+    <h1>Functions - Function</h1>
+</body>
+
+</html>

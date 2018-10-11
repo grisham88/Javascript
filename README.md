@@ -116,7 +116,13 @@ if (42 === '42') {
     Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
 
 ### Functions
-####Function
+#### Function
+    Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration auf HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
+    Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
+
+    Der Code selbst wird dann liner abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
+
+##### Globale Funktionen
 ```javascript
 var x;
 //1. Deklaration der Funktion
@@ -134,6 +140,39 @@ function beispiel() {
 
 //Erneuter Aufruf der Funktion
 beispiel();
+```
 
-> Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration auf
+##### Funktionen in Variable speichern
+```javascript
+var x, beispiel;
+
+// linearer Ablauf:
+
+if (x) { // klappt nicht, da die Zuweisung erst später passiert
+    console.log('Bin ich ein Error?')
+} else {
+    console.log('...oder nicht?')
+}
+
+// Variable wird initialisiert
+x = "X";
+
+// 1. Function-Statement
+beispiel = function () {
+    console.log("Das ist ein Beispiel.");
+};
+// 1. Aufruf
+beispiel();
+
+//ACHTUNG
+//Funktion wird gekapselt und das Ergebnis ausgegeben
+
+// 2. Function-Statement
+beispiel = function () {
+    console.log("Das ist ein ANDERES Beispiel.");
+}
+// 2. Aufruf
+ beispiel();    
+
+ //Funktion wird gekapselt und das Ergebnis ausgegeben
 ```
