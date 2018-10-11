@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions und Parameter</title>
+    <script>
+        // HIER NICHT!!!
+        // console.log('arguments:', arguments);
+
+        // 1. impliziter Parameter: arguments-Object
+        function addiere(a, b) {
+            a = a || 0;
+            b = b || 0;
+            console.log('arguments:', arguments);
+            console.log('arguments.length:', arguments.length);
+            if (arguments.length > 2) {
+                console.log('arguments[2]:', arguments[2]);
+            }
+            return a + b;
+        }
+
+
+        var ergebnis = addiere(17, 6);
+        console.log('ergebnis:', ergebnis); //Wert 23 | Arguments-Anzahl:2
+
+        ergebnis = addiere(13, 14, 15); // Überschuss
+        console.log('ergebnis:', ergebnis); //Wert 27 | Arguments-Anzahl:3 | 3.ter Wert -> 15
+
+        ergebnis = addiere(18); // fehlender Wert
+        console.log('ergebnis:', ergebnis); //Wert 18 | Arguments-Anzahl:1
+
+        ergebnis = addiere(); // kein  Wert
+        console.log('ergebnis:', ergebnis); //Wert 0 | Arguments-Anzahl:0
+    </script>
+</head>
+
+<body>
+    <h1>Parameter und Arguments</h1>
+</body>
+
+</html>

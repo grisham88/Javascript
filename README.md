@@ -280,3 +280,57 @@ console.log('Nach der Funktion ist d:', d);
         > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
 
 * Defaults
+     ```javascript
+	// ECMA6: function addiere(a=0, b=0) { ... }
+	function addiere(a, b) {
+		a = a || 0;
+		b = b || 0;
+		return a + b;
+	}
+
+	var ergebnis = addiere(17, 6);
+	console.log('ergebnis:', ergebnis); //23
+
+	ergebnis = addiere(13, 14, 15); // Überschuss
+	console.log('ergebnis:', ergebnis); //27
+
+	ergebnis = addiere(18); // fehlender Wert
+	console.log('ergebnis:', ergebnis); //18
+
+	ergebnis = addiere(); // kein  Wert
+	console.log('ergebnis:', ergebnis); //0
+     ```
+
+     > Wenn die Variable nicht gefüllt werden, dann werden Sie mit einem Defaultwert überschreiben
+
+* Arguments
+    ```javascript
+    // HIER NICHT!!!
+	// console.log('arguments:', arguments);
+
+	// 1. impliziter Parameter: arguments-Object
+	function addiere(a, b) {
+		a = a || 0;
+		b = b || 0;
+		console.log('arguments:', arguments);
+		console.log('arguments.length:', arguments.length);
+		if (arguments.length > 2) {
+	console.log('arguments[2]:', arguments[2]);
+		}
+		return a + b;
+	}
+
+	var ergebnis = addiere(17, 6);
+	console.log('ergebnis:', ergebnis); //Wert 23 | Arguments-Anzahl:2
+
+	ergebnis = addiere(13, 14, 15); // Überschuss
+	console.log('ergebnis:', ergebnis); //Wert 27 | Arguments-Anzahl:3 | 3.ter Wert -> 15
+
+	ergebnis = addiere(18); // fehlender Wert
+	console.log('ergebnis:', ergebnis); //Wert 18 | Arguments-Anzahl:1
+
+	ergebnis = addiere(); // kein  Wert
+	console.log('ergebnis:', ergebnis); //Wert 0 | Arguments-Anzahl:0
+     ```
+     
+     > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per index durchlaufen und darauf zugreifen
