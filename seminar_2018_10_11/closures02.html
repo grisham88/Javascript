@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures: Lexikalischer Kontext</title>
+    <script>
+
+        function geheimnis(meinGeheimnis) {
+            var geheim = meinGeheimnis;
+            // console.log('Lese geheim:', geheim)
+
+            // lokale Funktion:
+            function geheimLesen() {
+                console.log('Lese geheim:', geheim);
+            }
+            // geheimLesen(); 
+            return geheimLesen;
+        }
+
+        var dasGeheimnis = geheimnis('Ganz furchtbar geheim...');
+        console.log('dasGeheimnis:', dasGeheimnis)
+        dasGeheimnis(); //Lese geheim: Ganz furchtbar geheim...
+
+        var zweitesGeheimnis = geheimnis('Mein anderes Geheimnis!');
+        console.log('dasGeheimnis:', dasGeheimnis)
+        dasGeheimnis(); //Lese geheim: Ganz furchtbar geheim...
+
+        zweitesGeheimnis(); //Lese geheim: Mein anderes Geheimnis!
+
+        //Das Ergebnis der Aufrufe wird immer als neue Instanz erzeugt und zeigt auf einen eigenen Speicherplatz
+    </script>
+</head>
+
+<body>
+    <h1>Closures: Lexikalischer Kontext</h1>
+</body>
+
+</html>

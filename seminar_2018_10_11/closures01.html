@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures: Lexikalischer Kontext</title>
+    <script>
+        var a = "Ein A";
+
+        function aLesen() {
+            console.log('Lese A:', a);
+        }
+
+        aLesen();   //Lese A: ein A
+
+        function aLesenVerwenden() {
+            console.log('Verwende aLesen()!');
+            var a = "Anderes A";
+            // liest - lexikalisch! - das äußere a!
+            aLesen()
+        }
+
+        aLesenVerwenden()   //Verwende aLesen()! -> Lese A: ein A
+        // Kennt beim Aufruf von aLesen nicht der Kontext der neuen Funktion -> ist auch nicht möglich
+    </script>
+</head>
+
+<body>
+    <h1>Closures: Lexikalischer Kontext</h1>
+</body>
+
+</html>

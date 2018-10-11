@@ -118,11 +118,10 @@ if (42 === '42') {
 
 ### Functions
 #### Function
-> Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus.
-HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
+> HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
 Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
 
-> Der Code selbst wird dann liner abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
+> Der Code selbst wird dann linear abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
 1. Globale Funktionen
 ```javascript
@@ -143,6 +142,7 @@ function beispiel() {
 //Erneuter Aufruf der Funktion
 beispiel();
 ```
+> Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus.
 
 2. Funktionen in Variable speichern
 ```javascript
@@ -394,3 +394,27 @@ console.log('Nach der Funktion ist d:', d);
         > Die Methoden call () und apply () sind vordefinierte JavaScript-Methoden.
         Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.
         In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
+        
+#### Closures: Lexikalischer Kontext
+* Aufruf einer Funktion durch eine andere
+    ```javascript
+    var a = "Ein A";
+
+    function aLesen() {
+        console.log('Lese A:', a);
+    }
+
+    aLesen();   //Lese A: ein A
+
+    function aLesenVerwenden() {
+        console.log('Verwende aLesen()!');
+        var a = "Anderes A";
+        // liest - lexikalisch! - das äußere a!
+        aLesen()
+    }
+
+    aLesenVerwenden()   //Verwende aLesen()! -> Lese A: ein A
+    > Funktion merkt sich sozusagen als Objekt was es kennt und interessiert sich nicht für das a das in seinem neuen Kontext existiert.
+    ```
+    
+* Funktionen haben dort ihren Gültigkeitsraum in dem sie deklariert wurden  
