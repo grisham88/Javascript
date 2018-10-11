@@ -114,3 +114,26 @@ else {
 
     HINWEIS
     Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
+
+### Functions
+####Function
+```javascript
+var x;
+//1. Deklaration der Funktion
+function beispiel() {
+    console.log("Das ist ein Beispiel");
+}
+
+//Aufruf der Funktion
+beispiel();
+
+//2. Deklaration der Funktion
+function beispiel() {
+    console.log("Das ist ein ANDERES Beispiel");
+}
+
+//Erneuter Aufruf der Funktion
+beispiel();
+
+-> Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aufF
+```
