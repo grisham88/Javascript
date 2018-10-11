@@ -37,7 +37,7 @@
 
 ## Kursinhalt JavaScript
 
-1. Variablen & Typen
+### Variablen & Typen
 * wird kein Wert zugewiesen ist der Typ des Objects undefined
 * wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
 
@@ -116,8 +116,8 @@ if (42 === '42') {
 > HINWEIS
 > Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
 
-2. Functions
-1. Function
+### Functions
+#### Function
 > Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus.
 > HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
 > Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
@@ -221,7 +221,7 @@ console.log('Nach der Funktion ist d:', d);
     * Variablen ohne Deklaration werden so aufgedeckt.
 
 4. Funktionen und Parameter
-1. Returns
+##### Returns
 * Mit erneuter lokaler Deklaration
     ```javascript
     function addiere(a, b) {
@@ -279,4 +279,4 @@ console.log('Nach der Funktion ist d:', d);
 
     > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich
 
-2. Defaults
+##### Defaults
