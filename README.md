@@ -11,6 +11,7 @@
 ** mit ALT + L + O wird der Server gestartet und die aktuelle Webseite geöffnet und bei jedem Speichern aktualisiert im Browser
 * Formatierung des Texts mit ALT + Shift + F
 * Zeilenumbruch aktivieren mit ALT + Z
+* Aus-/Einkommentieren mit STRG + #
 
 ## Git Hub
 * auf git hub ein neues Repository anlegen
@@ -215,5 +216,29 @@ console.log('Nach der Funktion ist b:', b);     //B, da die Variable b nochmals 
 console.log('Nach der Funktion ist d:', d);     
 //Ooops-> Ein D wird nun global als Variable zur Verfügung gestellt, nach der Durchführung der Funktion test  
 ```
-* Strict Mode
-    * Gibt an ob eine Kompilierugn eigentlicht nicht mögilch ist Variable ohne Deklaration werden so aufgedeckt
+* [Strict Mode](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Strict_mode)
+    * Gibt an ob eine Kompilierung eigentlicht nicht möglich ist.
+    * Variablen ohne Deklaration werden so aufgedeckt.
+
+##### Funktionen und Parameter
+* Mit erneuter lokaler Deklaration
+    ```javascript
+    function addiere(a, b) {
+        var a;
+        var b = 5;
+        return a + b;
+    }
+
+    var ergebnis = addiere(17, 6);
+    console.log('ergebnis:', ergebnis); //22
+    ```
+
+* Ohne erneute lokale Deklaration
+    ```javascript
+    function addiere(a, b) {
+        return a + b;
+    }
+
+    var ergebnis = addiere(17, 6);
+    console.log('ergebnis:', ergebnis); //23
+    ```
