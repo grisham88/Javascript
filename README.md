@@ -42,9 +42,9 @@
     var a = function () {
             //tut nix
         };
-### Defition von Zuständen ob eine Variable als gefüllt gilt
-    a = undefined;  // FALSE
-    a = null;       // FALSE
+### Definition von Zuständen ob eine Variable als gefüllt gilt
+a = undefined;  // FALSE
+a = null;       // FALSE
     a = true;       // TRUE
     a = false;      // FALSE
     a = -42;        // TRUE
