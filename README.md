@@ -430,10 +430,11 @@ console.log('Nach der Funktion ist d:', d);
 
     // lokale Funktion:
     function geheimLesen() {
-    console.log('Lese geheim:', geheim);
-        }
-        // geheimLesen(); 
-        return geheimLesen;
+        console.log('Lese geheim:', geheim);
+    }
+
+    // geheimLesen(); 
+    return geheimLesen;
     }
 
     var dasGeheimnis = geheimnis('Ganz furchtbar geheim...');
@@ -447,24 +448,27 @@ console.log('Nach der Funktion ist d:', d);
     zweitesGeheimnis(); //Lese geheim: Mein anderes Geheimnis!
     ```
 
-    > BESCHREIBUNG FEHLT
+    > Die Funktion wird als Object abgespeichert in dasGeheimnis, dieses wird nun nicht mehr geändert, da es sich um eine Instanz handelt
 
 * Funktionen als Objekt speichern und Property per Setter ersetzen
     ```javascript
-     function geheimnis(meinGeheimnis) {
+    function geheimnis(meinGeheimnis) {
     var geheim = meinGeheimnis;
 
     // lokale Funktion:
     function geheimLesen() {
-    console.log('Lese geheim:', geheim);
-        }
-        function geheimSchreiben(meinNeuesGeheimnis) {
-    geheim = meinNeuesGeheimnis;
-        }
-        return {
-    getGeheim: geheimLesen,
-    setGeheim: geheimSchreiben
-        };
+        console.log('Lese geheim:', geheim);
+    }
+
+    function geheimSchreiben(meinNeuesGeheimnis) {
+        geheim = meinNeuesGeheimnis;
+    }
+    
+    //Zugriff auf interen Methoden wird durch neue Methodennamen freigegeben (Parameter werden implizit erzeugt für das Property der Methode)
+    return {
+        getGeheim: geheimLesen,
+        setGeheim: geheimSchreiben
+    };
     }
 
     var dasGeheimnis = geheimnis('Ganz furchtbar geheim...');
@@ -473,7 +477,8 @@ console.log('Nach der Funktion ist d:', d);
     dasGeheimnis.getGeheim();   //Lese geheim: Geht das auch? Mal sehen...    
     ```
 
-    > BESCHREIBUNG FEHLT
+    > Mittels Properties im return der Function können interne Methoden erreicht werden
+    > Object existiert durchgehend und weiß noch alles was jemals gesetzt wurde
     
 ### Arrays
 * Sammlung (Collection) von Daten die per Index aufgerufen/verändert werden können
@@ -572,8 +577,8 @@ console.log('Nach der Funktion ist d:', d);
         var gefiltert = daten.filter(function (val) {
             return val > 7;
         })
-        console.log(gefiltert.length); 
-        // Neues Array mit 5 Elementen
+
+        console.log(gefiltert.length); // Neues Array mit 5 Elementen
         ```
 
         * map(fn) => new Array
@@ -586,13 +591,18 @@ console.log('Nach der Funktion ist d:', d);
         //Gibt ein neues Array zurück (gleiche Größe/Neue Inhalte)
         ```
 
-        * reduce(fn) => value
+        * reduce(fn) => value ()
          ```javascript
         var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
 
         var summe = daten.reduce(function (a, b) {
             return a + b;
         });
-        console.log(summe);
-        //Kombiniert alle Werte miteinander
+        
+        console.log(summe); // Kombiniert alle Werte miteinander
         ```
+
+### DOM
+* Wird der DOM-Baum durchlaufen muss das Script berücksichtigen, dass der Baum auch bereits erzeugt wurde.
+* Script-Block im Head, kennt ggf. den body noch nicht.
+    * Scriptblock am Ende des Bodys setzen, sofern der DOM verarbeitet werden soll
