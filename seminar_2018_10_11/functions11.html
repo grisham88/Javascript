@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Methoden des Function-Objects</title>
+    <script>
+        var peter = {
+            vorname: 'Peter',
+            hallo: function (msg) {
+                console.log('Hi, ich bin', this.vorname, '.', msg);
+            }
+        };
+
+        peter.hallo('Cool!');   //Hi, ich bin Peter . Cool!
+
+        var guenther = {
+            vorname: 'Günther'
+        };
+
+        // Kontext TEMPORÄR verschieben
+        // fn.call(thisObj, arg1, arg2, ...)
+        peter.hallo.call(guenther, 'Toll, ey!');   //Hi, ich bin Günther . Cool!
+        // fn.apply(thisObj,)
+        peter.hallo.apply(guenther, ['Ach so?', 'Ach nee...', 'Ach was!']); //Hi, ich bin Günther . Ach so?
+        // Kontext PERMANENT verschieben
+        var guentherHallo = peter.hallo.bind(guenther); // Günther wird gebunden!
+
+        peter.hallo('Gar nicht cool!'); // Peter? ... oder Günther? - > Hi, ich bin Peter . Gar nicht cool!
+        // guenther.hallo()
+        guentherHallo('Du liebe Güte!'); // Günther -> Hi, ich bin Günther . Du liebe Güte!
+        peter.halloSagen = guentherHallo;
+        peter.halloSagen('Glaub ich nicht...'); // Günther!! -> Hi, ich bin Günther . Glaub ich nicht...
+        peter.halloSagen.call(peter, 'Nun erst recht!'); // Günther!!! -> Hi, ich bin Günther . Nun erst recht!
+
+        var peterHallo = guentherHallo.bind(peter);
+        peterHallo('Seufz...'); // Günther!!!! -> Hi, ich bin Günther . Seufz...
+    </script>
+</head>
+
+<body>
+    <h1>Methoden des Function-Objects</h1>
+</body>
+
+</html>

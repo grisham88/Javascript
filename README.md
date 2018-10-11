@@ -119,8 +119,8 @@ if (42 === '42') {
 ### Functions
 #### Function
 > Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus.
-> HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
-> Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
+HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
+Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
 
 > Der Code selbst wird dann liner abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
@@ -333,7 +333,7 @@ console.log('Nach der Funktion ist d:', d);
 	console.log('ergebnis:', ergebnis); //Wert 0 | Arguments-Anzahl:0
      ```
      
-     > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per index durchlaufen und darauf zugreifen.
+     > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per Index durchlaufen und darauf zugreifen.
 
 * Das geheimnisvolle 'this'
     > [Unterscheidung von Nutzung des this](https://www.w3schools.com/js/js_this.asp)
@@ -349,7 +349,7 @@ console.log('Nach der Funktion ist d:', d);
             return this;
         }
         ```
-        > Wenn es in einer Funktion genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window
+        > Wenn es in einer Funktion genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window.
 
     * Nutzung von 'this' in einer Function (scrict mode)
         ```javascript
@@ -361,8 +361,8 @@ console.log('Nach der Funktion ist d:', d);
             return that;      // erlaubt
         }
         ```
-        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding)
-        > Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich
+        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding).
+        Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich
 
     * Nutzung von 'this' in einem Objekt
         ```javascript
@@ -392,10 +392,5 @@ console.log('Nach der Funktion ist d:', d);
         person1.fullName.call(person2);  // Gibt "John Doe" zurück
         ```
         > Die Methoden call () und apply () sind vordefinierte JavaScript-Methoden.
-        > Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.
-        > In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
-
-
-
-        
-        
+        Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.
+        In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
