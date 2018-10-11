@@ -1,9 +1,12 @@
 # Javascript
 
+## MD Formatierungsregeln
+[Link](http://agea.github.io/tutorial.md/)
+
 ## Visual Studio code
 * Live Server als Extension installieren
 
-## Git Hub [link](https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/)
+## Git Hub <https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/>
 * auf git hub ein neues Repository anlegen
 * https Link kopieren
 * Laufwerk/Order im Explorer öffnen in der das Repository lokal abgelegt werden soll
