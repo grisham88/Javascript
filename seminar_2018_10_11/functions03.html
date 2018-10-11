@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions und Scope</title>
+    <script>
+        var a = "A";
+        console.log(a);
+
+        {
+            // aufgrund vom Hoisting existiert KEIN Blockscope!
+            a = "Inneres A";
+            console.log(a);
+        }
+
+        console.log(a);
+
+        var b = false;
+        if (b) {
+            var c = "C";
+        }
+        
+        //Die Variable c gilt nur in dem Block
+        console.log(c);
+    </script>
+</head>
+
+<body>
+    <h1>Functions und Scope</h1>
+</body>
+
+</html>

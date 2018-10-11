@@ -117,7 +117,7 @@ if (42 === '42') {
 
 ### Functions
 #### Function
-    Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration auf HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
+    Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus. HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
     Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
 
     Der Code selbst wird dann liner abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
@@ -175,4 +175,33 @@ beispiel = function () {
  beispiel();    
 
  //Funktion wird gekapselt und das Ergebnis ausgegeben
+```
+
+##### Funktionen und Scope
+```javascript
+// globale Variable
+var a = "A";
+console.log('Vor der Funktion ist a:', a);      //A
+var b = "B";
+console.log('Vor der Funktion ist b:', b);      //B
+
+function test() {
+    a = 'Neues A';
+    console.log('In der Funktion ist a:', a);   //Neues A
+    // lokale Variable
+    var b = 'Neues B';
+    console.log('In der Funktion ist b:', b);   //Neus B
+    var c = 'Ein C';
+    console.log('In der Funktion ist c:', c);   //Ein C
+    d = 'Ein D';
+    console.log('In der Funktion ist d:', d);   //Ein D
+}
+
+// console.log('Vor der Funktion ist d:', d);   //REFERROR -> Varible existiert er nach Ausführung der Funktion
+test();
+
+console.log('Nach der Funktion ist a:', a);     //Neues A
+console.log('Nach der Funktion ist b:', b);     //B, da die Variable b nochmals lokal erzeugt wurde
+// console.log('Nach der Funktion ist c:', c);  //REFERROR -> existierte nur lokal zur Ausführungszeit der Funktion
+console.log('Nach der Funktion ist d:', d);     //Ooops-> Ein D wird nun global als Variable zur Verfügung gestellt, nach der Durchführung der Funktion test  
 ```
