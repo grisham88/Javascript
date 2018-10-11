@@ -1,4 +1,4 @@
-# Javascript Seminar
+# JavaScript Seminar
 
 
 ## Markdown (.md) Formatierungsregeln
@@ -34,7 +34,7 @@
     * Beim ... kann dann push ausgeführt werden -> Git wird nach Git Hub aktualisiert
 
 
-## Kursinhalt Javascript
+## Kursinhalt JavaScript
 
 ### Variablen & Typen
 * wird kein Wert zugewiesen ist der Typ des Objects undefined
@@ -117,10 +117,11 @@ if (42 === '42') {
 
 ### Functions
 #### Function
-    Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus. HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
-    Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
+> Ausgabe gibt bei beiden Aufrufen die 2.te Deklaration aus.
+> HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
+> Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
 
-    Der Code selbst wird dann liner abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
+> Der Code selbst wird dann liner abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
 ##### Globale Funktionen
 ```javascript
@@ -164,8 +165,10 @@ beispiel = function () {
 // 1. Aufruf
 beispiel();
 
-//ACHTUNG
-//Funktion wird gekapselt und das Ergebnis ausgegeben
+/*
+ACHTUNG
+Funktion wird gekapselt und das Ergebnis ausgegeben
+*/
 
 // 2. Function-Statement
 beispiel = function () {
@@ -197,11 +200,17 @@ function test() {
     console.log('In der Funktion ist d:', d);   //Ein D
 }
 
-// console.log('Vor der Funktion ist d:', d);   //REFERROR -> Varible existiert er nach Ausführung der Funktion
+// console.log('Vor der Funktion ist d:', d);
+//REFERROR -> Variable existiert er nach Ausführung der Funktion
 test();
 
 console.log('Nach der Funktion ist a:', a);     //Neues A
+
 console.log('Nach der Funktion ist b:', b);     //B, da die Variable b nochmals lokal erzeugt wurde
-// console.log('Nach der Funktion ist c:', c);  //REFERROR -> existierte nur lokal zur Ausführungszeit der Funktion
-console.log('Nach der Funktion ist d:', d);     //Ooops-> Ein D wird nun global als Variable zur Verfügung gestellt, nach der Durchführung der Funktion test  
+
+// console.log('Nach der Funktion ist c:', c);  
+//REFERROR -> existierte nur lokal zur Ausführungszeit der Funktion
+
+console.log('Nach der Funktion ist d:', d);     
+//Ooops-> Ein D wird nun global als Variable zur Verfügung gestellt, nach der Durchführung der Funktion test  
 ```
