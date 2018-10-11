@@ -12,6 +12,7 @@
 * Formatierung des Texts mit ALT + Shift + F
 * Zeilenumbruch aktivieren mit ALT + Z
 * Aus-/Einkommentieren mit STRG + #
+* Kommentar in JavaScript /**/ (Ein-/Mehrzeilig) oder // (Einzeilig)
 
 ## Git Hub
 * auf git hub ein neues Repository anlegen
@@ -479,17 +480,17 @@ console.log('Nach der Funktion ist d:', d);
 * Handelt sich um ein Object
 * Anzahl der Elemente im Array definiert die Länge des Arrays
 * Arrays verhält sich in JavaScript wie eine Mischung aus Array und Liste
-    *   ```javascript
-        var arr = ['Rosen', 'Tulpen', 'Nelken'];
+    ```javascript
+    var arr = ['Rosen', 'Tulpen', 'Nelken'];
 
-        console.log('arr.length:', arr.length);
-        console.log('arr[1]:', arr[1]); //Tulpen
+    console.log('arr.length:', arr.length);
+    console.log('arr[1]:', arr[1]); //Tulpen
 
-        arr[4] = "Veilchen";
+    arr[4] = "Veilchen";
         
-        console.log('arr.length:', arr.length);
-        console.log('arr[4]:', arr[4]); //Veilchen
-        ```
+    console.log('arr.length:', arr.length);
+    console.log('arr[4]:', arr[4]); //Veilchen
+    ```
 
     * Durch Setzung eines Werts in einen Index der vorher nicht definiert war, wird das Array bis zu diesem Index erweitert. Sind Indizes nicht gesetzt, sind diese nun leer und erreichbar.
     * Modifizierende Methoden
