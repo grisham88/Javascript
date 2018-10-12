@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX</title>
+    <script>
+
+        window.onload = function () {
+            // hier ajaxen! Diesmal JSON
+            var req = new XMLHttpRequest(); // readyState: 0
+
+            req.open('get', 'data/personen.json', true); // readyState: 1
+
+            req.onreadystatechange = function () {
+                console.log(this.readyState);
+                if (this.readyState === 4) {
+                    console.log('DataString:', this.responseText);
+                    var dataObj = JSON.parse(this.responseText);
+                    console.log('DataObject:', dataObj);
+                    //Hier muss man wissen wie das Ojekt heißt
+                    var dataList = dataObj.personen;
+                    //Hier ist es nicht notwendig zu wissen wie das Ojekt heißt
+                    var dataList = dataObj[dataObj.dataProp];
+                    console.log('DataList:', dataList);
+                }
+            }
+            req.send();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="ausgabe"></div>
+</body>
+
+</html>

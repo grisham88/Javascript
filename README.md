@@ -773,6 +773,38 @@ Durch das Skript wird das p20-element überwacht und beim click auf das Element 
     */
     ```
 
+### JSON
+#### Definition
+> Die JavaScript Object Notation, kurz JSON, ist ein kompaktes Datenformat in einer einfach lesbaren Textform zum Zweck des Datenaustauschs zwischen Anwendungen. Jedes gültige JSON-Dokument soll ein gültiges JavaScript sein und per eval interpretiert werden können.
+
+#### Sonderfälle
+> Wird ein Objekt nach Json geparst, fallen alle Funktionen weg.   Das bedeutet beim zurückparsen enthält dieses im Objekt nur reine Informationen und keine Funktionen mehr.
+
+#### Anwendungsbeispiel für JSON Behandlung 
+Objekt -> json / json -> Objekt
+```javascript
+var person = {
+    vorname: 'Peter',
+    alter: 30,
+    haustier: ['Dackel', 'Katze'],
+
+    hallo: function () {
+        console.log('Hi! Ich bin nicht erlaubt!');
+    }
+};
+
+console.log(person);        // {vorname: "Peter", alter: 30, haustier: Array(2), hallo: ƒ}
+
+// JSON-Methoden
+// Objekt in String umwandeln
+var jsonString = JSON.stringify(person);
+console.log(jsonString);    // {"vorname":"Peter","alter":30,"haustier":["Dackel","Katze"]}
+
+// String in Objekt
+var ojbAusJson = JSON.parse(jsonString);
+console.log(ojbAusJson);    // {vorname: "Peter", alter: 30, haustier: Array(2)}
+```
+
 ### Ajax
 * [Ajax Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
 * [HTTP - Requests](https://www.tutorialspoint.com/http/http_requests.htm)
@@ -817,34 +849,84 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
 </body>
 ```
 
-### JSON
-#### Definition
-> Die JavaScript Object Notation, kurz JSON, ist ein kompaktes Datenformat in einer einfach lesbaren Textform zum Zweck des Datenaustauschs zwischen Anwendungen. Jedes gültige JSON-Dokument soll ein gültiges JavaScript sein und per eval interpretiert werden können.
-
-#### Sonderfälle
-> Wird ein Objekt nach Json geparst, fallen alle Funktionen weg.   Das bedeutet beim zurückparsen enthält dieses im Objekt nur reine Informationen und keine Funktionen mehr.
-
-#### Anwendungsbeispiel für JSON Behandlung 
-Objekt -> json / json -> Objekt
+#### Ajax Ablauf mit JSON
 ```javascript
-var person = {
-    vorname: 'Peter',
-    alter: 30,
-    haustier: ['Dackel', 'Katze'],
+// hier ajaxen! Diesmal JSON
+var req = new XMLHttpRequest(); // readyState: 0
 
-    hallo: function () {
-        console.log('Hi! Ich bin nicht erlaubt!');
-    }
-};
+req.open('get', 'data/personen.json', true); // readyState: 1
 
-console.log(person); // {vorname: "Peter", alter: 30, haustier: Array(2), hallo: ƒ}
-// JSON-Methoden
-
-// Objekt in String umwandeln
-var jsonString = JSON.stringify(person);
-console.log(jsonString); // {"vorname":"Peter","alter":30,"haustier":["Dackel","Katze"]}
-
-// String in Objekt
-var ojbAusJson = JSON.parse(jsonString);
-console.log(ojbAusJson);// {vorname: "Peter", alter: 30, haustier: Array(2)}
+req.onreadystatechange = function () {
+    console.log(this.readyState);
+    if (this.readyState === 4) {
+        console.log('DataString:', this.responseText);
+        /*
+        DataString: {
+            "success": true,
+            "dataProp" : "personen",
+            "primKey": "mId",
+            "personen" : [
+                {"vorname":"Peter", "nachname":"Panter","mId":"m001"},
+                {"vorname":"Theo", "nachname":"Tiger","mId":"m002"},
+                {"vorname":"Leo", "nachname":"Löwe", "mId":"m004"},
+                {"vorname":"Anton", "nachname":"Ameise", "mId":"m007"},
+                {"vorname":"Bruno", "nachname":"Büffel", "mId":"m006"}
+            ]
+        }
+        */
+        var dataObj = JSON.parse(this.responseText);
+        console.log('DataObject:', dataObj);
+        /*
+        DataObject: 
+        {success: true, dataProp: "personen", primKey: "mId", personen: Array(5)}
+        dataProp
+        :
+        "personen"
+        personen
+        :
+        (5) [{…}, {…}, {…}, {…}, {…}]
+        primKey
+        :
+        "mId"
+        success
+        :
+        true
+        __proto__
+        :
+        */
+            
+        //Hier muss man wissen wie das Ojekt heißt
+        var dataList = dataObj.personen;
+            
+        //Hier ist es nicht notwendig zu wissen wie das Ojekt heißt
+        var dataList = dataObj[dataObj.dataProp];
+        console.log('DataList:', dataList);
+        /*
+        DataList: DataList: 
+        (5) [{…}, {…}, {…}, {…}, {…}]
+        0
+        :
+        {vorname: "Peter", nachname: "Panter", mId: "m001"}
+        1
+        :
+        {vorname: "Theo", nachname: "Tiger", mId: "m002"}
+        2
+        :
+        {vorname: "Leo", nachname: "Löwe", mId: "m004"}
+        3
+        :
+        {vorname: "Anton", nachname: "Ameise", mId: "m007"}
+        4
+        :
+        {vorname: "Bruno", nachname: "Büffel", mId: "m006"}
+        length
+        :
+        5
+        __proto__
+        :
+        Array(0)
+        */
+        }
+}
+req.send();
 ```
