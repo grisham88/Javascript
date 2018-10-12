@@ -22,12 +22,12 @@
                     var dataObj = JSON.parse(this.responseText);
                     console.log('DataObject:', dataObj);
 
-                    var arr = dataObj;
+                    var array = dataObj;
                     console.log('Elemente durchlaufen:');
 
                     var bezugsknoten = document.getElementById('ausgabe');
 
-                    arr.forEach(element => {
+                    array.forEach(element => {
                         console.log(element.name + " (" + element.abbreviation + ")");
 
                         var pElement = document.createElement('p');
