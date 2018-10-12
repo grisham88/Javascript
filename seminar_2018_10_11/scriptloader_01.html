@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scripte laden ... wie?</title>
+    <!-- script[src=js/script2.js] -->
+    <script src="js/script1.js"></script>
+    <script src="js/script2.js"></script>
+    <script>
+        // Ich komme zum Schluss, dass ich Script4 brauche
+
+        var script4 = document.createElement('script');
+        script4.src = 'js/script4.js';
+        document.head.appendChild(script4);
+    </script>
+
+    <script src="js/script3.js"></script>
+</head>
+
+<body>
+
+</body>
+<h1>Scriptloader</h1>
+
+</html>

@@ -975,3 +975,30 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
         sobald der Request den Readystate 1 hat</div> 
     </body>
     ```
+
+### Skripte
+* Skripte werden standardmäßig asynchron geladen, sodass Einschübe erst später ausgeführt werde
+* [Details](https://wiki.selfhtml.org/wiki/HTML/Skripte/script)
+
+#### Beispiel
+```html
+<script src="js/script1.js"></script>
+<script src="js/script2.js"></script>
+<script>
+    // Ich komme zum schluss, dass ich Script4 brauche
+
+    var script4 = document.createElement('script');
+    script4.src = 'js/script4.js';
+    document.head.appendChild(script4);
+</script>
+
+<script src="js/script3.js"></script>
+```
+> Ausgabereihenfolge:  
+>  
+> script1.js:1 hallo, ich bin Script 1!  
+script2.js:5 Hey, ich bin Script 2  
+script3.js:1 Yo, ich bin Script 3  
+script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
+
+### Objekte
