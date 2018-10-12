@@ -681,7 +681,7 @@ console.log('Nach der Funktion ist d:', d);
 
         console.log(meinDiv)
         ```
-        * ins Dokument damit einfügen
+        * ins Dokument einfügen
             > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
             * PARENT.appendChild(NEUER_KNOTEN)
             ```javascript            
@@ -702,10 +702,39 @@ console.log('Nach der Funktion ist d:', d);
             meinDiv.title = 'Mein neues Div';
             meinDiv.className = 'rahmen';
             meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-            
+
             var bezugsknoten = document.getElementById('p1');
             document.body.insertBefore(meinDiv, bezugsknoten);
             ```
+        * Element kopieren
+            > ACHTUNG  
+            Events werden nicht mitkopiert
+            * ohne Unterelemente
+                ```javascript            
+                var meinDiv = document.createElement('div');
+                //Setzen von Properties im Div
+                meinDiv.id = 'FirstCreatedDiv';
+                meinDiv.title = 'Mein neues Div';
+                meinDiv.className = 'rahmen';
+                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+                
+                var klonDiv = meinDiv.cloneNode();
+                console.log('Klon: ', klonDiv);
+                document.body.appendChild(klonDiv);
+                ```
+            * mit Unterelemente
+                ```javascript            
+                var meinDiv = document.createElement('div');
+                //Setzen von Properties im Div
+                meinDiv.id = 'FirstCreatedDiv';
+                meinDiv.title = 'Mein neues Div';
+                meinDiv.className = 'rahmen';
+                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+                
+                var klonDiv = meinDiv.cloneNode(true);
+                console.log('Klon: ', klonDiv);
+                document.body.appendChild(klonDiv);
+                ```
     
     * HTMLElementNode
         * getElementsByTagName
