@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM</title>
+    <script>
+
+        window.onload = function () {
+            var meinDiv = document.createElement('div');
+            meinDiv.id = 'FirstCreatedDiv';
+            meinDiv.title = 'Mein neues Div';
+            meinDiv.className = 'rahmen';
+            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+            meinDiv.addEventListener('click', function (e) {
+                console.log('1. Listener: Neues Div wurde geklickt...');
+            });
+
+            meinDiv.addEventListener('click', function (e) {
+                console.log('2. Listener: Neues Div wurde geklickt...');
+            });
+
+            console.log(meinDiv)
+
+            //ins Dokument damit
+            // a) PARENT.appendChild(NEUER_KNOTEN)
+            document.body.appendChild(meinDiv);
+            // b) PARENT.insertBefore(NEUER_KNOTEN, REFERENZ)
+            var bezugsknoten = document.getElementById('p1');
+            document.body.insertBefore(meinDiv, bezugsknoten);
+
+            // ein Klon (falls ich eine echte Kopie brauche):
+            // cloneNode() | cloneNode(blnDeep)
+            var klonDiv = meinDiv.cloneNode(true);
+            console.log('Klon: ', klonDiv);
+        };
+
+    </script>
+    <style>
+        .rahmen {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM</h1>
+    <p id="p1">Textabsatz, der selektiert wird</p>
+</body>
+
+</html>

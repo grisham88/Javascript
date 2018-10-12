@@ -650,4 +650,75 @@ console.log('Nach der Funktion ist d:', d);
     </body>
     ```
     > Durch das Skript wird das komplette p11-element verändert.  
-    Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben
+    Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben.
+* Zugriffsmethoden
+    * document
+        * getElementById
+        * getElementsByTagName
+        * getElementsByClassName
+        * querySelector
+        * querySelectorAll
+        * head
+        * body
+        * createElement
+        ```javascript
+        var meinDiv = document.createElement('div');
+        //Setzen von Properties im Div
+        meinDiv.id = 'FirstCreatedDiv';
+        meinDiv.title = 'Mein neues Div';
+        meinDiv.className = 'rahmen';
+        meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+        //Events mit Funktionen füllen
+        meinDiv.addEventListener('click', function (e) {
+            console.log('1. Listener: Neues Div wurde geklickt...');
+        });
+
+        meinDiv.addEventListener('click', function (e) {
+            console.log('2. Listener: Neues Div wurde geklickt...');
+        });
+        //Beide Funktionen werden beim Ausführen des Events werden nacheinander abgearbeitet
+
+        console.log(meinDiv)
+        ```
+        * ins Dokument damit einfügen
+            > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
+            * PARENT.appendChild(NEUER_KNOTEN)
+            ```javascript            
+            var meinDiv = document.createElement('div');
+            //Setzen von Properties im Div
+            meinDiv.id = 'FirstCreatedDiv';
+            meinDiv.title = 'Mein neues Div';
+            meinDiv.className = 'rahmen';
+            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+            document.body.appendChild(meinDiv);
+            ```
+            * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
+            ```javascript
+            var meinDiv = document.createElement('div');
+            //Setzen von Properties im Div
+            meinDiv.id = 'FirstCreatedDiv';
+            meinDiv.title = 'Mein neues Div';
+            meinDiv.className = 'rahmen';
+            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+            
+            var bezugsknoten = document.getElementById('p1');
+            document.body.insertBefore(meinDiv, bezugsknoten);
+            ```
+    
+    * HTMLElementNode
+        * getElementsByTagName
+        * getElementsByClassName
+        * addEventListener() -> data-*-> dataSet
+            ```javascript
+            var article = document.getElementById('electriccars');
+
+            article.dataset.columns // "3"
+            article.dataset.indexNumber // "12314"
+            article.dataset.parent // "cars"
+
+            /*
+            Each property is a string and can be read and written. In the above case setting article.dataset.columns = 5 would change that attribute to "5".
+            */
+            ```
