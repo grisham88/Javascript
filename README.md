@@ -778,36 +778,36 @@ console.log('Nach der Funktion ist d:', d);
     XML  
     
 #### Ajax Ablauf
-    ```javascript
-    // 1) Request bilden
-    var req = new XMLHttpRequest(); // readyState: 0
+```javascript
+// 1) Request bilden
+var req = new XMLHttpRequest(); // readyState: 0
 
-    // 2) Request konfigurieren
-    req.open('GET', 'data/data.html', true) // readyState: 1
+// 2) Request konfigurieren
+req.open('GET', 'data/data.html', true) // readyState: 1
+
+/*
+Listener auf den ReadyState legen (Function frühzeitig zuweisen/Ausführung automatisch)
+Dadurch wird abgewartet bis der Aufruf abgearbeitet wurde 
+und erst dann sind die Daten verfügbar
+*/
+req.onreadystatechange = function () {
+    console.log(this.readyState);
+    if (this.readyState === 4)
+        console.log("Daten:", req.responseText);
     
-    /*
-    Listener auf den ReadyState legen (Function frühzeitig zuweisen/Ausführung automatisch)
-    Dadurch wird abgewartet bis der Aufruf abgearbeitet wurde 
-    und erst dann sind die Daten verfügbar
-    */
-    req.onreadystatechange = function () {
-        console.log(this.readyState);
-        if (this.readyState === 4)
-            console.log("Daten:", req.responseText);
-        
-        //Erhaltende Daten werden dann, wenn Sie da sind an einem gewünschten Punkt eingefügt
-        document.getElementById('ausgabe').innerHTML = req.responseText;
-    }
+    //Erhaltende Daten werden dann, wenn Sie da sind an einem gewünschten Punkt eingefügt
+    document.getElementById('ausgabe').innerHTML = req.responseText;
+}
     
-    // 3) Request ausführen
-    req.send();
-    
-    // Daten sind im req-object ... aber: NICHT JETZT!!!
-    console.log("Daten:", req.responseText); // Keine Daten da asynchron
-    ```
-    ```html    
-    <body>
-        <!--Hier erscheint der Text, sobald der Request den Readystate 1 hat-->
-        <div id="ausgabe"></div> 
-    </body>
-    ```
+// 3) Request ausführen
+req.send();
+
+// Daten sind im req-object ... aber: NICHT JETZT!!!
+console.log("Daten:", req.responseText); // Keine Daten da asynchron
+```
+```html
+<body>
+    <!--Hier erscheint der Text, sobald der Request den Readystate 1 hat-->
+    <div id="ausgabe"></div> 
+</body>
+```
