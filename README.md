@@ -223,180 +223,180 @@ console.log('Nach der Funktion ist d:', d);
     * Variablen ohne Deklaration werden so aufgedeckt.
 
 4. Funktionen und Parameter
-* Returns
-    * Mit erneuter lokaler Deklaration
-        ```javascript
-        function addiere(a, b) {
-            var a;
-            var b = 5;
-            return a + b;
-        }
+    * Returns
+        * Mit erneuter lokaler Deklaration
+            ```javascript
+            function addiere(a, b) {
+                var a;
+                var b = 5;
+                return a + b;
+            }
 
-        var ergebnis = addiere(17, 6);
-        console.log('ergebnis:', ergebnis); //22
-        ```
+            var ergebnis = addiere(17, 6);
+            console.log('ergebnis:', ergebnis); //22
+            ```
 
-    * Ohne erneute lokale Deklaration
+        * Ohne erneute lokale Deklaration
+            ```javascript
+            function addiere(a, b) {
+                return a + b;
+            }
+
+            var ergebnis = addiere(17, 6);
+            console.log('ergebnis:', ergebnis); //23
+            ```
+
+        * Parameteranzahl variieren
+            * Zusätzlicher Parameter mitgegeben
+                ```javascript
+                function addiere(a, b) {
+                    return a + b;
+                }
+
+                /*  KEIN Overload
+                function addiere(a, b, c) {
+                    return a + b + c;
+                } 
+                */ 
+
+                ergebnis = addiere(13, 14, 15); // Überschuss
+                console.log('ergebnis:', ergebnis); //27
+                ```
+
+            * Zu wenig Parameter mitgegeben
+                ```javascript
+                function addiere(a, b) {
+                    return a + b;
+                }
+
+                /*  KEIN Overload
+                function addiere(a) {
+                    return a;
+                }
+                */
+                
+                ergebnis = addiere(18); // fehlender Wert
+                console.log('ergebnis:', ergebnis); //NaN
+                ```
+
+            > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich.
+
+    * Defaults
         ```javascript
+        // ECMA6: function addiere(a=0, b=0) { ... }
         function addiere(a, b) {
+            a = a || 0;
+            b = b || 0;
             return a + b;
         }
 
         var ergebnis = addiere(17, 6);
         console.log('ergebnis:', ergebnis); //23
+
+        ergebnis = addiere(13, 14, 15); // Überschuss
+        console.log('ergebnis:', ergebnis); //27
+
+        ergebnis = addiere(18); // fehlender Wert
+        console.log('ergebnis:', ergebnis); //18
+
+        ergebnis = addiere(); // kein  Wert
+        console.log('ergebnis:', ergebnis); //0
         ```
 
-    * Parameteranzahl variieren
-        * Zusätzlicher Parameter mitgegeben
-            ```javascript
-            function addiere(a, b) {
-                return a + b;
-            }
+        > Wenn die Variablen nicht gefüllt werden, dann werden Sie mit einem Defaultwert 0 (a = a || 0) überschrieben.
 
-            /*  KEIN Overload
-            function addiere(a, b, c) {
-                return a + b + c;
-            } 
-            */ 
-
-            ergebnis = addiere(13, 14, 15); // Überschuss
-            console.log('ergebnis:', ergebnis); //27
-            ```
-
-        * Zu wenig Parameter mitgegeben
-            ```javascript
-            function addiere(a, b) {
-                return a + b;
-            }
-
-            /*  KEIN Overload
-            function addiere(a) {
-                return a;
-            }
-            */
-            
-            ergebnis = addiere(18); // fehlender Wert
-            console.log('ergebnis:', ergebnis); //NaN
-            ```
-
-        > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich.
-
-* Defaults
-     ```javascript
-	// ECMA6: function addiere(a=0, b=0) { ... }
-	function addiere(a, b) {
-		a = a || 0;
-		b = b || 0;
-		return a + b;
-	}
-
-	var ergebnis = addiere(17, 6);
-	console.log('ergebnis:', ergebnis); //23
-
-	ergebnis = addiere(13, 14, 15); // Überschuss
-	console.log('ergebnis:', ergebnis); //27
-
-	ergebnis = addiere(18); // fehlender Wert
-	console.log('ergebnis:', ergebnis); //18
-
-	ergebnis = addiere(); // kein  Wert
-	console.log('ergebnis:', ergebnis); //0
-     ```
-
-     > Wenn die Variablen nicht gefüllt werden, dann werden Sie mit einem Defaultwert 0 (a = a || 0) überschrieben.
-
-* Arguments
-    ```javascript
-    // HIER NICHT!!!
-	// console.log('arguments:', arguments);
-
-	// 1. impliziter Parameter: arguments-Object
-	function addiere(a, b) {
-		a = a || 0;
-		b = b || 0;
-		console.log('arguments:', arguments);
-		console.log('arguments.length:', arguments.length);
-		if (arguments.length > 2) {
-	console.log('arguments[2]:', arguments[2]);
-		}
-		return a + b;
-	}
-
-	var ergebnis = addiere(17, 6);
-	console.log('ergebnis:', ergebnis); //Wert 23 | Arguments-Anzahl:2
-
-	ergebnis = addiere(13, 14, 15); // Überschuss
-	console.log('ergebnis:', ergebnis); //Wert 27 | Arguments-Anzahl:3 | 3.ter Wert -> 15
-
-	ergebnis = addiere(18); // fehlender Wert
-	console.log('ergebnis:', ergebnis); //Wert 18 | Arguments-Anzahl:1
-
-	ergebnis = addiere(); // kein  Wert
-	console.log('ergebnis:', ergebnis); //Wert 0 | Arguments-Anzahl:0
-     ```
-     
-     > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per Index durchlaufen und darauf zugreifen.
-
-* Das geheimnisvolle 'this'
-    > [Unterscheidung von Nutzung des this](https://www.w3schools.com/js/js_this.asp)
-    * Nutzung von 'this' alleinestehend
+    * Arguments
         ```javascript
-        var x = this;
-        ```
-        > Wenn es alleinestehend genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window
+        // HIER NICHT!!!
+        // console.log('arguments:', arguments);
 
-    * Nutzung von 'this' in einer Function
-        ```javascript
-        function myFunction() {
-            return this;
+        // 1. impliziter Parameter: arguments-Object
+        function addiere(a, b) {
+            a = a || 0;
+            b = b || 0;
+            console.log('arguments:', arguments);
+            console.log('arguments.length:', arguments.length);
+            if (arguments.length > 2) {
+        console.log('arguments[2]:', arguments[2]);
+            }
+            return a + b;
         }
+
+        var ergebnis = addiere(17, 6);
+        console.log('ergebnis:', ergebnis); //Wert 23 | Arguments-Anzahl:2
+
+        ergebnis = addiere(13, 14, 15); // Überschuss
+        console.log('ergebnis:', ergebnis); //Wert 27 | Arguments-Anzahl:3 | 3.ter Wert -> 15
+
+        ergebnis = addiere(18); // fehlender Wert
+        console.log('ergebnis:', ergebnis); //Wert 18 | Arguments-Anzahl:1
+
+        ergebnis = addiere(); // kein  Wert
+        console.log('ergebnis:', ergebnis); //Wert 0 | Arguments-Anzahl:0
         ```
-        > Wenn es in einer Funktion genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window.
+        
+        > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per Index durchlaufen und darauf zugreifen.
 
-    * Nutzung von 'this' in einer Function (scrict mode)
-        ```javascript
-        "use strict";
-        var that = this; // Kontext aufbewahren
+    * Das geheimnisvolle 'this'
+        > [Unterscheidung von Nutzung des this](https://www.w3schools.com/js/js_this.asp)
+        * Nutzung von 'this' alleinestehend
+            ```javascript
+            var x = this;
+            ```
+            > Wenn es alleinestehend genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window
 
-        function myFunction() {
-            //return this;    // ERROR
-            return that;      // erlaubt
-        }
-        ```
-        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding).  
-        Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich.
-
-    * Nutzung von 'this' in einem Objekt
-        ```javascript
-        var person = {
-            firstName  : "John",
-            lastName   : "Doe",
-            id         : 5566,
-            myFunction : function() {
+        * Nutzung von 'this' in einer Function
+            ```javascript
+            function myFunction() {
                 return this;
             }
-        };
-        ```
-        > Wenn es in einer Objekt genutzt wird, bezieht sich das 'this' auf das Ojekt in dem es direkt aufgerufen wurde.  
-        Das Objekt ist der Besitzer der Funktion.
+            ```
+            > Wenn es in einer Funktion genutzt wird, bezieht es sich auf das globale Objekt. In einem Browser ist dieses Object das Window.
 
-    * Nutzung von 'this' im Kontext 'Explicit Function Binding'
-         ```javascript
-        var person1 = {
-            fullName: function() {
-                return this.firstName + " " + this.lastName;
+        * Nutzung von 'this' in einer Function (scrict mode)
+            ```javascript
+            "use strict";
+            var that = this; // Kontext aufbewahren
+
+            function myFunction() {
+                //return this;    // ERROR
+                return that;      // erlaubt
             }
-        }
-        var person2 = {
-            firstName:"John",
-            lastName: "Doe",
-        }
-        person1.fullName.call(person2);  // Gibt "John Doe" zurück
-        ```
-        > Die Methoden call () und apply () sind vordefinierte JavaScript-Methoden.  
-        Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.          
-        In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
-        
+            ```
+            > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding).  
+            Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich.
+
+        * Nutzung von 'this' in einem Objekt
+            ```javascript
+            var person = {
+                firstName  : "John",
+                lastName   : "Doe",
+                id         : 5566,
+                myFunction : function() {
+                    return this;
+                }
+            };
+            ```
+            > Wenn es in einer Objekt genutzt wird, bezieht sich das 'this' auf das Ojekt in dem es direkt aufgerufen wurde.  
+            Das Objekt ist der Besitzer der Funktion.
+
+        * Nutzung von 'this' im Kontext 'Explicit Function Binding'
+            ```javascript
+            var person1 = {
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+            var person2 = {
+                firstName:"John",
+                lastName: "Doe",
+            }
+            person1.fullName.call(person2);  // Gibt "John Doe" zurück
+            ```
+            > Die Methoden call () und apply () sind vordefinierte JavaScript-Methoden.  
+            Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.          
+            In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
+            
 #### Closures: Lexikalischer Kontext
 
 * Funktionen haben dort ihren Gültigkeitsraum in dem sie deklariert wurden
