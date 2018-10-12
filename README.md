@@ -657,87 +657,90 @@ Durch das Skript wird das p20-element überwacht und beim click auf das Element 
 
 #### Zugriffsmethoden
 ##### document
-   * getElementById
-   * getElementsByTagName
-   * getElementsByClassName
-   * querySelector
-   * querySelectorAll
-   * head
-   * body
-   * createElement
+* getElementById
+* getElementsByTagName
+* getElementsByClassName
+* querySelector
+* querySelectorAll
+* head
+* body
+* createElement
+    ```javascript
+    var meinDiv = document.createElement('div');
+    //Setzen von Properties im Div
+    meinDiv.id = 'FirstCreatedDiv';
+    meinDiv.title = 'Mein neues Div';
+    meinDiv.className = 'rahmen';
+    meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+    console.log(meinDiv)
+     ```
+
+* Element an eine bestimmte Stelle im Dokument einfügen
+    > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
+    * PARENT.appendChild(NEUER_KNOTEN)
+        ```javascript    
+        var meinDiv = document.createElement('div');
+        //Setzen von Properties im Div
+        meinDiv.id = 'FirstCreatedDiv';
+        meinDiv.title = 'Mein neues Div';
+        meinDiv.className = 'rahmen';
+        meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+        document.body.appendChild(meinDiv);
+        ```
+        * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
         ```javascript
-         var meinDiv = document.createElement('div');
-         //Setzen von Properties im Div
-         meinDiv.id = 'FirstCreatedDiv';
-         meinDiv.title = 'Mein neues Div';
-         meinDiv.className = 'rahmen';
-         meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+        var meinDiv = document.createElement('div');
+        //Setzen von Properties im Div
+        meinDiv.id = 'FirstCreatedDiv';
+        meinDiv.title = 'Mein neues Div';
+        meinDiv.className = 'rahmen';
+        meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
 
-         console.log(meinDiv)
-          ```
-    * Element an eine bestimmte Stelle im Dokument einfügen
-        > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
-        * PARENT.appendChild(NEUER_KNOTEN)
-            ```javascript        
-            var meinDiv = document.createElement('div');
-            //Setzen von Properties im Div
-            meinDiv.id = 'FirstCreatedDiv';
-            meinDiv.title = 'Mein neues Div';
-            meinDiv.className = 'rahmen';
-            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+        var bezugsknoten = document.getElementById('p1');
+        // okay, aber ich muss ZWEI Knoten kennen:
+        document.body.insertBefore(meinDiv, bezugsknoten);
+        // besser
+        bezugsknoten.parentNode.insertBefore(meinDiv, bezugsknoten);
+        ```
 
-            document.body.appendChild(meinDiv);
-            ```
-            * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
-            ```javascript
-            var meinDiv = document.createElement('div');
-            //Setzen von Properties im Div
-            meinDiv.id = 'FirstCreatedDiv';
-            meinDiv.title = 'Mein neues Div';
-            meinDiv.className = 'rahmen';
-            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-
-            var bezugsknoten = document.getElementById('p1');
-            // okay, aber ich muss ZWEI Knoten kennen:
-            document.body.insertBefore(meinDiv, bezugsknoten);
-            // besser
-            bezugsknoten.parentNode.insertBefore(meinDiv, bezugsknoten);
-            ```
-    * Element kopieren
-        > ACHTUNG  
-        Events werden nicht mitkopiert
-        * ohne Unterelemente -> cloneNode()
-            ```javascript        
-            var meinDiv = document.createElement('div');
-            //Setzen von Properties im Div
-            meinDiv.id = 'FirstCreatedDiv';
-            meinDiv.title = 'Mein neues Div';
-            meinDiv.className = 'rahmen';
-            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-            
-            var klonDiv = meinDiv.cloneNode();
-            console.log('Klon: ', klonDiv);
-            document.body.appendChild(klonDiv);
-            ```
-        * mit Unterelementen -> cloneNode(true)
-            ```javascript        
-            var meinDiv = document.createElement('div');
-            //Setzen von Properties im Div
-            meinDiv.id = 'FirstCreatedDiv';
-            meinDiv.title = 'Mein neues Div';
-            meinDiv.className = 'rahmen';
-            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-            
-            var klonDiv = meinDiv.cloneNode(true);
-            console.log('Klon: ', klonDiv);
-            document.body.appendChild(klonDiv);
-            ```
+* Element kopieren
+    > ACHTUNG  
+    Events werden nicht mitkopiert
+    * ohne Unterelemente -> cloneNode()
+        ```javascript    
+        var meinDiv = document.createElement('div');
+        //Setzen von Properties im Div
+        meinDiv.id = 'FirstCreatedDiv';
+        meinDiv.title = 'Mein neues Div';
+        meinDiv.className = 'rahmen';
+        meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+        
+        var klonDiv = meinDiv.cloneNode();
+        console.log('Klon: ', klonDiv);
+        document.body.appendChild(klonDiv);
+        ```
+    * mit Unterelementen -> cloneNode(true)
+        ```javascript    
+        var meinDiv = document.createElement('div');
+        //Setzen von Properties im Div
+        meinDiv.id = 'FirstCreatedDiv';
+        meinDiv.title = 'Mein neues Div';
+        meinDiv.className = 'rahmen';
+        meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+        
+        var klonDiv = meinDiv.cloneNode(true);
+        console.log('Klon: ', klonDiv);
+        document.body.appendChild(klonDiv);
+        ```
     
 ##### HTMLElementNode
 * getElementsByTagName
 * getElementsByClassName
 * addEventListener()
     > Mehrere Funktionszuweisungen zum Event möglich
+    
     ```javascript
     var meinDiv = document.createElement('div');
     meinDiv.id = 'FirstCreatedDiv';
