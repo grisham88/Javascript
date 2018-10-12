@@ -1284,8 +1284,31 @@ function Person(parameter1, parameter2) {
 
 ### IIFE (Immediately Invoked Function Expression)
 * Direkt aufgerufene Funktion nach der Deklaration
-* Funktionen werden durch reine Deklaration ermöglich immer wieder zu instanzieren, mittels IIFE kann nur eine Insatz existieren
-* Zugriff ist dann per return möglich
+* Funktionen werden durch reine Deklaration ermöglicht immer wieder zu instanzieren, mittels IIFE kann nur eine Instanz existieren
+    * Zugriff auf die innere Funktionalität ist dann per return möglich
+
+#### Standardausführung  
+Deklaration & Ausführung nacheinander
+
+    ```javascript
+    function appStart(){
+        console.log('Starte App');
+    }
+
+    appStart();
+    ```
+#### IIFE Ausführung  
+Deklaration und Ausführung zusammen 
+
+    ```javascript
+    (function () {
+        // lokaler Scope!!
+        var geheim = "sowas von...";
+
+        console.log('Starte App');
+    })();
+    ```
+    
 * Beispiele
     ```javascript
     var toolbox = {
@@ -1304,7 +1327,6 @@ function Person(parameter1, parameter2) {
     ```
     * Revealing Module   
         * [The Revealing Module Pattern in Javascript](https://gist.github.com/zcaceres/bb0eec99c02dda6aac0e041d0d4d7bf2)
-        * Beschreibung anhand iife02.html-iife04.html nachziehen
         ```javascript        
         var bessereToolbox = (function () {
             // private!
@@ -1381,25 +1403,3 @@ function Person(parameter1, parameter2) {
     // 17
     ```
     > Funktion ist so später noch nutzbar, aber nicht mehr instanzierbar
-
-#### Standardausführung  
-Deklaration & Ausführung nacheinander
-
-    ```javascript
-    function appStart(){
-        console.log('Starte App');
-    }
-
-    appStart();
-    ```
-#### IIFE Ausführung  
-Deklaration und Ausführung zusammen 
-
-    ```javascript
-    (function () {
-        // lokaler Scope!!
-        var geheim = "sowas von...";
-
-        console.log('Starte App');
-    })();
-    ```
