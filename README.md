@@ -750,8 +750,8 @@ console.log('Nach der Funktion ist d:', d);
             meinDiv.addEventListener('click', function (e) {
                 console.log('2. Listener: Neues Div wurde geklickt...');
             });
-            //Beide Funktionen werden beim Ausführen des Events werden nacheinander abgearbeitet
-            });
+
+            //Beide Funktionen werden beim Ausführen des Events  nacheinander abgearbeitet
             ```
         * data-*-> dataSet
             ```javascript
@@ -762,6 +762,7 @@ console.log('Nach der Funktion ist d:', d);
             article.dataset.parent // "cars"
 
             /*
-            Each property is a string and can be read and written. In the above case setting article.dataset.columns = 5 would change that attribute to "5".
+            Each property is a string and can be read and written.
+            In the above case setting article.dataset.columns = 5 would change that attribute to "5".
             */
             ```
