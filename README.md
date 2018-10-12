@@ -1,10 +1,11 @@
 # JavaScript Seminar
-[Einführungswerke](https://github.com/getify/You-Dont-Know-JS)
-[Das Curry-Buch - Funktional programmieren lernen mit JavaScript](http://currybuch.de/)
+* [Einführungswerke](https://github.com/getify/You-Dont-Know-JS)
+* [Das Curry-Buch - Funktional programmieren lernen mit JavaScript](http://currybuch.de/) (siehe /Unterlagen)
 
 ## Markdown (.md) Formatierungsregeln
 * [Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
 
 ## Visual Studio Code
@@ -648,6 +649,5 @@ console.log('Nach der Funktion ist d:', d);
     <p id="p20">Textabsatz, der selektiert wird</p>
     </body>
     ```
-    > Durch das Skript wird das komplette p11-element verändert
-
-    > Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben
+    > Durch das Skript wird das komplette p11-element verändert.  
+    Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben
