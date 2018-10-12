@@ -1267,7 +1267,6 @@ function Person(parameter1, parameter2) {
     Object.defineProperty(this, 'alter', {
         // Accessor-Descriptor
         get: function() {
-            console.log('Getter getriggert')
             return alter;
         }          
     })
@@ -1284,7 +1283,54 @@ function Person(parameter1, parameter2) {
     Wir arbeiten auf einer Closure!!! -> kein this. verwenden
 
 ### IIFE (Immediately Invoked Function Expression)
-Direkt aufgerufene Funktion nach der Deklaration
+* Direkt aufgerufene Funktion nach der Deklaration
+* Funktionen werden durch reine Deklaration ermöglich immer wieder zu instanzieren, mittels IIFE kann nur eine Insatz existieren
+* ACHTUNG iife02-04.html ausformulieren und README aktualisieren
+* Zugriff ist dann per return möglich
+    ```javascript
+    var toolbox = {
+        CONST_1: 17,
+        CONST_2: 21,
+        tool1: function inneresTool1 () { }, //Kenzeichnung der inneren funktion mittels Name nicht notwendig
+        tool2: function () { }
+    };
+
+    //Zugriff auf innere Methode durch die public-Funktion von toolbox 
+    toolbox.tool2();    
+    ```
+    * Revealing Mode
+        ```javascript
+        var toolbox = {
+            CONST_1: 17,
+            CONST_2: 21,
+            tool1: function inneresTool1 () { }, //Kenzeichnung der inneren funktion mittels Name nicht notwendig
+            tool2: function () { }
+        };
+
+        //Zugriff auf innere Methode durch die public-Funktion von toolbox 
+        toolbox.tool2();     
+        ```  
+        ```javascript
+        var bessereToolbox = (function () {
+            // private!
+            var CONST_1 = 17;
+            var CONST_2 = 21;
+
+            // public:
+            return {
+                getConst1: function getInnereConst1() {
+                    return CONST_1;
+                },
+                getConst2: function getInnereConst2() {
+                    return CONST_2;
+                },
+                tool1: function () { },
+                tool2: function () { }
+            }
+        })();
+        ```
+
+    bessereToolbox.getConst1();
 
 #### Standardausführung  
 Deklaration & Ausführung nacheinander

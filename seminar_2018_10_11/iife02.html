@@ -12,11 +12,10 @@
             return 42;
         })();
 
-        zahl();
         var toolbox = {
             CONST_1: 17,
             CONST_2: 21,
-            tool1: function () { },
+            tool1: function inneresTool1() { },
             tool2: function () { }
         };
 
@@ -30,16 +29,18 @@
 
             // public:
             return {
-                getConst1: function () {
+                getConst1: function getInnereConst1() {
                     return CONST_1;
                 },
-                getConst2: function () {
+                getConst2: function getInnereConst2() {
                     return CONST_2;
                 },
                 tool1: function () { },
                 tool2: function () { }
             }
         })();
+
+        bessereToolbox.getConst1();
     </script>
 </head>
 
