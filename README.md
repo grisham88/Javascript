@@ -1177,9 +1177,11 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
 #### ECMA5-Objekte (Bessere Properties)
 ##### Object.defineProperty
 ```javascript
-Object.defineProperty(this (Bezug zum Object), 'Name der Property', {
-    //Aufzählung der Propertise
-});
+function Person(parameter1, parameter2) {
+    Object.defineProperty(this (Bezug zum Object), 'Name der Property', {
+        //Aufzählung der Properties
+    });
+}
 ```
 * value
     Wie heißt das Property
