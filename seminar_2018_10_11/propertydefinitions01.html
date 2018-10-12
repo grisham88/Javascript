@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bessere Properties</title>
+    <script>
+        "use strict"; // Lokaler Strict Mode
+
+        function Person(vorname, alter) {
+            Object.defineProperty(this, 'vorname', {
+                // Value-Descriptor:
+                value: vorname,
+                writable: false, //Zugriff nur einmalig möglich durch Constructor
+                // Mittels scrict mode würde ein erneuter Schreibzugriff, als Fehler ausgegeben werden
+
+                // allg. Descriptor-Props:
+                enumerable: false, // Sichtbarkeit in for-in
+                configurable: false // nicht löschbar
+            });
+
+            // this.alter = alter;
+            // die Closure (Param-Variable ginge auch...)
+            var dasAlter = alter;
+            Object.defineProperty(this, 'alter', {
+                // Accessor-Descriptor
+                get: function () {
+                    // wir arbeiten auf einer Closure!!! -> kein this. verwenden
+                    return dasAlter;
+                    // oder 
+                    // return alter;
+                },
+                set: function (value) {
+                    // wir arbeiten auf einer Closure!!! -> kein this. verwenden
+                    dasAlter = value;
+                    // oder 
+                    // alter = value;
+                },
+                // allg. Descriptor-Props:
+                enumerable: false, // Sichtbarkeit in for-in
+                configurable: false // nicht löschbar             
+            })
+        }
+
+        var tim = new Person('Tim', 30);
+        console.log(tim);
+        // tim.vorname = 'Detlef';
+        // delete tim.vorname;
+        console.log('tim.alter:', tim.alter);
+        tim.alter = 'viel zu alt!';
+        tim.alter = 31;
+        console.log('tim.alter:', tim.alter);
+        console.log(tim);
+    </script>
+</head>
+
+<body>
+    <h1>ECMA5-Objekte</h1>
+</body>
+
+</html>

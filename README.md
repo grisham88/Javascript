@@ -1175,3 +1175,57 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     ```
 
 #### ECMA5-Objekte (Bessere Properties)
+##### Object.defineProperty
+```javascript
+Object.defineProperty(this (Bezug zum Object), 'Name der Property', {
+    //Aufzählung der Propertise
+});
+```
+* value
+    Wie heißt das Property
+    ```javascript
+    Object.defineProperty(this, 'alter', {
+        value: alter   
+    })
+    ```
+* writable
+    ```javascript
+    Object.defineProperty(this, 'alter', {
+        writable: false   
+    })
+    ```
+    * false  
+    Zugriff nur einmalig möglich durch Constructor.  
+    Mittels scrict mode würde ein erneuter Schreibzugriff, als Fehler ausgegeben werden.
+* enumerable  
+    ```javascript
+    Object.defineProperty(this, 'alter', {
+        enumerable: false // Sichtbarkeit in for-in      
+    })
+    ```
+* configurable
+    ```javascript
+    Object.defineProperty(this, 'alter', {
+       configurable: false  //nicht löschbar      
+    })
+    ```
+* get
+    ```javascript
+    Object.defineProperty(this, 'alter', {
+        // Accessor-Descriptor
+        get: function() {
+            console.log('Getter getriggert')
+            return alter;
+        }          
+    })
+    ```
+    Wir arbeiten auf einer Closure!!! -> kein this. verwenden
+* set
+    ```javascript
+    Object.defineProperty(this, 'alter', {
+        set: function(value) {
+            alter = value;
+        }          
+    })
+    ```
+    Wir arbeiten auf einer Closure!!! -> kein this. verwenden
