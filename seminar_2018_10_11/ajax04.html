@@ -12,6 +12,8 @@
             // hier ajaxen! Diesmal JSON
             var req = new XMLHttpRequest(); // readyState: 0
 
+            var dataObjOrigin;
+
             req.open('get', 'data/states.json', true); // readyState: 1
 
             req.onreadystatechange = function () {
@@ -19,7 +21,8 @@
                     // console.log('DataString:', this.responseText);
 
                     // Da das json direkt die Einzelemente enthält, kommt der Inhalt als Array zurück
-                    var dataObj = JSON.parse(this.responseText);
+                    dataObj = JSON.parse(this.responseText); 
+                    dataObjOrigin = JSON.parse(this.responseText);
                     console.log('DataObject:', dataObj);
 
                     var arrayOfStates = dataObj;
@@ -52,8 +55,21 @@
                 }
             }
             req.send();
-        }
 
+            document.getElementById('reverseButton').addEventListener('click', function (e) {
+                var bezugsknoten = document.getElementById('ausgabe');
+                bezugsknoten.innerHTML = '';
+                var arrayOfStates = dataObjOrigin;
+
+                arrayOfStates.reverse();
+                arrayOfStates.forEach(state => {
+                    var pElement = document.createElement('p');
+                    pElement.textContent = state.name + " (" + state.abbreviation + ")";
+                    bezugsknoten.appendChild(pElement);
+                });
+
+            })
+        }
 
     </script>
 
@@ -99,7 +115,7 @@
             font-style: italic;
             padding: 5px;
         }
-        
+
         #ausgabeListe ul li:nth-child(even) {
             background-color: lightgreen;
         }
@@ -111,7 +127,7 @@
 </head>
 
 <body>
-    <button id="reverseButton"></button>
+    <button id="reverseButton">Liste umdrehen</button>
     <div id="ausgabe"></div>
     <div id="ausgabeListe"></div>
 </body>
