@@ -1290,25 +1290,26 @@ function Person(parameter1, parameter2) {
 #### Standardausführung  
 Deklaration & Ausführung nacheinander
 
-    ```javascript
-    function appStart(){
-        console.log('Starte App');
-    }
+```javascript
+function appStart(){
+    console.log('Starte App');
+}
 
-    appStart();
-    ```
+appStart();
+```
+
 #### IIFE Ausführung  
 Deklaration und Ausführung zusammen 
 
-    ```javascript
-    (function () {
-        // lokaler Scope!!
-        var geheim = "sowas von...";
+```javascript
+(function () {
+    // lokaler Scope!!
+    var geheim = "sowas von...";
 
-        console.log('Starte App');
-    })();
-    ```
-    
+    console.log('Starte App');
+})();
+```
+
 * Beispiele
     ```javascript
     var toolbox = {
