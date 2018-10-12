@@ -824,22 +824,27 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
 #### Sonderfälle
 > Wird ein Objekt nach Json geparst, fallen alle Funktionen weg.   Das bedeutet beim zurückparsen enthält dieses im Objekt nur reine Informationen und keine Funktionen mehr.
 
-#### Anwendungsbeispiel
+#### Anwendungsbeispiel für JSON Behandlung 
+Objekt -> json / json -> Objekt
 ```javascript
 var person = {
     vorname: 'Peter',
     alter: 30,
-    haustier: ['Dackel', 'Katze']
+    haustier: ['Dackel', 'Katze'],
+
+    hallo: function () {
+        console.log('Hi! Ich bin nicht erlaubt!');
+    }
 };
 
-console.log(person); //{vorname: "Peter", alter: 30, haustier: Array(2)}
+console.log(person); // {vorname: "Peter", alter: 30, haustier: Array(2), hallo: ƒ}
 // JSON-Methoden
 
 // Objekt in String umwandeln
 var jsonString = JSON.stringify(person);
-console.log(jsonString); //{"vorname":"Peter","alter":30,"haustier":["Dackel","Katze"]}
+console.log(jsonString); // {"vorname":"Peter","alter":30,"haustier":["Dackel","Katze"]}
 
 // String in Objekt
 var ojbAusJson = JSON.parse(jsonString);
-console.log(ojbAusJson);
+console.log(ojbAusJson);// {vorname: "Peter", alter: 30, haustier: Array(2)}
 ```
