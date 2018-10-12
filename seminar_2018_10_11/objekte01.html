@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte</title>
+    <script>
+
+        var peter = {
+            vorname: 'Peter',
+            hallo: function () {
+                console.log('Hallo, ich bin', this.vorname);
+            }
+        }
+
+        console.log(peter);
+
+        function F() {
+            "use strict";
+            var x = "X";
+            console.log('this der Funktion:', this);
+            // aha...
+            this.y = "Y";
+            // implizit wg. new:
+            // return this;
+        }
+
+        // var obj = new Object();
+        var obj = new F();
+
+        console.log('Instanz:',obj);
+    </script>
+</head>
+
+<body>
+    <h1>Objekte</h1>
+</body>
+
+</html>

@@ -1002,3 +1002,35 @@ script3.js:1 Yo, ich bin Script 3
 script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
 
 ### Objekte
+* Beschreibung anhand der objekte01-objekte03.html nachziehen
+
+#### prototype
+* [JavaScript Object Prototypes](https://www.w3schools.com/js/js_object_prototypes.asp)
+* Prototype erweitert die Klassenbeschreibung des Objekttyps nachträglich
+    * So können nachträglich Eigenschaften dem Objekt hinzugefügt, aber auch Standardwerte gesetzt werden
+
+#### Attribute
+* wird in einem Objekt eine Variable mit var erzeugt, so ist diese anschließend private
+* wird ein Objekt mit this.-Attributen erzeugt, so sind diese public
+    ```javascript
+    var Person = function (vorname, konto) {
+        "use strict";
+        // privat
+        var konto = konto;
+        //private Variable durch Funktion freigeben (diese ist erstmal private)
+        //-> diese muss noch durch this. siehe unten nach außen freigegeben werden
+        function kontoLesenIntern() {
+            console.log(konto);
+            return konto;
+        }
+
+        // public
+        //Funktion wird nach außen freigegeben (this.ZUGRIFFSNAME = INTERNER FUNKTIONSNAME)
+        this.kontoLesen = kontoLesenIntern;
+        
+        //Variable wird public gestellt
+        this.vorname = vorname;
+    }
+    ```
+
+#### Vererbung

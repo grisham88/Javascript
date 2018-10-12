@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte</title>
+    <script>
+
+        var Person = function (vorname, konto) {
+            "use strict";
+            //privat
+            var konto = konto;
+            //private Variable durch Funktion freigeben (diese ist erstmal private)
+            //-> diese muss noch durch this. siehe unten nach außen freigegeben werden
+            function kontoLesenIntern() {
+                console.log(konto);
+                return konto;
+            }
+
+            //public
+            //Funktion wird nach außen freigegeben (this.ZUGRIFFSNAME = INTERNER FUNKTIONSNAME)
+            this.kontoLesen = kontoLesenIntern;
+
+            //Variable wird public gestellt
+            this.vorname = vorname;
+        }
+
+        Person.prototype.hallo = function () {
+            console.log('Hallo, ich bin', this.vorname,
+                'und habe ', this.kontoLesen(), 'JS-Taler...');
+        }
+        Person.prototype.lieblingsessen = "Pizza";
+
+        var tom = new Person('Tom', 20000);
+        tom.hallo();
+        console.log(tom);
+
+        var tim = new Person('Tim', 10000);
+    </script>
+</head>
+
+<body>
+    <h1>Objekte (4)</h1>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte und Vererbung</title>
+    <script>
+
+        var Person = function (vorname, konto) {
+            "use strict";
+            // privat
+            var konto = konto;
+            function kontoLesen() {
+                return konto;
+            }
+
+            // public
+            this.kontoLesen = kontoLesen;
+            this.vorname = vorname;
+        }
+
+        Person.prototype.hallo = function () {
+            console.log('Hallo, ich bin', this.vorname,
+                'und habe ', this.kontoLesen(), 'JS-Taler...');
+        }
+        Person.prototype.lieblingsessen = "Pizza";
+
+        var tom = new Person('Tom', 20000);    
+    </script>
+</head>
+
+<body>
+    <h1>Objekte (5)</h1>
+</body>
+
+</html>
