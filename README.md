@@ -1018,14 +1018,65 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
 
 ### Objekte
 
-#### prototype
+#### Prototype
 * [Anleitung](https://www.w3schools.com/js/js_object_prototypes.asp)
 * Prototype erweitert die Klassenbeschreibung des Objekttyps nachträglich
     * So können nachträglich Eigenschaften dem Objekt hinzugefügt, aber auch Standardwerte gesetzt werden
     * Nachträgliche Änderungen der Struktur mittels prototype, verändern nicht rückwirkend die Objekte
-* Beschreibung anhand der objekte03/objekte05.html nachziehen
-```javascript
-```
+* Beispiel
+    ```javascript
+    //Eigenständiges Objekt ohne weitere Instanzierungsmöglichkeit
+    var peter = {
+        vorname: 'Peter',
+        hallo: function () {
+            console.log('Hallo, ich bin', this.vorname);
+        }
+    }
+
+    console.log(peter);
+    // {vorname: "Peter", hallo: ƒ}
+
+    // Beschreibung eines Bauplans für Objekte
+    var Person = function (vorname) {
+        "use strict";
+        this.vorname = vorname;
+    }
+
+    // Nachträgliche Erweiterung der Beschreibung des Bauplans für das Objekt Person
+    // Nun können Objekt-Instanzen vom Typ Person die Funktion hallo und das Property lieblingsessen nutzen
+    Person.prototype.hallo = function () {
+        console.log('Hallo, ich bin', this.vorname);
+    }
+    Person.prototype.lieblingsessen = "Pizza";
+
+    var tom = new Person('Tom');
+    tom.hallo();
+    // Hallo, ich bin Tom
+
+    console.log('tom.lieblingsessen:', tom.lieblingsessen);
+    // tom.lieblingsessen: Pizza
+
+    //Tom hat jetzt ein eigenes Lieblingsessen, andere Personen bekommen bei ihrer Anlage immer noch Pizza
+    tom.lieblingsessen = "Pasta";
+    console.log('tom.lieblingsessen:', tom.lieblingsessen);
+    // tom.lieblingsessen: Pasta
+
+    //Die Zugehörige Eignschaft für das Objekt Tom wird nun resetet -> Standardwert wird nun gezogen
+    delete tom.lieblingsessen;
+    console.log('tom.lieblingsessen:', tom.lieblingsessen);
+    // tom.lieblingsessen: Pizza -> Standardwert des Prototype wird geholt
+    // delete tom.lieblingsessen; // no-op!
+
+    // Pseudolöschung: die Eigenschaft ist noch direkt dem Objekt tom zugeordnet
+    tom.lieblingsessen = undefined;
+    console.log('tom.lieblingsessen:', tom.lieblingsessen);
+    // tom.lieblingsessen: undefined
+
+    // Neue Instanzen von Person bekomen wieder das Standard-Lieblingsessen
+    var tim = new Person('Tim');
+    console.log('tim.lieblingsessen:', tim.lieblingsessen);
+    // tim.lieblingsessen: Pizza
+    ```
 
 #### Attribute
 * wird in einem Objekt eine  Variable mit var erzeugt, so ist diese anschließend private (lokale Variable)
