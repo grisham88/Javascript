@@ -1,5 +1,6 @@
 # JavaScript Seminar
 [Einführungswerke](https://github.com/getify/You-Dont-Know-JS)
+[Das Curry-Buch - Funktional programmieren lernen mit JavaScript](http://currybuch.de/)
 
 ## Markdown (.md) Formatierungsregeln
 * [Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
@@ -114,16 +115,14 @@ if (42 === '42') {
 }
 ```
 
-> HINWEIS
-> Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
+> HINWEIS  
+Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
 
 ### Functions
 #### Function
-> HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.
-
-> Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration
-
-> Der Code selbst wird dann linear abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
+> HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.  
+Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration.  
+Der Code selbst wird dann linear abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
 1. Globale Funktionen
 ```javascript
@@ -363,9 +362,8 @@ console.log('Nach der Funktion ist d:', d);
             return that;      // erlaubt
         }
         ```
-        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding).
-
-        > Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich.
+        > Wenn es in einer Funktion mit dem Strict Mode genutzt wird,ist 'this' undefiniert, da der Strict Mode keine Standardbindung erlaubt (default binding).  
+        Nur durch Aufbewahrung des Kontexts in einer anderen Variable ist der Zugriff möglich.
 
     * Nutzung von 'this' in einem Objekt
         ```javascript
@@ -378,9 +376,8 @@ console.log('Nach der Funktion ist d:', d);
             }
         };
         ```
-        > Wenn es in einer Objekt genutzt wird, bezieht sich das 'this' auf das Ojekt in dem es direkt aufgerufen wurde.
-
-        > Das Ojekt ist der Besitzer der Funktion.
+        > Wenn es in einer Objekt genutzt wird, bezieht sich das 'this' auf das Ojekt in dem es direkt aufgerufen wurde.  
+        Das Objekt ist der Besitzer der Funktion.
 
     * Nutzung von 'this' im Kontext 'Explicit Function Binding'
          ```javascript
@@ -396,9 +393,8 @@ console.log('Nach der Funktion ist d:', d);
         person1.fullName.call(person2);  // Gibt "John Doe" zurück
         ```
         > Die Methoden call () und apply () sind vordefinierte JavaScript-Methoden.  
-        Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.
-        
-        > In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
+        Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.          
+        In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
         
 #### Closures: Lexikalischer Kontext
 
@@ -485,8 +481,8 @@ console.log('Nach der Funktion ist d:', d);
     dasGeheimnis.getGeheim();   //Lese geheim: Geht das auch? Mal sehen...    
     ```
 
-    > Mittels Properties im return der Function können interne Methoden erreicht werden
-    > Object existiert durchgehend und weiß noch alles was jemals gesetzt wurde
+    > Mittels Properties im return der Function können interne Methoden erreicht werden.  
+    Object existiert durchgehend und weiß noch alles was jemals gesetzt wurde
     
 ### Arrays
 * Sammlung (Collection) von Daten die per Index aufgerufen/verändert werden können
