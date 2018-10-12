@@ -968,3 +968,8 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
         req.send();
     }
     ```
+    ```html
+    <body>
+        <div id="ausgabe">Hier erscheinen die Aufbereiteten JSON-Elemente, sobald der Request den Readystate 1 hat</div> 
+    </body>
+    ```

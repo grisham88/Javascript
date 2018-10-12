@@ -34,6 +34,19 @@
                         pElement.textContent = element.name + " (" + element.abbreviation + ")";
                         bezugsknoten.appendChild(pElement);
                     });
+
+                    var bezugsknoten = document.getElementById('ausgabeListe');
+                    var ulElement = document.createElement('ul');
+                    bezugsknoten.appendChild(ulElement);
+
+                    array.reverse();
+                    array.forEach(element => {
+                        console.log(element.name + " (" + element.abbreviation + ")");
+
+                        var pElement = document.createElement('li');
+                        pElement.textContent = element.name + " (" + element.abbreviation + ")";
+                        ulElement.appendChild(pElement);
+                    });
                 }
             }
             req.send();
@@ -43,7 +56,12 @@
     <style>
         #ausgabe * {
             border: 1px solid black;
-            margin: 0;
+            margin: 5px;
+        }
+
+        #ausgabe p {
+            float: left;
+            padding: 5px;
         }
 
         #ausgabe p:nth-child(even) {
@@ -53,11 +71,36 @@
         #ausgabe p:nth-child(odd) {
             background-color: lightblue;
         }
+
+        #ausgabeListe * {
+            border: 1px solid black;
+            margin: 5px;
+            clear: both;
+        }
+
+        #ausgabeListe ul {
+            background-color: grey;
+        }
+
+        #ausgabeListe ul li {
+            border: none;
+            font-style: italic;
+            padding: 5px;
+        }
+
+        #ausgabeListe ul li:nth-child(even) {
+            background-color: lightgreen;
+        }
+
+        #ausgabeListe ul li:nth-child(odd) {
+            background-color: blanchedalmond;
+        }
     </style>
 </head>
 
 <body>
     <div id="ausgabe"></div>
+    <div id="ausgabeListe"></div>
 </body>
 
 </html>
