@@ -655,16 +655,16 @@ console.log('Nach der Funktion ist d:', d);
 > Durch das Skript wird das komplette p11-element verändert.  
 Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben.
 
-* Zugriffsmethoden
-    * document
-        * getElementById
-        * getElementsByTagName
-        * getElementsByClassName
-        * querySelector
-        * querySelectorAll
-        * head
-        * body
-        * createElement
+#### Zugriffsmethoden
+   * document
+       * getElementById
+       * getElementsByTagName
+       * getElementsByClassName
+       * querySelector
+       * querySelectorAll
+       * head
+       * body
+       * createElement
             ```javascript
             var meinDiv = document.createElement('div');
             //Setzen von Properties im Div
