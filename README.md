@@ -689,7 +689,7 @@ Durch das Skript wird das p20-element überwacht und beim click auf das Element 
 
         document.body.appendChild(meinDiv);
         ```
-        * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
+    * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
         ```javascript
         var meinDiv = document.createElement('div');
         //Setzen von Properties im Div
@@ -740,7 +740,7 @@ Durch das Skript wird das p20-element überwacht und beim click auf das Element 
 * getElementsByClassName
 * addEventListener()
     > Mehrere Funktionszuweisungen zum Event möglich
-    
+
     ```javascript
     var meinDiv = document.createElement('div');
     meinDiv.id = 'FirstCreatedDiv';
@@ -816,3 +816,6 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
     <div id="ausgabe">Hier erscheint der Text, sobald der Request den Readystate 1 hat</div> 
 </body>
 ```
+
+### JSON
+#### Definition
