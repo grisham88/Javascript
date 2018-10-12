@@ -768,13 +768,16 @@ console.log('Nach der Funktion ist d:', d);
             ```
 
 ### Ajax
-* Definition:
-    > Asynchronous  
+* [Ajax Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
+* [HTTP - Requests](https://www.tutorialspoint.com/http/http_requests.htm)
+
+#### Definition
+    Asynchronous  
     JavaScript  
     And  
     XML  
-* [Ajax Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
-* Ajax Ablauf
+    
+#### Ajax Ablauf
     ```javascript
     // 1) Request bilden
     var req = new XMLHttpRequest(); // readyState: 0
