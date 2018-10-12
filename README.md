@@ -1328,9 +1328,9 @@ function Person(parameter1, parameter2) {
                 tool2: function () { }
             }
         })();
+        
+        bessereToolbox.getConst1();
         ```
-
-    bessereToolbox.getConst1();
 
 #### Standardausführung  
 Deklaration & Ausführung nacheinander
