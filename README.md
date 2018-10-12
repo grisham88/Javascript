@@ -189,29 +189,37 @@ beispiel = function () {
 ```javascript
 // globale Variable
 var a = "A";
-console.log('Vor der Funktion ist a:', a);      //A
+console.log('Vor der Funktion ist a:', a);
+//A
 var b = "B";
-console.log('Vor der Funktion ist b:', b);      //B
+console.log('Vor der Funktion ist b:', b);
+//B
 
 function test() {
     a = 'Neues A';
-    console.log('In der Funktion ist a:', a);   //Neues A
+    console.log('In der Funktion ist a:', a);
+    //Neues A
     // lokale Variable
     var b = 'Neues B';
-    console.log('In der Funktion ist b:', b);   //Neus B
+    console.log('In der Funktion ist b:', b);
+    //Neus B
     var c = 'Ein C';
-    console.log('In der Funktion ist c:', c);   //Ein C
+    console.log('In der Funktion ist c:', c);
+    //Ein C
     d = 'Ein D';
-    console.log('In der Funktion ist d:', d);   //Ein D
+    console.log('In der Funktion ist d:', d);
+    //Ein D
 }
 
 // console.log('Vor der Funktion ist d:', d);
 //REFERROR -> Variable existiert er nach Ausführung der Funktion
 test();
 
-console.log('Nach der Funktion ist a:', a);     //Neues A
+console.log('Nach der Funktion ist a:', a);    
+//Neues A
 
-console.log('Nach der Funktion ist b:', b);     //B, da die Variable b nochmals lokal erzeugt wurde
+console.log('Nach der Funktion ist b:', b);    
+//B, da die Variable b nochmals lokal erzeugt wurde
 
 // console.log('Nach der Funktion ist c:', c);  
 //REFERROR -> existierte nur lokal zur Ausführungszeit der Funktion
@@ -234,7 +242,8 @@ console.log('Nach der Funktion ist d:', d);
             }
 
             var ergebnis = addiere(17, 6);
-            console.log('ergebnis:', ergebnis); //22
+            console.log('ergebnis:', ergebnis);
+            //22
             ```
 
         * Ohne erneute lokale Deklaration
@@ -244,7 +253,8 @@ console.log('Nach der Funktion ist d:', d);
             }
 
             var ergebnis = addiere(17, 6);
-            console.log('ergebnis:', ergebnis); //23
+            console.log('ergebnis:', ergebnis);
+            //23
             ```
 
         * Parameteranzahl variieren
@@ -261,7 +271,8 @@ console.log('Nach der Funktion ist d:', d);
                 */ 
 
                 ergebnis = addiere(13, 14, 15); // Überschuss
-                console.log('ergebnis:', ergebnis); //27
+                console.log('ergebnis:', ergebnis);
+                //27
                 ```
 
             * Zu wenig Parameter mitgegeben
@@ -277,7 +288,8 @@ console.log('Nach der Funktion ist d:', d);
                 */
                 
                 ergebnis = addiere(18); // fehlender Wert
-                console.log('ergebnis:', ergebnis); //NaN
+                console.log('ergebnis:', ergebnis);
+                //NaN
                 ```
 
             > Überladung einer Funktion (eindeutiger Name) mit verschiedenen Parametern nicht möglich.
@@ -292,16 +304,20 @@ console.log('Nach der Funktion ist d:', d);
         }
 
         var ergebnis = addiere(17, 6);
-        console.log('ergebnis:', ergebnis); //23
+        console.log('ergebnis:', ergebnis);
+        //23
 
         ergebnis = addiere(13, 14, 15); // Überschuss
-        console.log('ergebnis:', ergebnis); //27
+        console.log('ergebnis:', ergebnis);
+        //27
 
         ergebnis = addiere(18); // fehlender Wert
-        console.log('ergebnis:', ergebnis); //18
+        console.log('ergebnis:', ergebnis);
+        //18
 
         ergebnis = addiere(); // kein  Wert
-        console.log('ergebnis:', ergebnis); //0
+        console.log('ergebnis:', ergebnis);
+        //0
         ```
 
         > Wenn die Variablen nicht gefüllt werden, dann werden Sie mit einem Defaultwert 0 (a = a || 0) überschrieben.
@@ -324,16 +340,20 @@ console.log('Nach der Funktion ist d:', d);
         }
 
         var ergebnis = addiere(17, 6);
-        console.log('ergebnis:', ergebnis); //Wert 23 | Arguments-Anzahl:2
+        console.log('ergebnis:', ergebnis);
+        //Wert 23 | Arguments-Anzahl:2
 
         ergebnis = addiere(13, 14, 15); // Überschuss
-        console.log('ergebnis:', ergebnis); //Wert 27 | Arguments-Anzahl:3 | 3.ter Wert -> 15
+        console.log('ergebnis:', ergebnis);
+        //Wert 27 | Arguments-Anzahl:3 | 3.ter Wert -> 15
 
         ergebnis = addiere(18); // fehlender Wert
-        console.log('ergebnis:', ergebnis); //Wert 18 | Arguments-Anzahl:1
+        console.log('ergebnis:', ergebnis);
+        //Wert 18 | Arguments-Anzahl:1
 
         ergebnis = addiere(); // kein  Wert
-        console.log('ergebnis:', ergebnis); //Wert 0 | Arguments-Anzahl:0
+        console.log('ergebnis:', ergebnis);
+        //Wert 0 | Arguments-Anzahl:0
         ```
         
         > In der Funktion ist es möglich auf die Parameterliste mittels argument zuzugreifen. Diese kann man per Index durchlaufen und darauf zugreifen.
@@ -441,13 +461,16 @@ console.log('Nach der Funktion ist d:', d);
 
     var dasGeheimnis = geheimnis('Ganz furchtbar geheim...');
     console.log('dasGeheimnis:', dasGeheimnis)
-    dasGeheimnis(); //Lese geheim: Ganz furchtbar geheim...
+    dasGeheimnis(); 
+    //Lese geheim: Ganz furchtbar geheim...
 
     var zweitesGeheimnis = geheimnis('Mein anderes Geheimnis!');
     console.log('dasGeheimnis:', dasGeheimnis)
-    dasGeheimnis(); //Lese geheim: Ganz furchtbar geheim...
+    dasGeheimnis();
+    //Lese geheim: Ganz furchtbar geheim...
 
-    zweitesGeheimnis(); //Lese geheim: Mein anderes Geheimnis!
+    zweitesGeheimnis();
+    //Lese geheim: Mein anderes Geheimnis!
     ```
 
     > Die Funktion wird als Object abgespeichert in dasGeheimnis, dieses wird nun nicht mehr geändert, da es sich um eine Instanz handelt
@@ -478,9 +501,11 @@ console.log('Nach der Funktion ist d:', d);
     }
 
     var dasGeheimnis = geheimnis('Ganz furchtbar geheim...');
-    dasGeheimnis.getGeheim();   //Lese geheim: Ganz furchtbar geheim...
+    dasGeheimnis.getGeheim();   
+    //Lese geheim: Ganz furchtbar geheim...
     dasGeheimnis.setGeheim('Geht das auch? Mal sehen...');
-    dasGeheimnis.getGeheim();   //Lese geheim: Geht das auch? Mal sehen...    
+    dasGeheimnis.getGeheim();   
+    //Lese geheim: Geht das auch? Mal sehen...    
     ```
 
     > Mittels Properties im return der Function können interne Methoden erreicht werden.  
@@ -494,19 +519,25 @@ console.log('Nach der Funktion ist d:', d);
     ```javascript
     var arr = ['Rosen', 'Tulpen', 'Nelken'];
 
-    console.log('arr.length:', arr.length); //3
-    console.log('arr[1]:', arr[1]); //Tulpen
+    console.log('arr.length:', arr.length);
+    //3
+    console.log('arr[1]:', arr[1]);
+    //Tulpen
 
     arr[4] = "Veilchen";
         
-    console.log('arr.length:', arr.length); //5
-    console.log('arr[4]:', arr[4]); //Veilchen
+    console.log('arr.length:', arr.length);
+    //5
+    console.log('arr[4]:', arr[4]);
+    //Veilchen
     
     //modifizierende Methoden: push(), pop(), shift(), unshift()
     arr.push('Geranien');
 
-    console.log('arr.length:', arr.length); //6
-    console.log('arr[5]:', arr[5]); //Geranien
+    console.log('arr.length:', arr.length);
+    //6
+    console.log('arr[5]:', arr[5]);
+    //Geranien
 
     // Array auslesen:
     for (i = 0; i < arr.length; i++) {
@@ -523,7 +554,8 @@ console.log('Nach der Funktion ist d:', d);
     }
     //Geranien, Veilchen, undefined, Nelken, Tulpen, Rosen
 
-    console.log('What" "? i:', i); // 6 
+    console.log('What" "? i:', i); 
+    // 6 
     // Mit Ecma6 wird i nicht global definiert
 
     ```
@@ -585,7 +617,8 @@ console.log('Nach der Funktion ist d:', d);
                 return val > 7;
             })
 
-            console.log(gefiltert.length); // Neues Array mit 5 Elementen
+            console.log(gefiltert.length);
+            // Neues Array mit 5 Elementen
             ```
 
         * map(fn) => new Array
@@ -606,7 +639,8 @@ console.log('Nach der Funktion ist d:', d);
                 return a + b;
             });
             
-            console.log(summe); // Kombiniert alle Werte miteinander
+            console.log(summe); 
+            // Kombiniert alle Werte miteinander
             ```
 
 ### DOM
@@ -764,7 +798,7 @@ Durch das Skript wird das p20-element überwacht und beim click auf das Element 
     ```javascript
     var article = document.getElementById('electriccars');
 
-    article.dataset.columns // "3"
+    article.dataset.columns// "3"
     article.dataset.indexNumber // "12314"
     article.dataset.parent // "cars"
 
@@ -794,16 +828,19 @@ var person = {
     }
 };
 
-console.log(person);        // {vorname: "Peter", alter: 30, haustier: Array(2), hallo: ƒ}
+console.log(person);
+// {vorname: "Peter", alter: 30, haustier: Array(2), hallo: ƒ}
 
 // JSON-Methoden
 // Objekt in String umwandeln
 var jsonString = JSON.stringify(person);
-console.log(jsonString);    // {"vorname":"Peter","alter":30,"haustier":["Dackel","Katze"]}
+console.log(jsonString);
+// {"vorname":"Peter","alter":30,"haustier":["Dackel","Katze"]}
 
 // String in Objekt
 var ojbAusJson = JSON.parse(jsonString);
-console.log(ojbAusJson);    // {vorname: "Peter", alter: 30, haustier: Array(2)}
+console.log(ojbAusJson);
+// {vorname: "Peter", alter: 30, haustier: Array(2)}
 ```
 
 ### AJAX
@@ -884,20 +921,13 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
                 /*
                 DataObject: 
                 {success: true, dataProp: "personen", primKey: "mId", personen: Array(5)}
-                dataProp
-                :
-                "personen"
-                personen
-                :
-                (5) [{…}, {…}, {…}, {…}, {…}]
-                primKey
-                :
-                "mId"
-                success
-                :
-                true
-                __proto__
-                :
+                dataProp: "personen"
+                    personen: (5) [{…}, {…}, {…}, {…}, {…}]
+                    primKey:
+                        "mId"
+                        success
+                        :
+                        true
                 */
                     
                 //Hier muss man wissen wie das Ojekt heißt
@@ -909,27 +939,14 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
                 /*
                 DataList: DataList: 
                 (5) [{…}, {…}, {…}, {…}, {…}]
-                0
-                :
-                {vorname: "Peter", nachname: "Panter", mId: "m001"}
-                1
-                :
-                {vorname: "Theo", nachname: "Tiger", mId: "m002"}
-                2
-                :
-                {vorname: "Leo", nachname: "Löwe", mId: "m004"}
-                3
-                :
-                {vorname: "Anton", nachname: "Ameise", mId: "m007"}
-                4
-                :
-                {vorname: "Bruno", nachname: "Büffel", mId: "m006"}
-                length
-                :
-                5
-                __proto__
-                :
-                Array(0)
+                0: {vorname: "Peter", nachname: "Panter", mId: "m001"}
+                1: {vorname: "Theo", nachname: "Tiger", mId: "m002"}
+                2: {vorname: "Leo", nachname: "Löwe", mId: "m004"}
+                3: {vorname: "Anton", nachname: "Ameise", mId: "m007"}
+                4: {vorname: "Bruno", nachname: "Büffel", mId: "m006"}
+                length:5
+                __proto__:
+                    Array(0)
                 */
             }
         }
@@ -946,8 +963,6 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
 
         req.onreadystatechange = function () {
             if (this.readyState === 4) {
-                // console.log('DataString:', this.responseText);
-
                 // Da das json direkt die Einzelemente enthält, kommt der Inhalt als Array zurück
                 var dataObj = JSON.parse(this.responseText);
                 console.log('DataObject:', dataObj);
@@ -1044,7 +1059,8 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
         x: "X",
         y: "Y"
     }
-    console.log('objX', objX);  // objX {x: "X", y: "Y"}
+    console.log('objX', objX);
+    // objX {x: "X", y: "Y"}
 
     /* Brandan Eich:
         function F() {}
@@ -1061,8 +1077,10 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     }
 
     var objXY = Vererben();
-    console.log('objXY', objXY);    // objXY F {}
-    console.log('objX', objX);      // objX {x: "X", y: "Y", z: "Z"}
+    console.log('objXY', objXY);
+    // objXY F {}
+    console.log('objX', objX);/
+    // objX {x: "X", y: "Y", z: "Z"}
     ```
 * Das neue Objekt erbt von einem bestehenden Objekt(Instanz) durch die Übernahme in das prototype des neuen Objekts (ACHTUNG hier gibt es kein Klassenkonzept)
     ```javascript
@@ -1115,7 +1133,9 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
         hallo: ƒ ()
         lieblingsessen: "Pizza"
     */
-    console.log('Führerschein:', pete.fuehrerschein, 'von', pete.vorname);  // Führerschein: Klasse 1 von Pete
+
+    console.log('Führerschein:', pete.fuehrerschein, 'von', pete.vorname);  
+    // Führerschein: Klasse 1 von Pete
 
     var steven = new Fahrer('Klasse 2', 'Steven', 40000);
     console.log(steven);
@@ -1128,13 +1148,16 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
        __proto__:
            hallo: ƒ ()
            lieblingsessen: "Pizza"
-       */
-    console.log('Führerschein:', steven.fuehrerschein, 'von', steven.vorname);  // Führerschein: Klasse 2 von Steven
+    */
+
+    console.log('Führerschein:', steven.fuehrerschein, 'von', steven.vorname);  
+    // Führerschein: Klasse 2 von Steven
 
     //Die ursprüngliche Struktur von Person wird nicht geändert
     console.log(tom);   // kennt keine späteren prototype-Erweiterungen
     //kennt noch nicht die neue Eigenschaft
-    console.log(tom.restaurant);    //undefined
+    console.log(tom.restaurant); 
+    //undefined
 
     //Nachträgliche Änderungen der Struktur, verändern nicht rückwirkend die Objekte
 
@@ -1145,6 +1168,10 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     tom.restaurant = "Stephanies";
 
     // Es schaut erst beim Aufruf der Eigenschaft nach, ob es es selbst kennt, oder diese im Prototype liegt
-    console.log(tom.restaurant);    //Stephanies
-    console.log(john.restaurant);   //Pizzeria Luigi  
+    console.log(tom.restaurant);
+    //Stephanies
+    console.log(john.restaurant);
+    //Pizzeria Luigi  
     ```
+
+#### ECMA5-Objekte (Bessere Properties)
