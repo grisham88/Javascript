@@ -11,15 +11,20 @@
             console.log(42);
             return 42;
         })();
+        // 42
 
         var toolbox = {
             CONST_1: 17,
             CONST_2: 21,
             tool1: function inneresTool1() { },
-            tool2: function () { }
+            tool2: function () {
+                console.log(42);
+                return 42;
+            }
         };
 
         toolbox.tool2();
+        // 42
 
         // "revealing module"
         var bessereToolbox = (function () {
@@ -30,6 +35,7 @@
             // public:
             return {
                 getConst1: function getInnereConst1() {
+                    console.log(CONST_1);
                     return CONST_1;
                 },
                 getConst2: function getInnereConst2() {

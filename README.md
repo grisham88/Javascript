@@ -1285,32 +1285,27 @@ function Person(parameter1, parameter2) {
 ### IIFE (Immediately Invoked Function Expression)
 * Direkt aufgerufene Funktion nach der Deklaration
 * Funktionen werden durch reine Deklaration ermöglich immer wieder zu instanzieren, mittels IIFE kann nur eine Insatz existieren
-* ACHTUNG iife02-04.html ausformulieren und README aktualisieren
 * Zugriff ist dann per return möglich
+* Beispiele
     ```javascript
     var toolbox = {
         CONST_1: 17,
         CONST_2: 21,
         tool1: function inneresTool1 () { }, //Kenzeichnung der inneren funktion mittels Name nicht notwendig
-        tool2: function () { }
+        tool2: function () { 
+                    console.log(42);
+                    return 42;
+                    }
     };
 
     //Zugriff auf innere Methode durch die public-Funktion von toolbox 
-    toolbox.tool2();    
+    toolbox.tool2();
+    // 42
     ```
-    * Revealing Mode
-        ```javascript
-        var toolbox = {
-            CONST_1: 17,
-            CONST_2: 21,
-            tool1: function inneresTool1 () { }, //Kenzeichnung der inneren funktion mittels Name nicht notwendig
-            tool2: function () { }
-        };
-
-        //Zugriff auf innere Methode durch die public-Funktion von toolbox 
-        toolbox.tool2();     
-        ```  
-        ```javascript
+    * Revealing Module   
+        * [The Revealing Module Pattern in Javascript](https://gist.github.com/zcaceres/bb0eec99c02dda6aac0e041d0d4d7bf2)
+        * Beschreibung anhand iife02.html-iife04.html nachziehen
+        ```javascript        
         var bessereToolbox = (function () {
             // private!
             var CONST_1 = 17;
@@ -1319,9 +1314,38 @@ function Person(parameter1, parameter2) {
             // public:
             return {
                 getConst1: function getInnereConst1() {
+                    console.log(CONST_1);
                     return CONST_1;
                 },
                 getConst2: function getInnereConst2() {
+                    console.log(CONST_2);
+                    return CONST_2;
+                },
+                tool1: function () { },
+                tool2: function () { }
+            }
+        })();
+        
+        //Zugriff auf innere Funktionen per return möglich
+        bessereToolbox.getConst1();
+        //17
+        ```
+        > alternative
+        ```javascript 
+        (function () {
+            // private!
+            var CONST_1 = 17;
+            var CONST_2 = 21;
+
+            // public:
+            //this oder window möglich
+            window.besereToolbox2 = {
+                getConst1: function getInnereConst1() {
+                    console.log(CONST_1);
+                    return CONST_1;
+                },
+                getConst2: function getInnereConst2() {
+                    console.log(CONST_2);
                     return CONST_2;
                 },
                 tool1: function () { },
@@ -1330,7 +1354,33 @@ function Person(parameter1, parameter2) {
         })();
         
         bessereToolbox.getConst1();
-        ```
+        //17
+    * IIFE mit Kontext-Parameter "global import module pattern"
+    ```javascript
+    (function (global) { //Name des Windows
+        // private!
+        var CONST_1 = 17;
+        var CONST_2 = 21;
+
+        // public:
+        global.bessereToolbox2 = {
+            getConst1: function () {
+                console.log(CONST_1);
+                return CONST_1;
+            },
+            getConst2: function () {
+                console.log(CONST_2);
+                return CONST_2;
+            },
+            tool1: function () { },
+            tool2: function () { }
+        }
+    })(window); // oder this möglich
+
+    window.bessereToolbox2.getConst1();
+    // 17
+    ```
+    > Funktion ist so später noch nutzbar, aber nicht mehr instanzierbar
 
 #### Standardausführung  
 Deklaration & Ausführung nacheinander
@@ -1353,6 +1403,3 @@ Deklaration und Ausführung zusammen
         console.log('Starte App');
     })();
     ```
-#### Revealing Module
-* [The Revealing Module Pattern in Javascript](https://gist.github.com/zcaceres/bb0eec99c02dda6aac0e041d0d4d7bf2)
-* Beschreibung anhand iife02.html-iife04.html nachziehen

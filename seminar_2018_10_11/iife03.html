@@ -16,15 +16,20 @@
             // public:
             return {
                 getConst1: function () {
+                    console.log(CONST_1);
                     return CONST_1;
                 },
                 getConst2: function () {
+                    console.log(CONST_2);
                     return CONST_2;
                 },
                 tool1: function () { },
                 tool2: function () { }
             }
         })();
+
+        bessereToolbox.getConst2();
+        // 21
 
         // alternativ so:
         (function () {
@@ -33,17 +38,23 @@
             var CONST_2 = 21;
 
             // public:
+            //this oder window möglich
             window.bessereToolbox2 = {
                 getConst1: function () {
+                    console.log(CONST_1);
                     return CONST_1;
                 },
                 getConst2: function () {
+                    console.log(CONST_2);
                     return CONST_2;
                 },
                 tool1: function () { },
                 tool2: function () { }
             }
         })();
+
+        this.bessereToolbox2.getConst2();
+        // 21
     </script>
 </head>
 
