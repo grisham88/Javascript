@@ -29,7 +29,10 @@
             document.body.appendChild(meinDiv);
             // b) PARENT.insertBefore(NEUER_KNOTEN, REFERENZ)
             var bezugsknoten = document.getElementById('p1');
-            document.body.insertBefore(meinDiv, bezugsknoten);
+            // okay, aber ich muss ZWEI Knoten kennen:
+            // document.body.insertBefore(meinDiv, bezugsknoten);
+            //besser
+            bezugsknoten.parentNode.insertBefore(meinDiv, bezugsknoten);
 
             // ein Klon (falls ich eine echte Kopie brauche):
             // cloneNode() | cloneNode(blnDeep)

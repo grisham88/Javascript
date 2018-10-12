@@ -533,79 +533,80 @@ console.log('Nach der Funktion ist d:', d);
     * Es ist auch möglich nur durch die enthaltenen Elemente zu laufen (mittels Key). Der Index der undefined ist, wird nicht durchlaufen
     * Auswertende Methoden (Arbeiten auf dem Array möglich)
         * for-in-Schleife
-        ```javascript
-        for (var item in arr) {
-            console.log(item, arr[item]);
-        }
-        //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
-        ```
-                
+            ```javascript
+            var arr = ['Rosen', 'Tulpen', 'Nelken'];
+
+            for (var item in arr) {
+                console.log(item, arr[item]);
+            }
+            //0 Geranien, 1 Veilchen, 3 Nelken, 4 Tulpen, 5 Rosen
+            ```                
         * forEach(fn) (Higher Order Methode)
-        ```javascript
-         // ECMA6 : arr.forEach(el => console.log(el))
-        arr.forEach(function () {
-            // this können wir hier NICHT brauchen
-            console.log('Hepp', arguments)
-        });
-        //Es werden immer 3 Argumente beim ArrayElement mitgegeben
+            ```javascript
+            var arr = ['Rosen', 'Tulpen', 'Nelken'];
 
-        //Zugriff auf die einzelnen Argumente möglich
-        arr.forEach(function (value, index, arrayInstance) {
-            console.log('Hepp', val)
-        });
-        /*
-        "Geranien", 0, Array(6)
-        "Veilchen", 1, Array(6)
-        "Nelken", 3, Array(6)
-        "Tulpen", 4, Array(6)
-        "Rosen", 5, Array(6)
-        */
-        ```
+            // ECMA6 : arr.forEach(el => console.log(el))
+            arr.forEach(function () {
+                // this können wir hier NICHT brauchen
+                console.log('Hepp', arguments)
+            });
+            //Es werden immer 3 Argumente beim ArrayElement mitgegeben
 
+            //Zugriff auf die einzelnen Argumente möglich
+            arr.forEach(function (value, index, arrayInstance) {
+                console.log('Hepp', val)
+            });
+            /*
+            "Geranien", 0, Array(6)
+            "Veilchen", 1, Array(6)
+            "Nelken", 3, Array(6)
+            "Tulpen", 4, Array(6)
+            "Rosen", 5, Array(6)
+            */
+            ```
         * some(fn) => boolean
-        ```javascript
-        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+            ```javascript
+            var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
 
-        if (daten.some(function (val) {
-            return val > 7;
-        })) {
-            console.log('Werte sind brauchbar...');
-        }
-        //Werte sind brauchbar
-        ```
-
+            if (daten.some(function (val) {
+                return val > 7;
+            })) {
+                console.log('Werte sind brauchbar...');
+            }
+            //Werte sind brauchbar
+            ```
         * every(fn) => boolean
         * filter(fn) => new Array
-        ```javascript
-        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+            ```javascript
+            var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
 
-        var gefiltert = daten.filter(function (val) {
-            return val > 7;
-        })
+            var gefiltert = daten.filter(function (val) {
+                return val > 7;
+            })
 
-        console.log(gefiltert.length); // Neues Array mit 5 Elementen
-        ```
+            console.log(gefiltert.length); // Neues Array mit 5 Elementen
+            ```
 
         * map(fn) => new Array
-        ```javascript
-        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+            ```javascript
+            var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
 
-        var quadriert = daten.map(function (item) {
-            return item * item;
-        });
-        //Gibt ein neues Array zurück (gleiche Größe/Neue Inhalte)
-        ```
+            var quadriert = daten.map(function (item) {
+                return item * item;
+            });
+            //Gibt ein neues Array zurück (gleiche Größe/Neue Inhalte)
+            ```
 
         * reduce(fn) => value ()
-         ```javascript
-        var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
+            ```javascript
+            var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
 
-        var summe = daten.reduce(function (a, b) {
-            return a + b;
-        });
-        
-        console.log(summe); // Kombiniert alle Werte miteinander
-        ```
+            var summe = daten.reduce(function (a, b) {
+                return a + b;
+            });
+            
+            console.log(summe); // Kombiniert alle Werte miteinander
+            ```
 
 ### DOM
 * Wird der DOM-Baum durchlaufen muss das Script berücksichtigen, dass der Baum auch bereits erzeugt wurde.
@@ -661,40 +662,6 @@ console.log('Nach der Funktion ist d:', d);
         * head
         * body
         * createElement
-        ```javascript
-        var meinDiv = document.createElement('div');
-        //Setzen von Properties im Div
-        meinDiv.id = 'FirstCreatedDiv';
-        meinDiv.title = 'Mein neues Div';
-        meinDiv.className = 'rahmen';
-        meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-
-        //Events mit Funktionen füllen
-        meinDiv.addEventListener('click', function (e) {
-            console.log('1. Listener: Neues Div wurde geklickt...');
-        });
-
-        meinDiv.addEventListener('click', function (e) {
-            console.log('2. Listener: Neues Div wurde geklickt...');
-        });
-        //Beide Funktionen werden beim Ausführen des Events werden nacheinander abgearbeitet
-
-        console.log(meinDiv)
-        ```
-        * ins Dokument einfügen
-            > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
-            * PARENT.appendChild(NEUER_KNOTEN)
-            ```javascript            
-            var meinDiv = document.createElement('div');
-            //Setzen von Properties im Div
-            meinDiv.id = 'FirstCreatedDiv';
-            meinDiv.title = 'Mein neues Div';
-            meinDiv.className = 'rahmen';
-            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-
-            document.body.appendChild(meinDiv);
-            ```
-            * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
             ```javascript
             var meinDiv = document.createElement('div');
             //Setzen von Properties im Div
@@ -703,13 +670,50 @@ console.log('Nach der Funktion ist d:', d);
             meinDiv.className = 'rahmen';
             meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
 
-            var bezugsknoten = document.getElementById('p1');
-            document.body.insertBefore(meinDiv, bezugsknoten);
+            //Events mit Funktionen füllen
+            meinDiv.addEventListener('click', function (e) {
+                console.log('1. Listener: Neues Div wurde geklickt...');
+            });
+
+            meinDiv.addEventListener('click', function (e) {
+                console.log('2. Listener: Neues Div wurde geklickt...');
+            });
+            //Beide Funktionen werden beim Ausführen des Events werden nacheinander abgearbeitet
+
+            console.log(meinDiv)
             ```
+        * Element an eine bestimmte Stelle im Dokument einfügen
+            > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
+            * PARENT.appendChild(NEUER_KNOTEN)
+                ```javascript            
+                var meinDiv = document.createElement('div');
+                //Setzen von Properties im Div
+                meinDiv.id = 'FirstCreatedDiv';
+                meinDiv.title = 'Mein neues Div';
+                meinDiv.className = 'rahmen';
+                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+                document.body.appendChild(meinDiv);
+                ```
+            * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
+                ```javascript
+                var meinDiv = document.createElement('div');
+                //Setzen von Properties im Div
+                meinDiv.id = 'FirstCreatedDiv';
+                meinDiv.title = 'Mein neues Div';
+                meinDiv.className = 'rahmen';
+                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+                var bezugsknoten = document.getElementById('p1');
+                // okay, aber ich muss ZWEI Knoten kennen:
+                document.body.insertBefore(meinDiv, bezugsknoten);
+                // besser
+                bezugsknoten.parentNode.insertBefore(meinDiv, bezugsknoten);
+                ```
         * Element kopieren
             > ACHTUNG  
             Events werden nicht mitkopiert
-            * ohne Unterelemente
+            * ohne Unterelemente -> cloneNode()
                 ```javascript            
                 var meinDiv = document.createElement('div');
                 //Setzen von Properties im Div
@@ -722,7 +726,7 @@ console.log('Nach der Funktion ist d:', d);
                 console.log('Klon: ', klonDiv);
                 document.body.appendChild(klonDiv);
                 ```
-            * mit Unterelemente
+            * mit Unterelementen -> cloneNode(true)
                 ```javascript            
                 var meinDiv = document.createElement('div');
                 //Setzen von Properties im Div
