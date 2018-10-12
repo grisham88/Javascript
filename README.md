@@ -656,15 +656,39 @@ console.log('Nach der Funktion ist d:', d);
 Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben.
 
 #### Zugriffsmethoden
-   * document
-       * getElementById
-       * getElementsByTagName
-       * getElementsByClassName
-       * querySelector
-       * querySelectorAll
-       * head
-       * body
-       * createElement
+##### document
+   * getElementById
+   * getElementsByTagName
+   * getElementsByClassName
+   * querySelector
+   * querySelectorAll
+   * head
+   * body
+   * createElement
+        ```javascript
+         var meinDiv = document.createElement('div');
+         //Setzen von Properties im Div
+         meinDiv.id = 'FirstCreatedDiv';
+         meinDiv.title = 'Mein neues Div';
+         meinDiv.className = 'rahmen';
+         meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+         console.log(meinDiv)
+          ```
+    * Element an eine bestimmte Stelle im Dokument einfügen
+        > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
+        * PARENT.appendChild(NEUER_KNOTEN)
+            ```javascript        
+            var meinDiv = document.createElement('div');
+            //Setzen von Properties im Div
+            meinDiv.id = 'FirstCreatedDiv';
+            meinDiv.title = 'Mein neues Div';
+            meinDiv.className = 'rahmen';
+            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+
+            document.body.appendChild(meinDiv);
+            ```
+            * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
             ```javascript
             var meinDiv = document.createElement('div');
             //Setzen von Properties im Div
@@ -673,102 +697,78 @@ Durch das Skript wird das p20-element überwacht und beim click auf das Element 
             meinDiv.className = 'rahmen';
             meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
 
-            console.log(meinDiv)
+            var bezugsknoten = document.getElementById('p1');
+            // okay, aber ich muss ZWEI Knoten kennen:
+            document.body.insertBefore(meinDiv, bezugsknoten);
+            // besser
+            bezugsknoten.parentNode.insertBefore(meinDiv, bezugsknoten);
             ```
-        * Element an eine bestimmte Stelle im Dokument einfügen
-            > Hier wird nur die Parentreferenz geändert, das Element wird dadurch nicht an mehreren Stellen gleichzeitig eingefügt
-            * PARENT.appendChild(NEUER_KNOTEN)
-                ```javascript            
-                var meinDiv = document.createElement('div');
-                //Setzen von Properties im Div
-                meinDiv.id = 'FirstCreatedDiv';
-                meinDiv.title = 'Mein neues Div';
-                meinDiv.className = 'rahmen';
-                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-
-                document.body.appendChild(meinDiv);
-                ```
-            * PARENT.insertBefore(NEUER_KNOTEN, REFERENZ))
-                ```javascript
-                var meinDiv = document.createElement('div');
-                //Setzen von Properties im Div
-                meinDiv.id = 'FirstCreatedDiv';
-                meinDiv.title = 'Mein neues Div';
-                meinDiv.className = 'rahmen';
-                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-
-                var bezugsknoten = document.getElementById('p1');
-                // okay, aber ich muss ZWEI Knoten kennen:
-                document.body.insertBefore(meinDiv, bezugsknoten);
-                // besser
-                bezugsknoten.parentNode.insertBefore(meinDiv, bezugsknoten);
-                ```
-        * Element kopieren
-            > ACHTUNG  
-            Events werden nicht mitkopiert
-            * ohne Unterelemente -> cloneNode()
-                ```javascript            
-                var meinDiv = document.createElement('div');
-                //Setzen von Properties im Div
-                meinDiv.id = 'FirstCreatedDiv';
-                meinDiv.title = 'Mein neues Div';
-                meinDiv.className = 'rahmen';
-                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-                
-                var klonDiv = meinDiv.cloneNode();
-                console.log('Klon: ', klonDiv);
-                document.body.appendChild(klonDiv);
-                ```
-            * mit Unterelementen -> cloneNode(true)
-                ```javascript            
-                var meinDiv = document.createElement('div');
-                //Setzen von Properties im Div
-                meinDiv.id = 'FirstCreatedDiv';
-                meinDiv.title = 'Mein neues Div';
-                meinDiv.className = 'rahmen';
-                meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
-                
-                var klonDiv = meinDiv.cloneNode(true);
-                console.log('Klon: ', klonDiv);
-                document.body.appendChild(klonDiv);
-                ```
-    
-    * HTMLElementNode
-        * getElementsByTagName
-        * getElementsByClassName
-        * addEventListener()
-            > Mehrere Funktionszuweisungen zum Event möglich
-            ```javascript
+    * Element kopieren
+        > ACHTUNG  
+        Events werden nicht mitkopiert
+        * ohne Unterelemente -> cloneNode()
+            ```javascript        
             var meinDiv = document.createElement('div');
+            //Setzen von Properties im Div
             meinDiv.id = 'FirstCreatedDiv';
             meinDiv.title = 'Mein neues Div';
             meinDiv.className = 'rahmen';
             meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
             
-            //Events mit Funktionen füllen
-            meinDiv.addEventListener('click', function (e) {
-                console.log('1. Listener: Neues Div wurde geklickt...');
-            });
-
-            meinDiv.addEventListener('click', function (e) {
-                console.log('2. Listener: Neues Div wurde geklickt...');
-            });
-
-            //Beide Funktionen werden beim Ausführen des Events nacheinander abgearbeitet
+            var klonDiv = meinDiv.cloneNode();
+            console.log('Klon: ', klonDiv);
+            document.body.appendChild(klonDiv);
             ```
-        * data-*-> dataSet
-            ```javascript
-            var article = document.getElementById('electriccars');
-
-            article.dataset.columns // "3"
-            article.dataset.indexNumber // "12314"
-            article.dataset.parent // "cars"
-
-            /*
-            Each property is a string and can be read and written.
-            In the above case setting article.dataset.columns = 5 would change that attribute to "5".
-            */
+        * mit Unterelementen -> cloneNode(true)
+            ```javascript        
+            var meinDiv = document.createElement('div');
+            //Setzen von Properties im Div
+            meinDiv.id = 'FirstCreatedDiv';
+            meinDiv.title = 'Mein neues Div';
+            meinDiv.className = 'rahmen';
+            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+            
+            var klonDiv = meinDiv.cloneNode(true);
+            console.log('Klon: ', klonDiv);
+            document.body.appendChild(klonDiv);
             ```
+    
+##### HTMLElementNode
+* getElementsByTagName
+* getElementsByClassName
+* addEventListener()
+    > Mehrere Funktionszuweisungen zum Event möglich
+    ```javascript
+    var meinDiv = document.createElement('div');
+    meinDiv.id = 'FirstCreatedDiv';
+    meinDiv.title = 'Mein neues Div';
+    meinDiv.className = 'rahmen';
+    meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+    
+    //Events mit Funktionen füllen
+    meinDiv.addEventListener('click', function (e) {
+        console.log('1. Listener: Neues Div wurde geklickt...');
+    });
+
+    meinDiv.addEventListener('click', function (e) {
+        console.log('2. Listener: Neues Div wurde geklickt...');
+    });
+
+    //Beide Funktionen werden beim Ausführen des Events nacheinander abgearbeitet
+    ```
+* data-*-> dataSet
+    ```javascript
+    var article = document.getElementById('electriccars');
+
+    article.dataset.columns // "3"
+    article.dataset.indexNumber // "12314"
+    article.dataset.parent // "cars"
+
+    /*
+    Each property is a string and can be read and written.
+    In the above case setting article.dataset.columns = 5 would change that attribute to "5".
+    */
+    ```
 
 ### Ajax
 * [Ajax Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
