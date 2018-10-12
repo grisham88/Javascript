@@ -6,6 +6,7 @@
 * [Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+* [Markdown Navigation](https://github.com/AlanWalk/markdown-navigation)
 
 
 ## Visual Studio Code
@@ -951,16 +952,16 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
                 var dataObj = JSON.parse(this.responseText);
                 console.log('DataObject:', dataObj);
 
-                var array = dataObj;
+                var arrayOfStates = dataObj;
                 console.log('Elemente durchlaufen:');
 
                 var bezugsknoten = document.getElementById('ausgabe');
 
-                array.forEach(element => {
-                    console.log(element.name + " (" + element.abbreviation + ")");
+                arrayOfStates.forEach(state => {
+                    console.log(state.name + " (" + state.abbreviation + ")");
 
                     var pElement = document.createElement('p');
-                    pElement.textContent = element.name + " (" + element.abbreviation + ")";
+                    pElement.textContent = state.name + " (" + state.abbreviation + ")";
                     bezugsknoten.appendChild(pElement);
                 });
             }

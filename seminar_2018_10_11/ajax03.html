@@ -22,32 +22,32 @@
                     var dataObj = JSON.parse(this.responseText);
                     console.log('DataObject:', dataObj);
 
-                    var array = dataObj;
+                    var arrayOfStates = dataObj;
                     console.log('Elemente durchlaufen:');
 
                     //Ausgabe mittels p
                     var bezugsknoten = document.getElementById('ausgabe');
 
-                    array.forEach(element => {
-                        console.log(element.name + " (" + element.abbreviation + ")");
+                    arrayOfStates.forEach(state => {
+                        console.log(state.name + " (" + state.abbreviation + ")");
 
                         var pElement = document.createElement('p');
-                        pElement.textContent = element.name + " (" + element.abbreviation + ")";
+                        pElement.textContent = state.name + " (" + state.abbreviation + ")";
                         bezugsknoten.appendChild(pElement);
                     });
 
-                    //Ausgabe mittels liste
+                    //Ausgabe mittels Liste
                     var bezugsknoten = document.getElementById('ausgabeListe');
                     var ulElement = document.createElement('ul');
                     bezugsknoten.appendChild(ulElement);
 
-                    array.reverse();
-                    array.forEach(element => {
-                        console.log(element.name + " (" + element.abbreviation + ")");
+                    arrayOfStates.reverse();
+                    arrayOfStates.forEach(state => {
+                        console.log(state.name + " (" + state.abbreviation + ")");
 
-                        var pElement = document.createElement('li');
-                        pElement.textContent = element.name + " (" + element.abbreviation + ")";
-                        ulElement.appendChild(pElement);
+                        var liElement = document.createElement('li');
+                        liElement.textContent = state.name + " (" + state.abbreviation + ")";
+                        ulElement.appendChild(liElement);
                     });
                 }
             }
@@ -64,6 +64,14 @@
         #ausgabe p {
             float: left;
             padding: 5px;
+        }
+
+        #ausgabe p:nth-child(odd):hover {
+            color: orangered;
+        }
+
+        #ausgabe p:nth-child(even):hover {
+            color: firebrick;
         }
 
         #ausgabe p:nth-child(even) {
