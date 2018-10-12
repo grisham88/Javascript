@@ -805,8 +805,8 @@ var ojbAusJson = JSON.parse(jsonString);
 console.log(ojbAusJson);    // {vorname: "Peter", alter: 30, haustier: Array(2)}
 ```
 
-### Ajax
-* [Ajax Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
+### AJAX
+* [AJAX Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
 * [HTTP - Requests](https://www.tutorialspoint.com/http/http_requests.htm)
 
 #### Definition
@@ -815,7 +815,7 @@ console.log(ojbAusJson);    // {vorname: "Peter", alter: 30, haustier: Array(2)}
     And  
     XML  
     
-#### Ajax Ablauf
+#### Ablauf
 ```javascript
 // 1) Request bilden
 var req = new XMLHttpRequest(); // readyState: 0
@@ -849,7 +849,7 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
 </body>
 ```
 
-#### Ajax Ablauf mit JSON
+#### Ablauf mit JSON
 ```javascript
 // hier ajaxen! Diesmal JSON
 var req = new XMLHttpRequest(); // readyState: 0
@@ -874,6 +874,8 @@ req.onreadystatechange = function () {
             ]
         }
         */
+
+
         var dataObj = JSON.parse(this.responseText);
         console.log('DataObject:', dataObj);
         /*
