@@ -819,3 +819,27 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
 
 ### JSON
 #### Definition
+> Die JavaScript Object Notation, kurz JSON, ist ein kompaktes Datenformat in einer einfach lesbaren Textform zum Zweck des Datenaustauschs zwischen Anwendungen. Jedes gültige JSON-Dokument soll ein gültiges JavaScript sein und per eval interpretiert werden können.
+
+#### Sonderfälle
+> Wird ein Objekt nach Json geparst, fallen alle Funktionen weg.   Das bedeutet beim zurückparsen enthält dieses im Objekt nur reine Informationen und keine Funktionen mehr.
+
+#### Anwendungsbeispiel
+```javascript
+var person = {
+    vorname: 'Peter',
+    alter: 30,
+    haustier: ['Dackel', 'Katze']
+};
+
+console.log(person); //{vorname: "Peter", alter: 30, haustier: Array(2)}
+// JSON-Methoden
+
+// Objekt in String umwandeln
+var jsonString = JSON.stringify(person);
+console.log(jsonString); //{"vorname":"Peter","alter":30,"haustier":["Dackel","Katze"]}
+
+// String in Objekt
+var ojbAusJson = JSON.parse(jsonString);
+console.log(ojbAusJson);
+```
