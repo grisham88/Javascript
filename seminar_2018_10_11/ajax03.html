@@ -25,6 +25,7 @@
                     var array = dataObj;
                     console.log('Elemente durchlaufen:');
 
+                    //Ausgabe mittels p
                     var bezugsknoten = document.getElementById('ausgabe');
 
                     array.forEach(element => {
@@ -35,6 +36,7 @@
                         bezugsknoten.appendChild(pElement);
                     });
 
+                    //Ausgabe mittels liste
                     var bezugsknoten = document.getElementById('ausgabeListe');
                     var ulElement = document.createElement('ul');
                     bezugsknoten.appendChild(ulElement);
