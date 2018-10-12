@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IIFE (Immediately Invoked Function Expression)</title>
+    <script>
+        // "revealing module"
+        var bessereToolbox = (function () {
+            // private!
+            var CONST_1 = 17;
+            var CONST_2 = 21;
+
+            // public:
+            return {
+                getConst1: function () {
+                    return CONST_1;
+                },
+                getConst2: function () {
+                    return CONST_2;
+                },
+                tool1: function () { },
+                tool2: function () { }
+            }
+        })();
+
+        // alternativ so:
+        (function () {
+            // private!
+            var CONST_1 = 17;
+            var CONST_2 = 21;
+
+            // public:
+            window.bessereToolbox2 = {
+                getConst1: function () {
+                    return CONST_1;
+                },
+                getConst2: function () {
+                    return CONST_2;
+                },
+                tool1: function () { },
+                tool2: function () { }
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <h1>Immediately Invoked Function Expression</h1>
+</body>
+
+</html>

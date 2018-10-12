@@ -1226,7 +1226,7 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     ```
 
 #### ECMA5-Objekte (Bessere Properties)
-##### Object.defineProperty
+Object.defineProperty
 ```javascript
 function Person(parameter1, parameter2) {
     Object.defineProperty(this (Bezug zum Object), 'Name der Property', {
@@ -1282,3 +1282,31 @@ function Person(parameter1, parameter2) {
     })
     ```
     Wir arbeiten auf einer Closure!!! -> kein this. verwenden
+
+### IIFE (Immediately Invoked Function Expression)
+Direkt aufgerufene Funktion nach der Deklaration
+
+#### Standardausführung  
+Deklaration & Ausführung nacheinander
+
+    ```javascript
+    function appStart(){
+        console.log('Starte App');
+    }
+
+    appStart();
+    ```
+#### IIFE Ausführung  
+Deklaration und Ausführung zusammen 
+
+    ```javascript
+    (function () {
+        // lokaler Scope!!
+        var geheim = "sowas von...";
+
+        console.log('Starte App');
+    })();
+    ```
+#### Revealing Module
+* [The Revealing Module Pattern in Javascript](https://gist.github.com/zcaceres/bb0eec99c02dda6aac0e041d0d4d7bf2)
+* Beschreibung anhand iife02.html-iife04.html nachziehen
