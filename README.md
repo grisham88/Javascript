@@ -850,85 +850,86 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
 ```
 
 #### Ablauf mit JSON
-```javascript
-// hier ajaxen! Diesmal JSON
-var req = new XMLHttpRequest(); // readyState: 0
+* Zugriff auf Objekte und deren Inhalt
+    ```javascript
+    // hier ajaxen! Diesmal JSON
+    var req = new XMLHttpRequest(); // readyState: 0
 
-req.open('get', 'data/personen.json', true); // readyState: 1
+    req.open('get', 'data/personen.json', true); // readyState: 1
 
-req.onreadystatechange = function () {
-    console.log(this.readyState);
-    if (this.readyState === 4) {
-        console.log('DataString:', this.responseText);
-        /*
-        DataString: {
-            "success": true,
-            "dataProp" : "personen",
-            "primKey": "mId",
-            "personen" : [
-                {"vorname":"Peter", "nachname":"Panter","mId":"m001"},
-                {"vorname":"Theo", "nachname":"Tiger","mId":"m002"},
-                {"vorname":"Leo", "nachname":"Löwe", "mId":"m004"},
-                {"vorname":"Anton", "nachname":"Ameise", "mId":"m007"},
-                {"vorname":"Bruno", "nachname":"Büffel", "mId":"m006"}
-            ]
-        }
-        */
+    req.onreadystatechange = function () {
+        console.log(this.readyState);
+        if (this.readyState === 4) {
+            console.log('DataString:', this.responseText);
+            /*
+            DataString: {
+                "success": true,
+                "dataProp" : "personen",
+                "primKey": "mId",
+                "personen" : [
+                    {"vorname":"Peter", "nachname":"Panter","mId":"m001"},
+                    {"vorname":"Theo", "nachname":"Tiger","mId":"m002"},
+                    {"vorname":"Leo", "nachname":"Löwe", "mId":"m004"},
+                    {"vorname":"Anton", "nachname":"Ameise", "mId":"m007"},
+                    {"vorname":"Bruno", "nachname":"Büffel", "mId":"m006"}
+                ]
+            }
+            */
 
 
-        var dataObj = JSON.parse(this.responseText);
-        console.log('DataObject:', dataObj);
-        /*
-        DataObject: 
-        {success: true, dataProp: "personen", primKey: "mId", personen: Array(5)}
-        dataProp
-        :
-        "personen"
-        personen
-        :
-        (5) [{…}, {…}, {…}, {…}, {…}]
-        primKey
-        :
-        "mId"
-        success
-        :
-        true
-        __proto__
-        :
-        */
-            
-        //Hier muss man wissen wie das Ojekt heißt
-        var dataList = dataObj.personen;
-            
-        //Hier ist es nicht notwendig zu wissen wie das Ojekt heißt
-        var dataList = dataObj[dataObj.dataProp];
-        console.log('DataList:', dataList);
-        /*
-        DataList: DataList: 
-        (5) [{…}, {…}, {…}, {…}, {…}]
-        0
-        :
-        {vorname: "Peter", nachname: "Panter", mId: "m001"}
-        1
-        :
-        {vorname: "Theo", nachname: "Tiger", mId: "m002"}
-        2
-        :
-        {vorname: "Leo", nachname: "Löwe", mId: "m004"}
-        3
-        :
-        {vorname: "Anton", nachname: "Ameise", mId: "m007"}
-        4
-        :
-        {vorname: "Bruno", nachname: "Büffel", mId: "m006"}
-        length
-        :
-        5
-        __proto__
-        :
-        Array(0)
-        */
-        }
-}
-req.send();
-```
+            var dataObj = JSON.parse(this.responseText);
+            console.log('DataObject:', dataObj);
+            /*
+            DataObject: 
+            {success: true, dataProp: "personen", primKey: "mId", personen: Array(5)}
+            dataProp
+            :
+            "personen"
+            personen
+            :
+            (5) [{…}, {…}, {…}, {…}, {…}]
+            primKey
+            :
+            "mId"
+            success
+            :
+            true
+            __proto__
+            :
+            */
+                
+            //Hier muss man wissen wie das Ojekt heißt
+            var dataList = dataObj.personen;
+                
+            //Hier ist es nicht notwendig zu wissen wie das Ojekt heißt
+            var dataList = dataObj[dataObj.dataProp];
+            console.log('DataList:', dataList);
+            /*
+            DataList: DataList: 
+            (5) [{…}, {…}, {…}, {…}, {…}]
+            0
+            :
+            {vorname: "Peter", nachname: "Panter", mId: "m001"}
+            1
+            :
+            {vorname: "Theo", nachname: "Tiger", mId: "m002"}
+            2
+            :
+            {vorname: "Leo", nachname: "Löwe", mId: "m004"}
+            3
+            :
+            {vorname: "Anton", nachname: "Ameise", mId: "m007"}
+            4
+            :
+            {vorname: "Bruno", nachname: "Büffel", mId: "m006"}
+            length
+            :
+            5
+            __proto__
+            :
+            Array(0)
+            */
+            }
+    }
+    req.send();
+    ```

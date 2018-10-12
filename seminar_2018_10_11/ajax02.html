@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AJAX</title>
+    <title>AJAX mit JSON</title>
     <script>
 
         window.onload = function () {
@@ -18,8 +18,10 @@
                 console.log(this.readyState);
                 if (this.readyState === 4) {
                     console.log('DataString:', this.responseText);
+                    
                     var dataObj = JSON.parse(this.responseText);
                     console.log('DataObject:', dataObj);
+
                     //Hier muss man wissen wie das Ojekt heißt
                     var dataList = dataObj.personen;
                     //Hier ist es nicht notwendig zu wissen wie das Ojekt heißt

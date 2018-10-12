@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX mit JSON</title>
+    <script>
+
+        window.onload = function () {
+            // hier ajaxen! Diesmal JSON
+            var req = new XMLHttpRequest(); // readyState: 0
+
+            req.open('get', 'data/states.json', true); // readyState: 1
+
+            req.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    // console.log('DataString:', this.responseText);
+
+                    // Da das json direkt die Einzelemente enthält, kommt der Inhalt als Array zurück
+                    var dataObj = JSON.parse(this.responseText);
+                    console.log('DataObject:', dataObj);
+
+                    var arr = dataObj;
+                    console.log('Elemente durchlaufen:');
+
+                    var bezugsknoten = document.getElementById('ausgabe');
+
+                    arr.forEach(element => {
+                        console.log(element.name + " (" + element.abbreviation + ")");
+
+                        var pElement = document.createElement('p');
+                        pElement.textContent = element.name + " (" + element.abbreviation + ")";
+                        bezugsknoten.appendChild(pElement);
+                    });
+                }
+            }
+            req.send();
+        }
+    </script>
+
+    <style>
+        #ausgabe * {
+            border: 1px solid black;
+            margin: 0;
+        }
+
+        #ausgabe p:nth-child(even) {
+            background-color: lightgreen;
+        }
+
+        #ausgabe p:nth-child(odd) {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ausgabe"></div>
+</body>
+
+</html>
