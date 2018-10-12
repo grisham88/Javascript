@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vererben in JavaScript</title>
+    <script>
+        var objX = {
+            x: "X",
+            y: "Y"
+        }
+        console.log('objX', objX);  // objX {x: "X", y: "Y"}
+
+        /* Brandan Eich:
+           function F() {}
+           F.prototype = objX;
+           F.prototype.z = "Z";
+        */
+
+        /* Douglas Crockford */
+        function Vererben() {
+            function F() { };
+            F.prototype = objX;  // wir erben IMMER von einem OBJEKT!!!
+            F.prototype.z = "Z";
+            return new F();
+        }
+
+        var objXY = Vererben();
+        console.log('objXY', objXY);    // objXY F {}
+        console.log('objX', objX);      // objX {x: "X", y: "Y", z: "Z"}
+    </script>
+</head>
+
+<body>
+    <h1>Vererben in JavaScript</h1>
+</body>
+
+</html>

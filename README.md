@@ -1002,16 +1002,16 @@ script3.js:1 Yo, ich bin Script 3
 script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
 
 ### Objekte
-* Beschreibung anhand der objekte01-objekte03.html nachziehen
 
 #### prototype
-* [JavaScript Object Prototypes](https://www.w3schools.com/js/js_object_prototypes.asp)
+* [Anleitung](https://www.w3schools.com/js/js_object_prototypes.asp)
 * Prototype erweitert die Klassenbeschreibung des Objekttyps nachträglich
     * So können nachträglich Eigenschaften dem Objekt hinzugefügt, aber auch Standardwerte gesetzt werden
+* Beschreibung anhand der objekte01-objekte03.html nachziehen
 
 #### Attribute
-* wird in einem Objekt eine Variable mit var erzeugt, so ist diese anschließend private
-* wird ein Objekt mit this.-Attributen erzeugt, so sind diese public
+* wird in einem Objekt eine  Variable mit var erzeugt, so ist diese anschließend private (lokale Variable)
+* wird in einem Objekt eine Variable mit this erzeugt, so ist diese anschließend public (Property)
     ```javascript
     var Person = function (vorname, konto) {
         "use strict";
@@ -1034,3 +1034,114 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     ```
 
 #### Vererbung
+* [Anleitung](https://wiki.selfhtml.org/wiki/JavaScript/Vererbung)
+* Vererbung wird immer auf Basis von einem Object durchgeführt
+    ```javascript
+    var objX = {
+        x: "X",
+        y: "Y"
+    }
+    console.log('objX', objX);  // objX {x: "X", y: "Y"}
+
+    /* Brandan Eich:
+        function F() {}
+        F.prototype = objX;
+        F.prototype.z = "Z";
+    */
+
+    /* Douglas Crockford */
+    function Vererben() {
+        function F() { };
+        F.prototype = objX;  // wir erben IMMER von einem OBJEKT!!!
+        F.prototype.z = "Z";
+        return new F();
+    }
+
+    var objXY = Vererben();
+    console.log('objXY', objXY);    // objXY F {}
+    console.log('objX', objX);      // objX {x: "X", y: "Y", z: "Z"}
+    ```
+* Das neue Objekt erbt von einem bestehenden Objekt(Instanz) durch die Übernahme in das prototype des neuen Objekts (ACHTUNG hier gibt es kein Klassenkonzept)
+    ```javascript
+    var Person = function (vorname, konto) {
+        "use strict";
+        // privat
+        var konto = konto;
+        function kontoLesen() {
+        return konto;
+        }
+
+        // public
+        this.kontoLesen = kontoLesen;
+        this.vorname = vorname;
+    }
+
+    //Erweiterung des Objekttyps Person um weitere Funktionen/Properties
+    Person.prototype.hallo = function () {
+        console.log('Hallo, ich bin', this.vorname, 'und habe ', this.kontoLesen(), 'JS-Taler...');
+    }
+    Person.prototype.lieblingsessen = "Pizza";
+
+    var tom = new Person('Tom', 10000);
+    var john = new Person('John', 15000);
+    console.log(tom);
+    /*
+    Person {kontoLesen: ƒ, vorname: "Tom"}
+    kontoLesen: ƒ kontoLesen()
+    vorname: "Tom"
+    */
+
+    // Fahrer, 'erbt' von Person die Struktur
+    var Fahrer = function (fuehrerschein, vorname, konto) {
+        function Fahrer() {
+        this.fuehrerschein = fuehrerschein;
+        }
+        Fahrer.prototype = new Person(vorname, konto); // INSTANZ des abzuleitenden Objekts muss hier rein!!!
+        return new Fahrer();
+    }
+
+    var pete = Fahrer('Klasse 1', 'Pete', 30000);
+    console.log(pete);
+    /*
+    Fahrer {fuehrerschein: "Klasse 1"}
+    fuehrerschein: "Klasse 1"
+    __proto__: Person
+        kontoLesen: ƒ kontoLesen()
+        vorname: "Pete"
+        __proto__:
+        hallo: ƒ ()
+        lieblingsessen: "Pizza"
+    */
+    console.log('Führerschein:', pete.fuehrerschein, 'von', pete.vorname);  // Führerschein: Klasse 1 von Pete
+
+    var steven = new Fahrer('Klasse 2', 'Steven', 40000);
+    console.log(steven);
+    /*
+       Fahrer {fuehrerschein: "Klasse 2"}
+       fuehrerschein: "Klasse 2"
+       __proto__: Person
+       kontoLesen: ƒ kontoLesen()
+       vorname: "Steven"
+       __proto__:
+           hallo: ƒ ()
+           lieblingsessen: "Pizza"
+       */
+    console.log('Führerschein:', steven.fuehrerschein, 'von', steven.vorname);  // Führerschein: Klasse 2 von Steven
+
+    //Die ursprüngliche Struktur von Person wird nicht geändert
+    console.log(tom);
+    //undefined kennt noch nicht die neue Eigenschaft
+    console.log(tom.restaurant);
+
+    //Nachträgliche Änderungen der Struktur, verändern nicht rückwirkend die Objekte
+
+    // Die neue Eigenschaft steht nach der deklaration sofort dem Objekt zur Verfügung
+    Person.prototype.restaurant = "Pizzeria Luigi";
+
+    //Wird nur für das Restaurant vom Objekt Tom geändert
+    tom.restaurant = "Stephanies";
+
+    // Es schaut erst beim Aufruf der Eigenschaft nach, ob es es selbst kennt, oder diese im Prototype liegt
+    console.log(tom.restaurant);    //Stephanies
+    console.log(john.restaurant);   //Pizzeria Luigi  
+    ```
