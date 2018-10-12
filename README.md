@@ -1007,7 +1007,10 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
 * [Anleitung](https://www.w3schools.com/js/js_object_prototypes.asp)
 * Prototype erweitert die Klassenbeschreibung des Objekttyps nachträglich
     * So können nachträglich Eigenschaften dem Objekt hinzugefügt, aber auch Standardwerte gesetzt werden
-* Beschreibung anhand der objekte01-objekte03.html nachziehen
+    * Nachträgliche Änderungen der Struktur mittels prototype, verändern nicht rückwirkend die Objekte
+* Beschreibung anhand der objekte03/objekte05.html nachziehen
+```javascript
+```
 
 #### Attribute
 * wird in einem Objekt eine  Variable mit var erzeugt, so ist diese anschließend private (lokale Variable)
@@ -1129,9 +1132,9 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     console.log('Führerschein:', steven.fuehrerschein, 'von', steven.vorname);  // Führerschein: Klasse 2 von Steven
 
     //Die ursprüngliche Struktur von Person wird nicht geändert
-    console.log(tom);
-    //undefined kennt noch nicht die neue Eigenschaft
-    console.log(tom.restaurant);
+    console.log(tom);   // kennt keine späteren prototype-Erweiterungen
+    //kennt noch nicht die neue Eigenschaft
+    console.log(tom.restaurant);    //undefined
 
     //Nachträgliche Änderungen der Struktur, verändern nicht rückwirkend die Objekte
 

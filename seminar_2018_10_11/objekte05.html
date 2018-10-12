@@ -73,9 +73,9 @@
         console.log('Führerschein:', steven.fuehrerschein, 'von', steven.vorname);  // Führerschein: Klasse 2 von Steven
 
         //Die ursprüngliche Struktur von Person wird nicht geändert
-        console.log(tom);
-        //undefined kennt noch nicht die neue Eigenschaft
-        console.log(tom.restaurant);
+        console.log(tom);   // kennt keine späteren prototype-Erweiterungen
+        //kennt noch nicht die neue Eigenschaft
+        console.log(tom.restaurant);    //undefined
 
         //Nachträgliche Änderungen der Struktur, verändern nicht rückwirkend die Objekte
 
