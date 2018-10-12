@@ -1286,6 +1286,7 @@ function Person(parameter1, parameter2) {
 * Direkt aufgerufene Funktion nach der Deklaration
 * Funktionen werden durch reine Deklaration ermöglicht immer wieder zu instanzieren, mittels IIFE kann nur eine Instanz existieren
     * Zugriff auf die innere Funktionalität ist dann per return möglich
+* IIFE Funktion ist später nutzbar, aber nicht mehrfach instanzierbar
 
 #### Standardausführung  
 Deklaration & Ausführung nacheinander
@@ -1403,4 +1404,3 @@ Deklaration und Ausführung zusammen
     window.bessereToolbox2.getConst1();
     // 17
     ```
-    > Funktion ist so später noch nutzbar, aber nicht mehr instanzierbar
