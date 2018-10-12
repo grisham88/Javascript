@@ -751,7 +751,7 @@ console.log('Nach der Funktion ist d:', d);
                 console.log('2. Listener: Neues Div wurde geklickt...');
             });
 
-            //Beide Funktionen werden beim Ausführen des Events  nacheinander abgearbeitet
+            //Beide Funktionen werden beim Ausführen des Events nacheinander abgearbeitet
             ```
         * data-*-> dataSet
             ```javascript
@@ -766,3 +766,45 @@ console.log('Nach der Funktion ist d:', d);
             In the above case setting article.dataset.columns = 5 would change that attribute to "5".
             */
             ```
+
+### Ajax
+* Definition:
+    > Asynchronous  
+    JavaScript  
+    And  
+    XML  
+* [Ajax Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
+* Ajax Ablauf
+    ```javascript
+    // 1) Request bilden
+    var req = new XMLHttpRequest(); // readyState: 0
+
+    // 2) Request konfigurieren
+    req.open('GET', 'data/data.html', true) // readyState: 1
+    
+    /*
+    Listener auf den ReadyState legen (Function frühzeitig zuweisen/Ausführung automatisch)
+    Dadurch wird abgewartet bis der Aufruf abgearbeitet wurde 
+    und erst dann sind die Daten verfügbar
+    */
+    req.onreadystatechange = function () {
+        console.log(this.readyState);
+        if (this.readyState === 4)
+            console.log("Daten:", req.responseText);
+        
+        //Erhaltende Daten werden dann, wenn Sie da sind an einem gewünschten Punkt eingefügt
+        document.getElementById('ausgabe').innerHTML = req.responseText;
+    }
+    
+    // 3) Request ausführen
+    req.send();
+    
+    // Daten sind im req-object ... aber: NICHT JETZT!!!
+    console.log("Daten:", req.responseText); // Keine Daten da asynchron
+    ```
+    ```html    
+    <body>
+        <!--Hier erscheint der Text, sobald der Request den Readystate 1 hat-->
+        <div id="ausgabe"></div> 
+    </body>
+    ```

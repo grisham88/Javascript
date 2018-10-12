@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX</title>
+    <script>
+        window.onload = function () {
+            // hier ajaxen!
+
+            // 1) Request bilden
+            var req = new XMLHttpRequest(); // readyState: 0
+
+            // 2) Request konfigurieren
+            req.open('GET', 'data/data.html', true) // readyState: 1
+
+            // 3) Request ausführen
+            req.send();
+
+            /*
+            Listener auf den ReadyState legen (Function frühzeitig zuweisen/Ausführung automatisch)
+            Dadurch wird abgewartet bis der Aufruf abgearbeitet wurde und erst dann sind die Daten verfügbar
+            */
+            req.onreadystatechange = function () {
+                console.log(this.readyState);
+                if (this.readyState === 4)
+                    console.log("Daten:", req.responseText);
+                document.getElementById('ausgabe').innerHTML = req.responseText;
+            }
+
+            // Daten sind im req-object ... aber: NICHT JETZT!!!
+            console.log("Daten:", req.responseText);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="ausgabe"></div>
+</body>
+
+</html>

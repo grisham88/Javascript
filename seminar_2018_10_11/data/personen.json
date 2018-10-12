@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "dataProp" : "personen",
+    "primKey": "mId",
+    "personen" : [
+        {"vorname":"Peter", "nachname":"Panter","mId":"m001"},
+        {"vorname":"Theo", "nachname":"Tiger","mId":"m002"},
+        {"vorname":"Leo", "nachname":"Löwe", "mId":"m004"},
+        {"vorname":"Anton", "nachname":"Ameise", "mId":"m007"},
+        {"vorname":"Bruno", "nachname":"Büffel", "mId":"m006"}
+    ]
+}
