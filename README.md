@@ -670,16 +670,6 @@ console.log('Nach der Funktion ist d:', d);
             meinDiv.className = 'rahmen';
             meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
 
-            //Events mit Funktionen füllen
-            meinDiv.addEventListener('click', function (e) {
-                console.log('1. Listener: Neues Div wurde geklickt...');
-            });
-
-            meinDiv.addEventListener('click', function (e) {
-                console.log('2. Listener: Neues Div wurde geklickt...');
-            });
-            //Beide Funktionen werden beim Ausführen des Events werden nacheinander abgearbeitet
-
             console.log(meinDiv)
             ```
         * Element an eine bestimmte Stelle im Dokument einfügen
@@ -743,7 +733,27 @@ console.log('Nach der Funktion ist d:', d);
     * HTMLElementNode
         * getElementsByTagName
         * getElementsByClassName
-        * addEventListener() -> data-*-> dataSet
+        * addEventListener()
+            > Mehrere Funktionszuweisungen zum Event möglich
+            ```javascript
+            var meinDiv = document.createElement('div');
+            meinDiv.id = 'FirstCreatedDiv';
+            meinDiv.title = 'Mein neues Div';
+            meinDiv.className = 'rahmen';
+            meinDiv.innerHTML = 'Mein <i>neues</i> Div-Element.';
+            
+            //Events mit Funktionen füllen
+            meinDiv.addEventListener('click', function (e) {
+                console.log('1. Listener: Neues Div wurde geklickt...');
+            });
+
+            meinDiv.addEventListener('click', function (e) {
+                console.log('2. Listener: Neues Div wurde geklickt...');
+            });
+            //Beide Funktionen werden beim Ausführen des Events werden nacheinander abgearbeitet
+            });
+            ```
+        * data-*-> dataSet
             ```javascript
             var article = document.getElementById('electriccars');
 
