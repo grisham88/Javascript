@@ -121,11 +121,12 @@ if (42 === '42') {
 Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
 
 ### Functions
-#### Function
+#### Hoisting
 > HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.  
 Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration.  
 Der Code selbst wird dann linear abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
+#### Function
 1. Globale Funktionen
 ```javascript
 var x;
