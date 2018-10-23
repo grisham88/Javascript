@@ -1242,6 +1242,7 @@ Object.defineProperty
 ```javascript
 function Person(parameter1, parameter2) {
     Object.defineProperty(this (Bezug zum Object), 'Name der Property', {
+        <!-- Besser: "Aufzählung der Eigenschaften dieser Property" -->
         //Aufzählung der Properties
     });
 }
