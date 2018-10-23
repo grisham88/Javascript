@@ -268,7 +268,7 @@ console.log('Nach der Funktion ist d:', d);
                 }
 
                 /*  KEIN Overload
-<!-- Was ist damit gemeint? Das darf so nicht geschrieben werden, oder die überladene Funktion wird auskommentiert um zu zeigen, dass danach trotzdem mit drei Parametern aufgerufen wwerden kann? -->                
+                <!-- Was ist damit gemeint? Das darf so nicht geschrieben werden, oder die überladene Funktion wird auskommentiert um zu zeigen, dass danach trotzdem mit drei Parametern aufgerufen wwerden kann? -->                
                 function addiere(a, b, c) {
                     return a + b + c;
                 } 
@@ -302,7 +302,7 @@ console.log('Nach der Funktion ist d:', d);
         ```javascript
         // ECMA6: function addiere(a=0, b=0) { ... }
         function addiere(a, b) {
-<!-- Stellen die ersten zwei Zeilen dar, wie man Default-Parameter vor ECMA6 definiert hat?  -->        
+        <!-- Stellen die ersten zwei Zeilen dar, wie man Default-Parameter vor ECMA6 definiert hat?  -->        
             a = a || 0;
             b = b || 0;
             return a + b;
@@ -347,11 +347,11 @@ console.log('Nach der Funktion ist d:', d);
         var ergebnis = addiere(17, 6);
         console.log('ergebnis:', ergebnis);
         //Wert 23 | Arguments-Anzahl:2
-<!-- Die Darstellung finde ich etwas verwirrend, da sie nicht dem entspricht, was tatsächlich auf die Konsole ausgegeben wird - gilt auch für die weiteren Beispiele:
+        <!-- Die Darstellung finde ich etwas verwirrend, da sie nicht dem entspricht, was tatsächlich auf die Konsole ausgegeben wird - gilt auch für die weiteren Beispiele:
          arguments: [17, 6]
          arguments.length: 2
          ergebnis: 23
--->       
+        -->       
 
         ergebnis = addiere(13, 14, 15); // Überschuss
         console.log('ergebnis:', ergebnis);
