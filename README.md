@@ -597,8 +597,10 @@ console.log('Nach der Funktion ist d:', d);
 
             //Zugriff auf die einzelnen Argumente möglich
             arr.forEach(function (value, index, arrayInstance) {
+                <!-- Eher: console.log('Hepp', value, index, arrayInstance) -->
                 console.log('Hepp', val)
             });
+            <!-- Ausgabe passt nicht zum oben definierten Array und der Funktion in foreach -->
             /*
             "Geranien", 0, Array(6)
             "Veilchen", 1, Array(6)
@@ -645,8 +647,8 @@ console.log('Nach der Funktion ist d:', d);
             ```javascript
             var daten = [3, 7, 4, 89, 12, 8, 4, 80, 4, 23, 7];
 
-            var summe = daten.reduce(function (a, b) {
-                return a + b;
+            var summe = daten.reduce(function (accumulator, currentValue) {
+                return accumulator + currentValue;
             });
             
             console.log(summe); 
@@ -667,7 +669,7 @@ console.log('Nach der Funktion ist d:', d);
 <script>
     window.onload = function () {
     var p11 = document.getElementById("p11");
-    console.log(p1);
+    console.log(p11);
     // Attribut setzen
     p11.title = 'Ich bin der Titel!';
     // CSS-Style setzen
