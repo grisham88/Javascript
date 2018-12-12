@@ -94,7 +94,7 @@ a = function () { } //TRUE
 
 //Variablen auf FALSE prüfen
 a = false;      //false... ok
-//FALSY Übersicht
+//FALSY Übersicht (https://developer.mozilla.org/de/docs/Glossary/Falsy)
 a = undefined;  // nope
 a = null;       // nope
 a = NaN;        // nope
