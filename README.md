@@ -2,6 +2,7 @@
 * [Einführungswerke](https://github.com/getify/You-Dont-Know-JS)
 * [Das Curry-Buch - Funktional programmieren lernen mit JavaScript](https://github.com/grisham88/Javascript/blob/master/unterlagen/Das%20Curry-Buch%20-%20Funktional%20programmieren%20lernen%20mit%20JavaScript.pdf)
 
+# Inhalt
 <!-- vscode-markdown-toc -->
 * 1. [Markdown (.md) Formatierungsregeln](#Markdown.mdFormatierungsregeln)
 * 2. [Visual Studio Code](#VisualStudioCode)
