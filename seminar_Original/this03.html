@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Das geheimnisvolle 'this'... (3)</title>
+    <script>
+
+    function melden() {
+        console.log("Hier meldet", this.vorname,"!", arguments[0]);
+    }    
+    
+    var peter = {
+        vorname: "Peter",
+        hallo:   function(msg) {
+            console.log("Hallo, ich bin ", this.vorname,"! ", msg);
+            melden.apply(this, arguments);
+        }
+    }
+
+    // Kontext ist peter
+    peter.hallo('Hi!');
+
+    var gustav = {
+        vorname: "Gustav"
+    }
+
+    // Kontext verschieben
+
+    // temporär: (gustav ist jetzt Kontext)
+    // a) call(thisObj, arg1, arg2, arg3, ...)
+    peter.hallo.call(gustav, "So so...");
+    // b) apply(thisObj)
+    peter.hallo.apply(gustav, ["Ach nee?","Ach was!","Ach so!"]);
+
+    // permanent: (auch wieder gustav)
+    // newFunction = bind(thisObj)
+    var gustavHallo = peter.hallo.bind(gustav);
+
+    peter.hallo("Au nein!"); // peter oder gustav?
+
+    // der Kontext wird u.U. verschleiert...
+    gustavHallo("Wow!");
+
+    peter.huhu = gustavHallo;
+    peter.huhu.call(peter, "Huhu, bin ich Peter?");
+
+    
+    </script>
+</head>
+<body>
+    <h1>this!</h1>
+</body>
+</html>

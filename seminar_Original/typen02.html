@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Typen in JavaScript</title>
+    <script>
+ 
+        var test; // FALSE
+
+
+        test = false;   // FALSE
+           // falsy
+            test = undefined; // FALSE
+            test = null;    // FALSE
+            test = 0;       // FALSE
+            test = NaN;     // FALSE
+            test = "";      // FALSE
+
+        test = true;    // TRUE
+            // truthy
+            test = -42;     // TRUE
+            test = "Hi!";   // TRUE
+
+            test = [1,2,3]; // TRUE
+            test = [];      // TRUE
+            test = {x:"X"}; // TRUE
+            test = function(){}; // TRUE
+            test = {};      // TRUE
+
+    </script>
+    <script>
+
+       var test;
+
+       if(test) {
+        console.log('Wert', test, 'ist TRUE mit', typeof test);
+       } else {
+        console.log('Wert', test, 'ist FALSE mit', typeof test);
+       }
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Typen in JavaScript</h1>
+</body>
+</html>

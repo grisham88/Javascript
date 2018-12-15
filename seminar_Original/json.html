@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON: JavaScript Object Notation</title>
+    <script>
+    
+    // Objekt
+    var person = {
+        vorname: "Peter",
+        nachname: "Panter",
+        alter: 42,
+        kinder: false
+    }
+    console.log("person:", person);
+    // Objekt -> JSON-String
+    var personString = JSON.stringify(person);
+    console.log("personString:", personString);   
+
+    // JSON-String -> Objekt:
+    var personObject = JSON.parse(personString);
+    console.log("personObject:", personObject); 
+    
+     
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

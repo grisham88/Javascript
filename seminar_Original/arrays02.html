@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrays</title>
+    <script>
+        "use strict";
+        // Literal:
+        var blumen = ["Rosen", "Tulpen", "Nelken"];
+        console.log(blumen);
+
+        console.log(blumen.length);
+
+        blumen[4] = "Veilchen"; // Daten rein ...
+
+        // besser:
+        blumen.push("Geranien"); // hinten ran
+        blumen.pop(); // hinten eines löschen!
+        blumen.unshift("Geranien"); // vorne ran
+        blumen.shift(); // vorne eines löschen!
+
+        console.log(blumen);
+        console.log(blumen.length);
+
+
+        // Arrays und Schleifen:
+
+        // for
+        for(var i =0, len = blumen.length; i < len; i++) {
+            console.log("for:", blumen[i]);
+        }
+        console.log("nach der Schleife: ",i);
+
+        // for ... in ?? NICHT für Arrays! NUR für Objekte...
+        for(var item in blumen) {
+            console.log("for...in:", blumen[item]);
+        }
+
+        console.log("nach der Schleife: ",i);
+        // Arr.forEach()
+        blumen.forEach(function(val, ind){
+           // console.log("arguments?", arguments) //-> val, ind, arr
+           console.log("forEach:", val);
+        });
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Arrays</h1>
+</body>
+</html>

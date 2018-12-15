@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajaxen, ganz simpel</title>
+    <script>
+    
+    window.onload = function() {
+        // jetzt wird geajaxt!
+
+        // Schritt 1: xhr-Objekt machen, readyState: 0
+        var xhr = new XMLHttpRequest(); 
+
+        // Schritt 2: xhr-Objekt konfigurieren; readyState: 1
+        xhr.open('get', 'data/data.html', true);
+
+        xhr.onreadystatechange = function(){
+            console.log("xhr.readyState:", this.readyState);
+            if(this.readyState === 4) {
+                console.log("xhr.responseText:", this.responseText);
+                var ausgabe = document.getElementById('ausgabe');
+                ausgabe.innerHTML = this.responseText;
+            }
+        }
+
+        // Schritt 3: los geht's !!
+        xhr.send();
+
+        // die Daten betrachten: WO? Hier. Aber WANN???
+        console.log("xhr.responseText:", xhr.responseText);
+    };
+    
+    </script>
+</head>
+<body>
+    <h1>Ajaxen, ganz simpel</h1>
+    <!-- hier sollen die Daten ausgegeben werden: -->
+    <div id="ausgabe"></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte in JavaScript: Propertydefinition</title>
+    <script>
+    
+
+
+        function Person(vorname, alter) {
+
+         //   this.vorname = vorname;
+         // Propertydefinition:
+            Object.defineProperty(this, "vorname", {
+                // value-Descriptor
+                value: vorname,
+                writable: false,
+                // Standardeigenschaften
+                enumerable:false,
+                configurable: false
+            });
+
+            var alterSpeicher;
+            function checkAlter(newAlter) {
+                console.log("Setter getriggert! Ist das auch eine Zahl?", newAlter);
+                // wohin damit?? In die lokale Variable:
+                alterSpeicher = newAlter;
+            }
+            // Wert von außen lokal ablegen:
+           checkAlter(alter); // initialisieren
+
+           //  this.alter = alter;
+           Object.defineProperty(this, "alter", {
+                // Accessor-Descriptor
+                get: function(){
+                    console.log("Getter getriggert!");
+                    // woher? Aus der lokalen Variable:
+                    return alterSpeicher;
+                },
+                set: checkAlter,
+                // Standardeigenschaften
+                enumerable:false,
+                configurable: false
+           });
+        }
+
+        var klaus = new Person("Klaus", 31);
+        console.log(klaus.vorname);
+        klaus.vorname = "Detlef"; // read-only!
+        console.log(klaus.vorname);
+
+        console.log("klaus.alter: ", klaus.alter);
+        klaus.alter = 42;
+        console.log("klaus.alter: ", klaus.alter);
+        // for(var key in klaus){
+        //     console.log("for-in: ",key, ":", klaus[key]);
+        // }
+
+       // klaus.alter = "zu alt";
+         delete klaus.vorname;
+       // klaus.haustier = "Dackel";
+
+       // console.log(klaus)
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Objekte in JavaScript</h1>
+</body>
+</html>

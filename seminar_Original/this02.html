@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Das geheimnisvolle 'this'...</title>
+    <script>
+    "use strict";
+
+    console.log("global:", this);
+
+    var a = "A";
+
+    console.log( a );
+    console.log( this.a );
+    console.log( window.a );
+    console.log( window['a'] );
+
+    // this IST EIN PARAMETER!
+    function test() {
+        console.log("lokal:", this);
+    }
+    test();
+    // so...
+    window.test();
+
+    // ein richtiges Objekt:
+    var obj = {
+        x: "X",
+        meth: function(){
+            console.log("in der Methode:", this);
+            console.log("x-Property:", this.x);
+
+            // Crockford:
+            var that = this;
+
+            var innen = function(){
+                console.log("in der inneren Funktion:", this);
+              //  this.x = "Neues X"; // oops, FEHLER!
+               that.x = "Neues X";
+            }
+            // x ändern über innere Funktion:
+            innen();
+
+            console.log("x-Property:", this.x);
+        }
+    };
+
+    obj.meth();
+
+    
+    
+    </script>
+</head>
+<body>
+    <h1>this!</h1>
+</body>
+</html>

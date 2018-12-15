@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte in JavaScript: Private Properties</title>
+    <script>
+    
+        var peter = {
+            vorname: "Peter",
+            hallo: function() {
+                console.log("Hallo, ich bin ", this.vorname);
+            }
+        };
+
+        peter.hallo();
+
+        // thisObj = new Object();
+
+        function Person(vorname, kontostand) {
+            // private
+            var kontostand = kontostand;
+            // priviledged
+            this.getKontostand = function getKontostand() {
+                // private
+                return kontostand;
+            };
+            // public
+            this.vorname = vorname;
+        }
+
+        Person.prototype.hallo = function() {
+            console.log("Hallo, ich bin ", this.vorname,
+                        "und habe ", this.getKontostand()," Taler!");
+        };
+        Person.prototype.lieblingsessen = "Pizza";
+
+
+
+        var klaus = new Person("Klaus", 20000);
+        // klaus.kontostand = 0; // jetzt gefahrlos ...
+        console.log(klaus);
+        klaus.hallo();
+
+
+    </script>
+</head>
+<body>
+    <h1>Objekte in JavaScript</h1>
+</body>
+</html>

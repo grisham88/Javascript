@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document Object Model</title>
+    <script>
+    
+        console.log("document", document);  
+
+        window.onload = function() {
+
+            var p1 = document.getElementById('p1');
+
+            var meinDiv = document.createElement('div');
+            meinDiv.className="rahmen";
+            meinDiv.title = "Handgebautes Div";
+            meinDiv.innerHTML = "Mein neues Div.";
+            meinDiv.addEventListener('click',function(){
+                console.log('Ich bin sogar klickbar!');
+            });
+
+            // Element "klonen": (true: mit Inhalten!)
+            var meinDivClone = meinDiv.cloneNode(true);
+
+            console.log(meinDiv);
+            // in den Body damit: a) mit appendChild
+            document.body.appendChild(meinDiv);
+            // b) mit insertBefore
+                // VERSCHIEBT das Element:
+                // document.body.insertBefore(meinDiv, p1);
+            document.body.insertBefore(meinDivClone, p1);
+
+        };
+
+
+    </script>
+    <style>
+        .rahmen {
+            border:1px solid black;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elemente machen und einfügen</h1>
+    <p id="p1">Das ist ein Textabsatz mit ID #p1...</p>
+ 
+</body>
+</html>

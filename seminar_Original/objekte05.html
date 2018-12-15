@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte in JavaScript: Vererbung</title>
+    <script>
+    
+        var peter = {
+            vorname: "Peter",
+            hallo: function() {
+                console.log("Hallo, ich bin ", this.vorname);
+            }
+        };
+
+        peter.hallo();
+
+        // thisObj = new Object();
+
+        function Person(vorname, kontostand) {
+            // private
+            var kontostand = kontostand;
+            // priviledged
+            this.getKontostand = function getKontostand() {
+                // private
+                return kontostand;
+            };
+            // public
+            this.vorname = vorname;
+        }
+
+        Person.prototype.hallo = function() {
+            console.log("Hallo, ich bin ", this.vorname,
+                        "und habe ", this.getKontostand()," Taler!");
+        };
+        Person.prototype.lieblingsessen = "Pizza";
+
+
+
+    // var klaus = new Person("Klaus", 20000);
+    //     // klaus.kontostand = 0; // jetzt gefahrlos ...
+    //     console.log(klaus);
+    //     klaus.hallo();
+
+     // Douglas Crockford:
+     function Fahrer(fuehrerschein, vorname, kontostand) {
+        // lokaler(!) Konstruktor sorgt für Instanzeigenschaften
+        function Fahrer() {
+            this.fuehrerschein = fuehrerschein
+        }
+        // Fahrer.prototype = klaus; // Instanz(!) einer Person
+        Fahrer.prototype = new Person(vorname, kontostand); // so ist's auch eine Instanz!
+        return new Fahrer();
+    }      
+
+    var klaus = Fahrer("Klasse 1", "Klaus", 20000);
+    console.log(klaus);
+    
+    var gustav = new Fahrer("Klasse 2","Gustav", 30000); // oops, mit new ...
+    console.log(gustav);
+
+    </script>
+</head>
+<body>
+    <h1>Objekte in JavaScript</h1>
+</body>
+</html>

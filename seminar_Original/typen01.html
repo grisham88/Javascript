@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Typen in JavaScript</title>
+    <script>
+    
+       var test;
+
+           test = undefined; // undefined
+           test = null;      // Typ: object
+
+           // 3 primitive types
+           test = "Hallo!";  // string
+           test = false;     // boolean
+           test = 17.5;      // number
+
+           // complex types
+           test = ["Rosen", "Tulpen", 42]; // object (oops...)
+           test = { x: "X", y: "Y"};       // object
+           test = function(){              // function
+               console.log('Hi!');
+           };
+
+           // Spezialfall
+           test = NaN;        // number
+
+
+        console.log(test, 'mit Typ', typeof test);
+
+    </script>
+</head>
+<body>
+    <h1>Typen in JavaScript</h1>
+</body>
+</html>

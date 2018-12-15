@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document Object Model</title>
+    <script>
+    
+        console.log("document", document);  
+
+        window.onload = function() {
+
+            var p1 = document.getElementById('p1');
+
+            console.log("p1", p1); // HTMLElement-Object
+            // Style:
+            p1.style.backgroundColor = "yellow";
+            // Attribut:
+            p1.title = "Neuer Titel";
+            // Class:
+            // p1.className = 'rahmen';
+            // Inhalte:
+            p1.innerHTML = 'Ganz <b>neuer</b> Inhalt. Cool...';
+        
+            // Klickbar machen:
+            p1.addEventListener('click', function(e) {
+                // this?
+                // arguments?
+                console.log('Geklickt!', e.target);
+                this.className = 'rahmen';
+            });
+
+            p1.addEventListener('click', function(e) {
+                console.log('Noch ein Listener!');
+            });           
+        
+        // der Body:
+            document.body.addEventListener('click', function(e) {
+                console.log('Klick-Listener am Body!');
+            });  
+
+
+        };
+
+
+    </script>
+    <style>
+        .rahmen {
+            border:1px solid black;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Document Object Model</h1>
+    <p id="p1">Das ist ein Textabsatz mit ID #p1...</p>
+ 
+</body>
+</html>

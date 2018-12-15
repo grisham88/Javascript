@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajaxen, ganz simpel</title>
+    <script>
+    
+    window.onload = function() {
+        // jetzt wird geajaxt! Diesmal JSON
+
+        // Schritt 1: xhr-Objekt machen, readyState: 0
+        var xhr = new XMLHttpRequest(); 
+
+        // Schritt 2: xhr-Objekt konfigurieren; readyState: 1
+        xhr.open('get', 'data/personen.json', true);
+
+        xhr.onreadystatechange = function(){
+            console.log("xhr.readyState:", this.readyState);
+            if(this.readyState === 4) {
+                console.log("xhr.responseText:", this.responseText);
+                var dataObj = JSON.parse(this.responseText);
+                console.log("dataObj:", dataObj);
+                var dataArray = dataObj.personen;
+                console.log("dataArray:", dataArray);
+
+                var ul = document.createElement('ul');
+
+                // Schleife für Daten
+
+                dataArray.forEach(function(item){
+                    var li = document.createElement('li');
+                    li.innerHTML = item.vorname + " " + item.nachname;
+                    // Item ins UL
+                    ul.appendChild(li);
+                })
+
+                // ... und DANN ERST:
+                var ausgabe = document.getElementById('ausgabe');
+                ausgabe.appendChild(ul);
+
+            }
+        }
+
+        // Schritt 3: los geht's !!
+        xhr.send();
+
+        // die Daten betrachten: WO? Hier. Aber WANN???
+        console.log("xhr.responseText:", xhr.responseText);
+    };
+    
+    </script>
+</head>
+<body>
+    <h1>Ajaxen, ganz simpel. Diesmal JSON...</h1>
+    <!-- hier sollen die Daten ausgegeben werden: -->
+    <div id="ausgabe"></div>
+</body>
+</html>

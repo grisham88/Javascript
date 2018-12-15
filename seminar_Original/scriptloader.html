@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scriptloader</title>
+    <script src="js/script1.js"></script>
+    <script src="js/script2.js"></script>  
+    <script>
+        // oops, ich brauche UNBEDINGT script4.js ...
+        // 1) Script-Element machen...
+        var script4 = document.createElement('script');
+        // 2) src bestimmen:
+        script4.src = 'js/script4.js';
+        // ab in den HEAD:
+        document.head.appendChild(script4);
+    
+    </script>
+    <script src="js/script3.js"></script>    
+</head>
+<body>
+    <h1>Einfacher Scriptloader</h1>
+</body>
+</html>

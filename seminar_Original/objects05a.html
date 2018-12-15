@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte: Vererbung (Vorbereitung)</title>
+    <script>
+    
+        var objX = {
+            x:"X"
+        };
+        console.log("objX", objX);
+        // var auchObjX = objX;
+
+/*  Brandon Eich: 
+        function Vererber() {}
+        Vererber.prototype = objX;
+        Vererber.prototype.y = "Y";
+        objX.z = "Z";
+
+        var auchObjX = new Vererber();
+        console.log("auchObjX", auchObjX);
+   */ 
+
+   // Douglas Crockford:
+   function vererben() {
+        // lokaler(!) Konstruktor
+        function Vererber() {}
+        Vererber.prototype = objX;
+        return new Vererber();
+   }
+    
+   var auchObjX = vererben();
+
+    objX.z = "Z";
+
+   console.log("auchObjX", auchObjX);
+
+    </script>
+</head>
+<body>
+    <h1>Wir vererben was...</h1>
+</body>
+</html>

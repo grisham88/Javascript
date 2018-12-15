@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function-Declaration und -Expression</title>
+    <script>
+ // Hoisting
+    var test;
+    function beispiel()  {
+            console.log("Das ist ein Beispiel!");
+        }   
+    function beispiel()  {
+        console.log("Das ist ein ANDERES Beispiel!");
+    }     
+
+    // Variablendeklaration:
+    test = "Test";
+
+  // hier war die 1. Deklaration
+
+        beispiel();
+
+  // hier war die 2. Deklaration  
+
+        beispiel();
+
+        /* Deklarationen:
+            var a, b, c;
+            var d, 
+                e = 5, 
+                f;
+        */ 
+    
+    </script>
+</head>
+<body>
+    <h1>Function-Declaration und -Expression</h1>
+</body>
+</html>

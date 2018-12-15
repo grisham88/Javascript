@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Typen in JavaScript</title>
+    <script>
+ 
+        var test; // FALSE
+
+            test = null; // ok
+            test = false; // ok
+            test = 0; // oops...
+            test = ""; // oops...
+
+    // Wertgleichheit, aber Typkonvertierung!
+       if(test == false) {
+        console.log('Wert', test, 'ist FALSE mit', typeof test);
+       } else {
+        console.log('Wert', test, 'ist nicht FALSE mit', typeof test);
+       }
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Typen in JavaScript</h1>
+</body>
+</html>

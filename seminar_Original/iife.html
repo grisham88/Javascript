@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IIFE (Immediately Invoked Function Expression)</title>
+    <script>
+    
+        // Function-Declaration, oder?
+        var tools = (function appStarten() {
+            // private
+            var myApp = {
+                tools: {
+                    x:"Tool X"
+                }
+            }
+            var mehrZeug =  {};
+
+            console.log("Starte App ... jetzt!");
+            // public: revealing module pattern
+            return myApp.tools;
+        })();
+
+        console.log(tools);
+
+
+
+
+        // appStarten();
+
+
+        // ... später
+        // appStarten();
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

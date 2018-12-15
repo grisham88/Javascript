@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Closures</title>
+    <script>
+    
+        function geheimnis(einGeheimnis) {
+            var geheim = einGeheimnis;
+
+            function lesen() {
+                console.log('Hier ist der Wert: ', geheim);
+            }
+            function schreiben(neuGeheimnis) {
+                // check ...
+                geheim = neuGeheimnis;
+            }
+
+            return {
+                getGeheim: lesen,
+                setGeheim: schreiben
+            };
+        }
+
+        var dasGeheimnis = geheimnis("Sehr geheim!");
+        console.log( dasGeheimnis);
+
+        dasGeheimnis.getGeheim();
+        dasGeheimnis.setGeheim("Hey, cool!");
+        dasGeheimnis.getGeheim();
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Closure</h1>
+</body>
+</html>

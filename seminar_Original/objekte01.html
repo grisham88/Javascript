@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte in JavaScript</title>
+    <script>
+    
+        var peter = {
+            vorname: "Peter",
+            hallo: function() {
+                console.log("Hallo, ich bin ", this.vorname);
+            }
+        };
+
+        peter.hallo();
+
+        // var obj1 = {};
+        // var obj2 = new Object();
+        // console.log(obj2);
+
+        // (k)eine gewöhnliche Funktion ... Großbuchstabe? => Konstruktor
+        function F() {
+            // vorsichtshalber IMMER in Konstruktoren:
+            "use strict";
+            var x = "X";
+            // new: ein "frisches", leeres thisObj kommt rein:
+            console.log("this: ", this);
+            this.y = "Y";
+            // new: implizites "return this"
+        }
+
+        var fObject =  new F();
+        console.log(fObject);
+    
+
+    </script>
+</head>
+<body>
+    <h1>Objekte in JavaScript</h1>
+</body>
+</html>

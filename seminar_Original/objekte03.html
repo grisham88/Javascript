@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekte in JavaScript</title>
+    <script>
+    
+        var peter = {
+            vorname: "Peter",
+            hallo: function() {
+                console.log("Hallo, ich bin ", this.vorname);
+            }
+        };
+
+        peter.hallo();
+
+        // thisObj = new Object();
+
+        function Person(vorname) {
+            this.vorname = vorname;
+        }
+
+        Person.prototype.hallo = function() {
+            console.log("Hallo, ich bin ", this.vorname,
+                        "und esse ", this.lieblingsessen,"!");
+        };
+        Person.prototype.lieblingsessen = "Pizza";
+
+
+
+        var klaus = new Person("Klaus");
+        klaus.lieblingsessen = "Pasta";
+        console.log(klaus);
+        klaus.hallo();
+
+        delete klaus.lieblingsessen;   
+        klaus.hallo();
+
+        delete klaus.lieblingsessen;   // ?
+        klaus.hallo();
+
+
+        var gustav = new Person("Gustav");
+        gustav.hallo();
+
+    </script>
+</head>
+<body>
+    <h1>Objekte in JavaScript</h1>
+</body>
+</html>

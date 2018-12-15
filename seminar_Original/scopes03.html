@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Global Scope und Function-Scope</title>
+    <script>
+
+     "use strict";   // globaler Strict Mode
+
+    // eine "globale" Variable (global scope):
+    var a = "A";
+    console.log('a ist:', a); // A
+    var b = "B";
+    console.log('b ist:', b); // B
+
+    function test() {
+        a = "Neues A";
+        console.log('a ist in der Funktion:', a);
+        // "lokale" Variable (function scope)
+        var b = "Neues B";
+        console.log('b ist in der Funktion:', b);    
+        var c = "C";
+        console.log('c ist in der Funktion:', c);   
+        d = "D";
+        console.log('d ist in der Funktion:', d);                    
+    }
+    test();
+
+    console.log('a ist nach der Funktion:', a);
+    console.log('b ist nach der Funktion:', b);
+ // console.log('c ist nach der Funktion:', c); 
+    console.log('d ist nach der Funktion:', d);
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

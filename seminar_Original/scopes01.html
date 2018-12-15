@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Global Scope und Function-Scope</title>
+    <script>
+    // Hoisting:
+    
+    // Scope ?
+
+    // eine "globale" Variable:
+    var a = "A";
+    console.log('a ist:', a); // A
+
+    {  // kein(!) Blockscope (wg. Hoisting)
+        var a = "Inneres A";
+        console.log('a ist:', a); // Inneres A
+    }
+
+    console.log('a ist:', a); // Inneres A !!!
+
+    if(false){
+        var b = "Ätsch";
+    } else {
+        var c = "Immer da!"
+    }
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

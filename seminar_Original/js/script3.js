@@ -1,0 +1,1 @@
+console.log("Yo, ich bin Script 3");

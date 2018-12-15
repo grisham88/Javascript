@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function: Return, Parameter etc.</title>
+    <script>
+
+        // Der 1. implizite Parameter: arguments
+        function test(a, b) {
+            // Anzahl der übergebenen Werte:
+            console.log(arguments.length);
+            return a + b;
+        }
+
+        var erg = test(17, 6);
+        console.log('erg:', erg);
+
+        erg = test(12, 5, 8);
+        console.log('erg:', erg);  
+
+        erg = test(13);
+        console.log('erg:', erg);
+    
+    </script>
+</head>
+<body>
+    <h1>Return, Parameter etc.</h1>
+</body>
+</html>
