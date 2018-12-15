@@ -2,14 +2,54 @@
 * [Einführungswerke](https://github.com/getify/You-Dont-Know-JS)
 * [Das Curry-Buch - Funktional programmieren lernen mit JavaScript](https://github.com/grisham88/Javascript/blob/master/unterlagen/Das%20Curry-Buch%20-%20Funktional%20programmieren%20lernen%20mit%20JavaScript.pdf)
 
-## Markdown (.md) Formatierungsregeln
+<!-- vscode-markdown-toc -->
+* 1. [Markdown (.md) Formatierungsregeln](#Markdown.mdFormatierungsregeln)
+* 2. [Visual Studio Code](#VisualStudioCode)
+* 3. [Git Hub](#GitHub)
+	* 3.1. [Git Bash](#GitBash)
+	* 3.2. [Visual Studio Code](#VisualStudioCode-1)
+* 4. [Kursinhalt JavaScript](#KursinhaltJavaScript)
+	* 4.1. [Variablen & Typen](#VariablenTypen)
+	* 4.2. [Functions](#Functions)
+		* 4.2.1. [Hoisting](#Hoisting)
+		* 4.2.2. [Function](#Function)
+		* 4.2.3. [Closures: Lexikalischer Kontext](#Closures:LexikalischerKontext)
+	* 4.3. [Arrays](#Arrays)
+	* 4.4. [DOM](#DOM)
+		* 4.4.1. [Script Verhalten](#ScriptVerhalten)
+		* 4.4.2. [Zugriffsmethoden](#Zugriffsmethoden)
+	* 4.5. [JSON](#JSON)
+		* 4.5.1. [Definition](#Definition)
+		* 4.5.2. [Sonderfälle](#Sonderflle)
+		* 4.5.3. [Anwendungsbeispiel für JSON Behandlung](#AnwendungsbeispielfrJSONBehandlung)
+	* 4.6. [AJAX](#AJAX)
+		* 4.6.1. [Definition](#Definition-1)
+		* 4.6.2. [Ablauf](#Ablauf)
+		* 4.6.3. [Ablauf mit JSON](#AblaufmitJSON)
+	* 4.7. [Skripte](#Skripte)
+		* 4.7.1. [Beispiel](#Beispiel)
+	* 4.8. [Objekte](#Objekte)
+		* 4.8.1. [Prototype](#Prototype)
+		* 4.8.2. [Attribute](#Attribute)
+		* 4.8.3. [Vererbung](#Vererbung)
+		* 4.8.4. [ECMA5-Objekte (Bessere Properties)](#ECMA5-ObjekteBessereProperties)
+	* 4.9. [IIFE (Immediately Invoked Function Expression)](#IIFEImmediatelyInvokedFunctionExpression)
+		* 4.9.1. [Standardausführung](#Standardausfhrung)
+		* 4.9.2. [IIFE Ausführung](#IIFEAusfhrung)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+##  1. <a name='Markdown.mdFormatierungsregeln'></a>Markdown (.md) Formatierungsregeln
 * [Markdown Tutorial Git](http://agea.github.io/tutorial.md/)
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 * [Markdown Navigation](https://github.com/AlanWalk/markdown-navigation)
 
-
-## Visual Studio Code
+##  2. <a name='VisualStudioCode'></a>Visual Studio Code
 * Live Server als Extension installieren
 ** mit ALT + L + O wird der Server gestartet und die aktuelle Webseite geöffnet und bei jedem Speichern aktualisiert im Browser
 * Formatierung des Texts mit ALT + Shift + F
@@ -17,19 +57,19 @@
 * Aus-/Einkommentieren mit STRG + #
 * Kommentar in JavaScript /**/ (Ein-/Mehrzeilig) oder // (Einzeilig)
 
-## Git Hub
+##  3. <a name='GitHub'></a>Git Hub
 * auf git hub ein neues Repository anlegen
 * https Link kopieren
 * Laufwerk/Order im Explorer öffnen in der das Repository lokal abgelegt werden soll
 
-### Git Bash
+###  3.1. <a name='GitBash'></a>Git Bash
 * mit Rechtsklick git bash öffnen
 * git config --global user.name "username"
 * git config --global user.email "eMail@host"
 * Repository nach lokal kopieren:
     * git clone  https://github.com/grisham88/Javascript.git
 
-### Visual Studio Code
+###  3.2. <a name='VisualStudioCode-1'></a>Visual Studio Code
 * [Visual Studio Code: How to integrate Git](https://www.theregister.co.uk/2015/12/07/visual_studio_code_git_integration/)
 * Den neuen Ordner öffnen
 * mit Rechtsklick "Open with Code"
@@ -39,9 +79,9 @@
     * Beim ... kann dann push ausgeführt werden -> Git wird nach Git Hub aktualisiert
 
 
-## Kursinhalt JavaScript
+##  4. <a name='KursinhaltJavaScript'></a>Kursinhalt JavaScript
 
-### Variablen & Typen
+###  4.1. <a name='VariablenTypen'></a>Variablen & Typen
 * wird kein Wert zugewiesen ist der Typ des Objects undefined
 * wird ein Wert zugewiesen, wird durch die Wertzuweisung der Typ definiert
 
@@ -120,13 +160,13 @@ if (42 === '42') {
 > HINWEIS  
 Vermutlich werden alle Defaultzustände wenn man weiß welcher Typ die Variable hat, als FALSE empfunden
 
-### Functions
-#### Hoisting
+###  4.2. <a name='Functions'></a>Functions
+####  4.2.1. <a name='Hoisting'></a>Hoisting
 > HOISTING bewirkt, dass Variablen und Funktionen egal an welcher Stelle sie deklariert wurden in der Ausführung am Anfang stehen.  
 Wird eine Function mit gleichem Namen deklariert, besteht in der Laufzeit immer nur die letzte Deklaration.  
 Der Code selbst wird dann linear abgearbeitet wobei Variablen immer zuerst deklariert sind und Funktionen global bereit stehen.
 
-#### Function
+####  4.2.2. <a name='Function'></a>Function
 1. Globale Funktionen
 ```javascript
 var x;
@@ -419,7 +459,7 @@ console.log('Nach der Funktion ist d:', d);
             Sie können beide verwendet werden, um eine Objektmethode mit einem anderen Objekt als Argument aufzurufen.          
             In diesem Beispiel, wenn person1.fullName mit person2 aufgerufen wird, bezieht sicht 'this' zu person2, auch wenn es sich um eine Methode von person1 handelt.
             
-#### Closures: Lexikalischer Kontext
+####  4.2.3. <a name='Closures:LexikalischerKontext'></a>Closures: Lexikalischer Kontext
 
 * Funktionen haben dort ihren Gültigkeitsraum in dem sie deklariert wurden
 * Das Ergebnis der Funktionsaufrufe wird immer als neue Instanz erzeugt und zeigt auf einen eigenen Speicherplatz
@@ -512,7 +552,7 @@ console.log('Nach der Funktion ist d:', d);
     > Mittels Properties im return der Function können interne Methoden erreicht werden.  
     Object existiert durchgehend und weiß noch alles was jemals gesetzt wurde
     
-### Arrays
+###  4.3. <a name='Arrays'></a>Arrays
 * Sammlung (Collection) von Daten die per Index aufgerufen/verändert werden können
 * Handelt sich um ein Object
 * Anzahl der Elemente im Array definiert die Länge des Arrays
@@ -644,8 +684,8 @@ console.log('Nach der Funktion ist d:', d);
             // Kombiniert alle Werte miteinander
             ```
 
-### DOM
-#### Script Verhalten
+###  4.4. <a name='DOM'></a>DOM
+####  4.4.1. <a name='ScriptVerhalten'></a>Script Verhalten
 * Wird der DOM-Baum durchlaufen muss das Script berücksichtigen, dass der Baum auch bereits erzeugt wurde.
 * Script-Block im Head, kennt ggf. den body noch nicht.
     * Scriptblock am Ende des Bodys setzen, sofern der DOM verarbeitet werden soll
@@ -691,7 +731,7 @@ console.log('Nach der Funktion ist d:', d);
 > Durch das Skript wird das komplette p11-element verändert.  
 Durch das Skript wird das p20-element überwacht und beim click auf das Element das p Element und die Position der Clicks der Maus im Log ausgegeben.
 
-#### Zugriffsmethoden
+####  4.4.2. <a name='Zugriffsmethoden'></a>Zugriffsmethoden
 ##### document
 * getElementById
 * getElementsByTagName
@@ -809,14 +849,14 @@ Durch das Skript wird das p20-element überwacht und beim click auf das Element 
     */
     ```
 
-### JSON
-#### Definition
+###  4.5. <a name='JSON'></a>JSON
+####  4.5.1. <a name='Definition'></a>Definition
 > Die JavaScript Object Notation, kurz JSON, ist ein kompaktes Datenformat in einer einfach lesbaren Textform zum Zweck des Datenaustauschs zwischen Anwendungen. Jedes gültige JSON-Dokument soll ein gültiges JavaScript sein und per eval interpretiert werden können.
 
-#### Sonderfälle
+####  4.5.2. <a name='Sonderflle'></a>Sonderfälle
 > Wird ein Objekt nach Json geparst, fallen alle Funktionen weg.   Das bedeutet beim zurückparsen enthält dieses im Objekt nur reine Informationen und keine Funktionen mehr.
 
-#### Anwendungsbeispiel für JSON Behandlung 
+####  4.5.3. <a name='AnwendungsbeispielfrJSONBehandlung'></a>Anwendungsbeispiel für JSON Behandlung 
 Objekt -> json / json -> Objekt
 ```javascript
 var person = {
@@ -844,17 +884,17 @@ console.log(ojbAusJson);
 // {vorname: "Peter", alter: 30, haustier: Array(2)}
 ```
 
-### AJAX
+###  4.6. <a name='AJAX'></a>AJAX
 * [AJAX Einführung (Tutorial)](https://www.html-seminar.de/ajax-einfuehrung.htm)
 * [HTTP - Requests](https://www.tutorialspoint.com/http/http_requests.htm)
 
-#### Definition
+####  4.6.1. <a name='Definition-1'></a>Definition
     Asynchronous  
     JavaScript  
     And  
     XML  
     
-#### Ablauf
+####  4.6.2. <a name='Ablauf'></a>Ablauf
 ```javascript
 // 1) Request bilden
 var req = new XMLHttpRequest(); // readyState: 0
@@ -888,7 +928,7 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
 </body>
 ```
 
-#### Ablauf mit JSON
+####  4.6.3. <a name='AblaufmitJSON'></a>Ablauf mit JSON
 * Zugriff auf Objekte und deren Inhalt
     ```javascript
     window.onload = function () {
@@ -992,11 +1032,11 @@ console.log("Daten:", req.responseText); // Keine Daten da asynchron
     </body>
     ```
 
-### Skripte
+###  4.7. <a name='Skripte'></a>Skripte
 * Skripte werden standardmäßig asynchron geladen, sodass Einschübe erst später ausgeführt werde
 * [Details](https://wiki.selfhtml.org/wiki/HTML/Skripte/script)
 
-#### Beispiel
+####  4.7.1. <a name='Beispiel'></a>Beispiel
 ```html
 <script src="js/script1.js"></script>
 <script src="js/script2.js"></script>
@@ -1017,9 +1057,9 @@ script2.js:5 Hey, ich bin Script 2
 script3.js:1 Yo, ich bin Script 3  
 script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
 
-### Objekte
+###  4.8. <a name='Objekte'></a>Objekte
 
-#### Prototype
+####  4.8.1. <a name='Prototype'></a>Prototype
 * [Anleitung](https://www.w3schools.com/js/js_object_prototypes.asp)
 * Prototype erweitert die Klassenbeschreibung des Objekttyps nachträglich
     * So können nachträglich Eigenschaften dem Objekt hinzugefügt, aber auch Standardwerte gesetzt werden
@@ -1079,7 +1119,7 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     // tim.lieblingsessen: Pizza
     ```
 
-#### Attribute
+####  4.8.2. <a name='Attribute'></a>Attribute
 * wird in einem Objekt eine  Variable mit var erzeugt, so ist diese anschließend private (lokale Variable)
 * wird in einem Objekt eine Variable mit this erzeugt, so ist diese anschließend public (Property)
     ```javascript
@@ -1103,7 +1143,7 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     }
     ```
 
-#### Vererbung
+####  4.8.3. <a name='Vererbung'></a>Vererbung
 * [Anleitung](https://wiki.selfhtml.org/wiki/JavaScript/Vererbung)
 * Vererbung wird immer auf Basis von einem Object durchgeführt
     ```javascript
@@ -1226,7 +1266,7 @@ script4.js:5 Ähh. Ich bin Script 4. Ich werde ganz anders geholt!
     //Pizzeria Luigi  
     ```
 
-#### ECMA5-Objekte (Bessere Properties)
+####  4.8.4. <a name='ECMA5-ObjekteBessereProperties'></a>ECMA5-Objekte (Bessere Properties)
 Object.defineProperty
 ```javascript
 function Person(parameter1, parameter2) {
@@ -1283,13 +1323,13 @@ function Person(parameter1, parameter2) {
     ```
     Wir arbeiten auf einer Closure!!! -> kein this. verwenden
 
-### IIFE (Immediately Invoked Function Expression)
+###  4.9. <a name='IIFEImmediatelyInvokedFunctionExpression'></a>IIFE (Immediately Invoked Function Expression)
 * Direkt aufgerufene Funktion nach der Deklaration
 * Funktionen werden durch reine Deklaration ermöglicht immer wieder zu instanzieren, mittels IIFE kann nur eine Instanz existieren
     * Zugriff auf die innere Funktionalität ist dann per return möglich
 * IIFE Funktion ist später nutzbar, aber nicht mehrfach instanzierbar
 
-#### Standardausführung  
+####  4.9.1. <a name='Standardausfhrung'></a>Standardausführung  
 Deklaration & Ausführung nacheinander
 
 ```javascript
@@ -1300,7 +1340,7 @@ function appStart(){
 appStart();
 ```
 
-#### IIFE Ausführung  
+####  4.9.2. <a name='IIFEAusfhrung'></a>IIFE Ausführung  
 Deklaration und Ausführung zusammen 
 
 ```javascript
