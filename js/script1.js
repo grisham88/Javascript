@@ -1,1 +1,0 @@
-console.log("hallo, ich bin Script 1!");
